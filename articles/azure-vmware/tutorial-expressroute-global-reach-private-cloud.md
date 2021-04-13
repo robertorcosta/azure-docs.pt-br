@@ -3,12 +3,12 @@ title: Tutorial – Emparelhar ambientes locais com uma nuvem privada
 description: Saiba como criar um emparelhamento de Alcance Global do ExpressRoute com uma nuvem privada em uma Solução VMware no Azure.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 59ddc2dd4aed850328807a4543d2fabd6f5a99f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 798b822989127ccbb00e971de2cc4147ac234259
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564493"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449555"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Emparelhar ambientes locais com uma nuvem privada
 
@@ -55,7 +55,7 @@ Agora que você criou uma chave de autorização para o circuito do ExpressRoute
 1. Crie uma conexão de nuvem local. Execute uma das seguintes ações e selecione **Criar**:
 
    - Selecione o **circuito do ExpressRoute** na lista ou
-   - Se já tiver a ID do circuito, cole-a no campo e forneça a chave de autorização.
+   - Se já tiver a ID do circuito, cole-a no campo e forneça a chave de autorização que você acabou de criar.
 
    :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Inserir a ID do ExpressRoute e a chave de autorização e selecionar Criar.":::   
    

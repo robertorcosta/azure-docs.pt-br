@@ -2,13 +2,13 @@
 title: Introdução
 description: Conheça os recursos e os benefícios da Solução VMware no Azure para implantar e gerenciar cargas de trabalho baseadas no VMware no Azure.
 ms.topic: overview
-ms.date: 11/11/2020
-ms.openlocfilehash: 255d3599385c60d3b13f4769796ced41a1177311
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: 32dd73108dc12d7d7acc605f43a0fbf6d2cf1cd7
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100579298"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107972"
 ---
 # <a name="what-is-azure-vmware-solution"></a>O que é a Solução VMware no Azure?
 
@@ -55,6 +55,9 @@ Na sua nuvem privada, você pode:
 
 Os padrões de monitoramento da Solução VMware no Azure são semelhantes às VMs do Azure na plataforma IaaS. Para obter mais informações e instruções, confira [Como monitorar VMs do Azure com o Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md).
 
+## <a name="customer-communication"></a>Comunicação do cliente
+[!INCLUDE [customer-communications](includes/customer-communications.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
 A próxima etapa é aprender os [conceitos chave do cluster e da nuvem privada](concepts-private-clouds-clusters.md).
@@ -63,3 +66,5 @@ A próxima etapa é aprender os [conceitos chave do cluster e da nuvem privada](
 
 <!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
+
+

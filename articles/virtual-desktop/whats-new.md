@@ -3,17 +3,17 @@ title: O que há de novo na Área de Trabalho Virtual do Windows? - Azure
 description: Novos recursos e atualizações de produto para a Área de Trabalho Virtual do Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 02/23/2021
+ms.date: 03/20/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
-manager: lizross
+manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: c0b4ad17c5aefe29a313b9eaf75fc87ce4d88720
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 1c5d846963d7fc0c2207893f5c4094e3f94351b5
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499876"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505409"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>O que há de novo na Área de Trabalho Virtual do Windows?
 
@@ -35,6 +35,18 @@ Confira estes artigos para saber mais sobre as atualizações para nossos client
 - [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## <a name="windows-virtual-desktop-agent-updates"></a>Atualizações do Agente da Área de Trabalho Virtual do Windows
+
+O agente da Área de Trabalho Virtual do Windows é atualizado pelo menos uma vez por mês.
+
+Veja as alterações no agente da Área de Trabalho Virtual do Windows:
+
+- Versão 1.0.2866.1500: esta atualização foi lançada em 26 de março de 2021 e corrigiu um problema com a verificação de integridade da pilha.
+- Versão 1.0.2800.2802: esta atualização foi lançada em 10 de março de 2021 e trouxe aprimoramentos gerais e correções de bugs.
+- Versão 1.0.2800.2800: esta atualização foi lançada em 2 de março de 2021 e corrigiu um problema de conexão reversa.
+- Versão 1.0.2800.2700: esta atualização foi lançada em 10 de fevereiro de 2021 e trouxe aprimoramentos gerais e correções de bugs.
+- Versão 1.0.2800.2700: esta atualização foi lançada em 4 de fevereiro de 2021 e corrigiu um problema de orquestração de acesso negado.
 
 ## <a name="fslogix-updates"></a>Atualizações do FSLogix
 

@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 3f24f38db7704557894d866b789890763f9e1316
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5f931ce1aa6c06f151241b6136470d494dbcd48
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463248"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218746"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-using-linux-containers"></a>Tutorial: desenvolver um módulo do IoT Edge em Java usando contêineres Linux
 
@@ -50,7 +50,7 @@ Use a tabela a seguir para entender suas opções para desenvolver e implantar m
 Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para o desenvolvimento de contêiner do Linux: [Desenvolver módulos do IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir qualquer um desses tutoriais, você deve ter os seguintes pré-requisitos implementados:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na camada padrão ou gratuito no Azure.
-* Um dispositivo que executa o Azure IoT Edge. Você pode usar os inícios rápidos para configurar um [dispositivo Linux](quickstart-linux.md) ou um [dispositivo Windows](quickstart.md).
+* Um dispositivo que executa o Azure IoT Edge com contêineres Linux. Você pode usar os inícios rápidos para configurar um [dispositivo Linux](quickstart-linux.md) ou um [dispositivo Windows](quickstart.md).
 * Um registro de contêiner, como o [Registro de Contêiner do Azure](../container-registry/index.yml).
 * O [Visual Studio Code](https://code.visualstudio.com/) configurado com o [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * O [Docker CE](https://docs.docker.com/install/) configurado para executar contêineres do Linux.

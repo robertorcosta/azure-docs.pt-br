@@ -1,16 +1,16 @@
 ---
-title: Arquitetura da solução baseada em agente
+title: O que é a arquitetura da solução baseada em agente
 description: Saiba mais sobre o fluxo de informações e a arquitetura baseada em agente do Azure Defender para IoT.
 ms.topic: overview
 ms.date: 1/25/2021
-ms.openlocfilehash: b04e8fa6225aef9f3c228a44631f117fedffccff
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: e08c3f151c3d3bc4fe08e61d960874b07f5b63e8
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104784876"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383517"
 ---
-# <a name="agent-based-solution-for-device-builders"></a>Solução baseada em agente para construtores de dispositivos
+# <a name="what-is-agent-based-solution-for-device-builders"></a>O que é a solução baseada em agente para construtores de dispositivos
 
 Este artigo descreve a arquitetura do sistema funcional da solução baseada em agente do Defender para IoT. O Azure Defender para IoT oferece dois conjuntos de funcionalidades para atender às necessidades do seu ambiente: uma solução sem agente para organizações e uma solução baseada em agente para criadores de dispositivos.
 
@@ -34,7 +34,7 @@ Os alertas e as recomendações do Defender para IoT (saída de pipeline de aná
 
 :::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="A arquitetura do microagente.":::
 
-## <a name="see-also"></a>Veja também
+## <a name="next-steps"></a>Próximas etapas
 
 [Perguntas frequentes sobre o Defender para IoT](resources-frequently-asked-questions.md)
 

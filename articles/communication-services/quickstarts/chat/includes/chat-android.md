@@ -10,14 +10,17 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 02b47d7797eaebf6049099729ea51554a61a765e
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: b2c5237f3f7e949edbfb5486a3a17cc6e0a008a4
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495363"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106178578"
 ---
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Antes de começar, é preciso:
 
 - Criar uma conta do Azure com uma assinatura ativa. Para obter detalhes, confira [Criar uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -39,8 +42,8 @@ Antes de começar, é preciso:
 Usaremos Gradle para instalar as dependências necessárias dos Serviços de Comunicação. Na linha de comando, navegue para dentro do diretório raiz do projeto `ChatQuickstart`. Abra o arquivo build.gradle do aplicativo e adicione as seguintes dependências ao destino `ChatQuickstart`:
 
 ```
-implementation 'com.azure.android:azure-communication-common:1.0.0-beta.7'
-implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.7'
+implementation 'com.azure.android:azure-communication-common:1.0.0-beta.8'
+implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.8'
 ```
 
 #### <a name="exclude-meta-files-in-packaging-options-in-root-buildgradle"></a>Exclua os metarquivos nas opções de empacotamento na raiz build.gradle
@@ -61,19 +64,6 @@ android {
 }
 ```
 
-#### <a name="add-a-maven-resource-in-root-buildgradle"></a>Adicione um recurso do Maven na raiz build.gradle
-```
-allprojects {
-    repositories {
-        ...
-        maven {
-            url 'https://trouterpublicpackages.z13.web.core.windows.net'
-        }
-    }
-```
-
-Clique em 'sincronizar agora' no Android Studio.
-
 #### <a name="alternative-to-install-libraries-through-maven"></a>(Alternativa) Para instalar bibliotecas por meio do Maven
 Para importar a biblioteca para seu projeto usando o sistema de build do [Maven](https://maven.apache.org/), adicione-a à seção `dependencies` do arquivo `pom.xml` do seu aplicativo, especificando a ID de artefato e a versão que você deseja usar:
 
@@ -81,7 +71,7 @@ Para importar a biblioteca para seu projeto usando o sistema de build do [Maven]
 <dependency>
   <groupId>com.azure.android</groupId>
   <artifactId>azure-communication-chat</artifactId>
-  <version>1.0.0-beta.7</version>
+  <version>1.0.0-beta.8</version>
 </dependency>
 ```
 
@@ -98,10 +88,11 @@ import com.azure.android.communication.common.*;
 Copie o seguinte código no arquivo `MainActivity`:
 
 ```java
-    private String second_user_id = "<second_user_id>";
+    private String secondUserId = "<second_user_id>";
     private String threadId = "<thread_id>";
     private String chatMessageId = "<chat_message_id>";
-    private final String sdkVersion = "1.0.0-beta.7";
+    private final String sdkVersion = "1.0.0-beta.8";
+    private static final String APPLICATION_ID = "Chat Quickstart App";
     private static final String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
     private static final String TAG = "--------------Chat Quickstart App-------------";
 
@@ -147,91 +138,89 @@ Nas etapas a seguir, substituiremos os espaços reservados pelo exemplo de códi
 Substitua o comentário `<CREATE A CHAT CLIENT>` pelo seguinte código (coloque as instruções de importação na parte superior do arquivo):
 
 ```java
-import com.azure.android.communication.chat.ChatClient;
+import com.azure.android.communication.chat.ChatAsyncClient;
+import com.azure.android.communication.chat.ChatClientBuilder;
+import com.azure.android.core.credential.AccessToken;
 import com.azure.android.core.http.HttpHeader;
+import com.azure.android.core.http.okhttp.OkHttpAsyncClientProvider;
+import com.azure.android.core.http.policy.BearerTokenAuthenticationPolicy;
+import com.azure.android.core.http.policy.UserAgentPolicy;
 
 final String endpoint = "https://<resource>.communication.azure.com";
 final String userAccessToken = "<user_access_token>";
 
-ChatAsyncClient client = new ChatAsyncClient.Builder()
-        .endpoint(endpoint)
-        .credentialInterceptor(chain -> chain.proceed(chain.request()
-                .newBuilder()
-                .header(HttpHeader.AUTHORIZATION, "Bearer " + userAccessToken)
-                .build()))
-        .build();
+ChatAsyncClient chatAsyncClient = new ChatClientBuilder()
+    .endpoint(endpoint)
+    .credentialPolicy(new BearerTokenAuthenticationPolicy((request, callback) ->
+        callback.onSuccess(new AccessToken(userAccessToken, OffsetDateTime.now().plusDays(1)))))
+    .addPolicy(new UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
+    .httpClient(new OkHttpAsyncClientProvider().createInstance())
+    .buildAsyncClient();
+
 ```
 
-1. Use o `ChatAsyncClient.Builder` para configurar e criar uma instância do `ChatAsyncClient`.
+1. Use o `ChatClientBuilder` para configurar e criar uma instância do `ChatAsyncClient`.
 2. Substitua `<resource>` pelo seu recurso dos Serviços de Comunicação.
 3. Substitua `<user_access_token>` por um token de acesso válido dos Serviços de Comunicação.
 
 ## <a name="object-model"></a>Modelo de objeto
-As classes e as interfaces a seguir lidam com alguns dos principais recursos da biblioteca de clientes de Chat dos Serviços de Comunicação do Azure para JavaScript.
+As classes e as interfaces a seguir lidam com alguns dos principais recursos do SDK de Chat dos Serviços de Comunicação do Azure para JavaScript.
 
-| Name                                   | Descrição                                                                                                                                                                           |
+| Nome                                   | Descrição                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ChatClient/ChatAsyncClient | Essa classe é necessária para a funcionalidade de chat. Crie uma instância dela com suas informações de assinatura e use-a para criar, obter e excluir conversas. |
 | ChatThreadClient/ChatThreadAsyncClient | Essa classe é necessária para a funcionalidade de conversa de chat. Obtenha uma instância por meio de ChatClient e use-a para enviar/receber/atualizar/excluir mensagens, adicionar/remover/obter usuários, enviar notificações de digitação e confirmações de leitura e assinar eventos de chat. |
 
 ## <a name="start-a-chat-thread"></a>Iniciar uma conversa de chat
 
-Usaremos nosso `ChatClient` para criar um thread com um usuário inicial.
+Usaremos nosso `ChatAsyncClient` para criar um thread com um usuário inicial.
 
 Substitua o comentário `<CREATE A CHAT THREAD>` pelo código a seguir:
 
 ```java
-//  The list of ChatParticipant to be added to the thread.
+// A list of ChatParticipant to start the thread with.
 List<ChatParticipant> participants = new ArrayList<>();
 // The communication user ID you created before, required.
 String id = "<user_id>";
 // The display name for the thread participant.
 String displayName = "initial participant";
 participants.add(new ChatParticipant()
-        .setCommunicationIdentifier(new CommunicationIdentifierModel().setCommunicationUser(new CommunicationUserIdentifierModel().setId(id)))
-        .setDisplayName(displayName)
-);
+    .setCommunicationIdentifier(new CommunicationUserIdentifier(id))
+    .setDisplayName(displayName));
 
 // The topic for the thread.
 final String topic = "General";
-// The model to pass to the create method.
-CreateChatThreadRequest thread = new CreateChatThreadRequest()
-  .setTopic(topic)
-  .setParticipants(participants);
-
-// optional, set a repeat request ID
+// Optional, set a repeat request ID.
 final String repeatabilityRequestID = "";
+// Options to pass to the create method.
+CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions()
+    .setTopic(topic)
+    .setParticipants(participants)
+    .setIdempotencyToken(repeatabilityRequestID);
 
-client.createChatThread(thread, repeatabilityRequestID, new Callback<CreateChatThreadResult>() {
-      public void onSuccess(CreateChatThreadResult result, okhttp3.Response response) {
-              ChatThread chatThread = result.getChatThread();
-              threadId = chatThread.getId();
-              // take further action
-              Log.i(TAG, "threadId: " + threadId);
-      }
+CreateChatThreadResult createChatThreadResult =
+    chatAsyncClient.createChatThread(createChatThreadOptions).get();
+ChatThreadProperties chatThreadProperties = createChatThreadResult.getChatThreadProperties();
+threadId = chatThreadProperties.getId();
 
-      public void onFailure(Throwable throwable, okhttp3.Response response) {
-              // Handle error.
-              Log.e(TAG, throwable.getMessage());
-      }
-});
 ```
 
 Substitua `<user_id>` por uma ID de usuário válida dos Serviços de Comunicação. Usaremos o `threadId` da resposta retornada ao manipulador de conclusão em etapas posteriores, portanto, substitua o `<thread_id>` na classe pelo `threadId` que obtemos dessa solicitação e execute novamente o aplicativo.
 
 ## <a name="get-a-chat-thread-client"></a>Obter um cliente de conversa de chat
 
-Agora que criamos um thread de chat, obteremos um `ChatThreadClient` para executar operações dentro do thread. Substitua o comentário `<CREATE A CHAT THREAD CLIENT>` pelo código a seguir:
+Agora que criamos um thread de chat, obteremos um `ChatThreadAsyncClient` para executar operações dentro do thread. Substitua o comentário `<CREATE A CHAT THREAD CLIENT>` pelo código a seguir:
 
 ```
-ChatThreadAsyncClient threadClient =
-        new ChatThreadAsyncClient.Builder()
-                .endpoint(endpoint)
-                .credentialInterceptor(chain -> chain.proceed(chain.request()
-                    .newBuilder()
-                    .header(HttpHeader.AUTHORIZATION, "Bearer " + userAccessToken)
-                    .build()))
-                .build();
+ChatThreadAsyncClient chatThreadAsyncClient = new ChatThreadClientBuilder()
+    .endpoint(endpoint)
+    .credentialPolicy(new BearerTokenAuthenticationPolicy((request, callback) ->
+        callback.onSuccess(new AccessToken(userAccessToken, OffsetDateTime.now().plusDays(1)))))
+    .addPolicy(new UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
+    .httpClient(new OkHttpAsyncClientProvider().createInstance())
+    .chatThreadId(threadId)
+    .buildAsyncClient();
+
 ```
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Enviar uma mensagem para uma conversa de chat
@@ -245,27 +234,14 @@ Substitua o comentário `<SEND A MESSAGE>` pelo código a seguir:
 final String content = "Test message 1";
 // The display name of the sender, if null (i.e. not specified), an empty name will be set.
 final String senderDisplayName = "An important person";
-SendChatMessageRequest message = new SendChatMessageRequest()
-        .setType(ChatMessageType.TEXT)
-        .setContent(content)
-        .setSenderDisplayName(senderDisplayName);
+SendChatMessageOptions chatMessageOptions = new SendChatMessageOptions()
+    .setType(ChatMessageType.TEXT)
+    .setContent(content)
+    .setSenderDisplayName(senderDisplayName);
 
-threadClient.sendChatMessage(threadId, message, new Callback<String>() {
-        @Override
-        public void onSuccess(String messageId, okhttp3.Response response) {
-                // A string is the response returned from sending a message, it is an id,
-                // which is the unique ID of the message.
-                chatMessageId = messageId;
-                // Take further action.
-                Log.i(TAG, "chatMessageId: " + chatMessageId);
-        }
+// A string is the response returned from sending a message, it is an id, which is the unique ID of the message.
+chatMessageId = chatThreadAsyncClient.sendMessage(chatMessageOptions).get().getId();
 
-        @Override
-        public void onFailure(Throwable throwable, okhttp3.Response response) {
-                // Handle error.
-                Log.e(TAG, throwable.getMessage());
-        }
-});
 ```
 
 Depois de obter `chatMessageId`, podemos substituir `<chat_message_id>` pelo `chatMessageId` para uso do método posteriormente no início rápido e executar novamente o aplicativo.
@@ -275,31 +251,14 @@ Depois de obter `chatMessageId`, podemos substituir `<chat_message_id>` pelo `ch
 Substitua o comentário `<ADD A USER>` pelo código a seguir:
 
 ```java
-//  The list of ChatParticipant to be added to the thread.
-participants = new ArrayList<>();
 // The display name for the thread participant.
 displayName = "a new participant";
-participants.add(new ChatParticipant().setCommunicationIdentifier(
-          new CommunicationIdentifierModel().setCommunicationUser(
-              new CommunicationUserIdentifierModel().setId(second_user_id)
-          )).setDisplayName(secondUserDisplayName));
-// The model to pass to the add method.
-AddChatParticipantsRequest addParticipantsRequest = new AddChatParticipantsRequest()
-  .setParticipants(participants);
-
-threadClient.addChatParticipants(threadId, addParticipantsRequest, new Callback<AddChatParticipantsResult>() {
-        @Override
-        public void onSuccess(AddChatParticipantsResult result, okhttp3.Response response) {
-                // Take further action.
-                Log.i(TAG, "add chat participants success");
-        }
+ChatParticipant participant = new ChatParticipant()
+    .setCommunicationIdentifier(new CommunicationUserIdentifier(secondUserId))
+    .setDisplayName(secondUserDisplayName);
         
-        @Override
-        public void onFailure(Throwable throwable, okhttp3.Response response) {
-                // Handle error.
-                Log.e(TAG, throwable.getMessage());
-        }
-});
+chatThreadAsyncClient.addParticipant(participant);
+
 ```
 
 Substitua `<second_user_id>` na classe pela ID de usuário dos Serviços de Comunicação do usuário a ser adicionado. 
@@ -315,71 +274,37 @@ final int maxPageSize = 10;
 // Skips participants up to a specified position in response.
 final int skip = 0;
 
-threadClient.listChatParticipantsPages(threadId,
-    maxPageSize,
-    skip,
-    new Callback<AsyncPagedDataCollection<ChatParticipant, Page<ChatParticipant>>>() {
-        @Override
-        public void onSuccess(AsyncPagedDataCollection<ChatParticipant, Page<ChatParticipant>> pageCollection,
-            okhttp3.Response response) {
-                // pageCollection enables enumerating list of chat participants.
-                pageCollection.getFirstPage(new Callback<Page<ChatParticipant>>() {
-                    @Override
-                    public void onSuccess(Page<ChatParticipant> firstPage, okhttp3.Response response) {
-                        for (ChatParticipant participant : firstPage.getItems()) {
-                            // Take further action.
-                            Log.i(TAG, "participant: " + participant.getDisplayName());
-                        }
-                        listChatParticipantsNext(firstPage.getNextPageId(), pageCollection);
-                    }
+// Options to pass to the list method.
+ListParticipantsOptions listParticipantsOptions = new ListParticipantsOptions()
+    .setMaxPageSize(maxPageSize)
+    .setSkip(skip);
 
-                    @Override
-                    public void onFailure(Throwable throwable, okhttp3.Response response) {
-                        // Handle error.
-                        Log.e(TAG, throwable.getMessage());
-                    }
-                });
+PagedResponse<ChatParticipant> firstPageWithResponse =
+    chatThreadAsyncClient.getParticipantsFirstPageWithResponse(listParticipantsOptions, Context.NONE).get();
 
-                @Override
-                public void onFailure(Throwable throwable, okhttp3.Response response) {
-                        // Handle error.
-                        Log.e(TAG, throwable.getMessage());
-                }
-                });
-        }
+for (ChatParticipant participant : firstPageWithResponse.getValue()) {
+    // You code to handle participant
+}
 
-        @Override
-        public void onFailure(Throwable throwable, okhttp3.Response response) {
-                // Handle error.
-                Log.e(TAG, throwable.getMessage());
-        }
-});
+listParticipantsNextPage(firstPageWithResponse.getContinuationToken(), 2);
+
 ```
 
 Insira o seguinte método auxiliar na classe:
 
 ```java
-void listChatParticipantsNext(String nextLink, AsyncPagedDataCollection<ChatParticipant, Page<ChatParticipant>> pageCollection) {
-    if (nextLink != null) {
-        pageCollection.getPage(nextLink, new Callback<Page<ChatParticipant>>() {
-            @Override
-            public void onSuccess(Page<ChatParticipant> nextPage, Response response) {
-                for (ChatParticipant participant : nextPage.getItems()) {
-                    // Take further action.
-                    Log.i(TAG, "participant: " + participant.getDisplayName());
-                }
-                if (nextPage.getPageId() != null) {
-                    listChatParticipantsNext(nextPage.getPageId(), pageCollection);
-                }
-            }
-
-            @Override
-            public void onFailure(Throwable throwable, Response response) {
-                Log.e(TAG, throwable.getMessage());
-            }
-        });
+void listParticipantsNextPage(String continuationToken, int pageNumber) {
+if (continuationToken != null) {
+    PagedResponse<ChatParticipant> nextPageWithResponse =
+        chatThreadAsyncClient.getParticipantsNextPageWithResponse(continuationToken, Context.NONE).get();
+        for (ChatParticipant participant : nextPageWithResponse.getValue()) {
+            // You code to handle participant
+        }
+            
+        listParticipantsNextPage(nextPageWithResponse.getContinuationToken(), ++pageNumber);
     }
 }
+
 ```
 
 
@@ -390,20 +315,9 @@ Substitua `<second_user_id>` por uma ID de usuário válida. Vamos remover o seg
 Substitua o comentário `<REMOVE A USER>` pelo seguinte código:
 
 ```java
-CommunicationIdentifierModel communicationIdentifierModel = new CommunicationIdentifierModel().setCommunicationUser(new CommunicationUserIdentifierModel().setId(second_user_id));
-threadClient.removeChatParticipant(threadId, communicationIdentifierModel, new Callback<Void>() {
-    @Override
-    public void onSuccess(Void result, okhttp3.Response response) {
-        // Take further action.
-        Log.i(TAG, "remove a user successfully");
-    }
+// Using the unique ID of the participant.
+chatThreadAsyncClient.removeParticipant(new CommunicationUserIdentifier(secondUserId)).get();
 
-    @Override
-    public void onFailure(Throwable throwable, okhttp3.Response response) {
-        // Handle error.
-        Log.e(TAG, throwable.getMessage());
-    }
-});
 ```
 
 ## <a name="send-a-typing-notification"></a>Enviar uma notificação de digitação
@@ -411,17 +325,7 @@ threadClient.removeChatParticipant(threadId, communicationIdentifierModel, new C
 Substitua o comentário `<SEND A TYPING NOTIFICATION>` pelo seguinte código:
 
 ```java
-threadClient.sendTypingNotification(threadId, new Callback<Void>() {
-    @Override
-    public void onSuccess(Void result, Response response) {
-        Log.i(TAG, "send a typing notification successfully");
-    }
-
-    @Override
-    public void onFailure(Throwable throwable, Response response) {
-        Log.e(TAG, throwable.getMessage());
-    }
-});
+chatThreadAsyncClient.sendTypingNotification().get();
 ```
 
 ## <a name="send-a-read-receipt"></a>Enviar uma confirmação de leitura
@@ -431,19 +335,7 @@ Substitua `<chat_message_id>` por uma ID de mensagem de chat válida. Enviaremos
 Substitua o comentário `<SEND A READ RECEIPT>` pelo seguinte código:
 
 ```java
-SendReadReceiptRequest readReceipt = new SendReadReceiptRequest()
-    .setChatMessageId(chatMessageId);
-threadClient.sendChatReadReceipt(threadId, readReceipt, new Callback<Void>() {
-    @Override
-    public void onSuccess(Void result, Response response) {
-        Log.i(TAG, "send a read receipt successfully");
-    }
-
-    @Override
-    public void onFailure(Throwable throwable, Response response) {
-        Log.e(TAG, throwable.getMessage());
-    }
-});
+chatThreadAsyncClient.sendReadReceipt(chatMessageId).get();
 ```
 
 ## <a name="list-read-receipts"></a>Listar confirmações de leitura
@@ -455,57 +347,34 @@ Substitua o comentário `<READ RECEIPTS>` pelo seguinte código:
 maxPageSize = 10;
 // Skips participants up to a specified position in response.
 skip = 0;
-threadClient.listChatReadReceiptsPages(threadId,
-    maxPageSize,
-    skip,
-    new Callback<AsyncPagedDataCollection<ChatMessageReadReceipt, Page<ChatMessageReadReceipt>>>() {
-        @Override
-        public void onSuccess(AsyncPagedDataCollection<ChatMessageReadReceipt, Page<ChatMessageReadReceipt>> pageCollection,
-                              Response response) {
-            // pageCollection enables enumerating list of chat participants.
-            pageCollection.getFirstPage(new Callback<Page<ChatMessageReadReceipt>>() {
-                @Override
-                public void onSuccess(Page<ChatMessageReadReceipt> firstPage, Response response) {
-                    for (ChatMessageReadReceipt receipt : firstPage.getItems()) {
-                        Log.i(TAG, "receipt: " + receipt.getChatMessageId());
-                    }
-                    listChatReadReceiptsNext(firstPage.getNextPageId(), pageCollection);
-                }
+// Options to pass to the list method.
+ListReadReceiptOptions listReadReceiptOptions = new ListReadReceiptOptions()
+    .setMaxPageSize(maxPageSize)
+    .setSkip(skip);
 
-                @Override
-                public void onFailure(Throwable throwable, Response response) {
-                    Log.e(TAG, throwable.getMessage());
-                }
-            });
-        }
+PagedResponse<ChatMessageReadReceipt> firstPageWithResponse =
+    chatThreadAsyncClient.getReadReceiptsFirstPageWithResponse(listReadReceiptOptions, Context.NONE).get();
 
-        @Override
-        public void onFailure(Throwable throwable, Response response) {
-            Log.e(TAG, throwable.getMessage());
-        }
-});
+for (ChatMessageReadReceipt readReceipt : firstPageWithResponse.getValue()) {
+    // You code to handle readReceipt
+}
+
+listReadReceiptsNextPage(firstPageWithResponse.getContinuationToken(), 2);
+
 ```
 
 Insira o seguinte método auxiliar na classe:
 ```java
-void listChatReadReceiptsNext(String nextLink, AsyncPagedDataCollection<ChatMessageReadReceipt, Page<ChatMessageReadReceipt>> pageCollection) {
-    if (nextLink != null) {
-        pageCollection.getPage(nextLink, new Callback<Page<ChatMessageReadReceipt>>() {
-            @Override
-            public void onSuccess(Page<ChatMessageReadReceipt> nextPage, Response response) {
-                for (ChatMessageReadReceipt receipt : nextPage.getItems()) {
-                    Log.i(TAG, "receipt: " + receipt.getChatMessageId());
-                }
-                if (nextPage.getPageId() != null) {
-                    listChatReadReceiptsNext(nextPage.getPageId(), pageCollection);
-                }
-            }
+void listReadReceiptsNextPage(String continuationToken, int pageNumber) {
+    if (continuationToken != null) {
+        PagedResponse<ChatMessageReadReceipt> nextPageWithResponse =
+            chatThreadAsyncClient.getReadReceiptsNextPageWithResponse(continuationToken, Context.NONE).get();
 
-            @Override
-            public void onFailure(Throwable throwable, Response response) {
-                Log.e(TAG, throwable.getMessage());
-            }
-        });
+        for (ChatMessageReadReceipt readReceipt : nextPageWithResponse.getValue()) {
+            // You code to handle readReceipt
+        }
+
+        listParticipantsNextPage(nextPageWithResponse.getContinuationToken(), ++pageNumber);
     }
 }
 

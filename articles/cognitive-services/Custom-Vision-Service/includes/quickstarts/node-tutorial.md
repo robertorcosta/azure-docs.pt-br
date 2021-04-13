@@ -4,12 +4,12 @@ ms.author: areddish
 ms.service: cognitive-services
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: e4e8c1fff9d9e788f3a40d8470ff28aa31e1b790
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 2d0cb2e9fed754cd373a37c1477b3133a83f3e76
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444911"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104803466"
 ---
 Este artigo fornece informações e um código de exemplo para ajudar você a começar a usar a biblioteca de clientes da Visão Personalizada para Node.js, a fim de criar um modelo de classificação de imagem. Você criará um projeto, adicionará marcas, treinará o projeto e usará a URL do ponto de extremidade de previsão do projeto para testá-lo programaticamente. Use este exemplo como um modelo para criar o próprio aplicativo de reconhecimento de imagem.
 
@@ -75,7 +75,9 @@ Crie variáveis para as chaves e o ponto de extremidade do Azure do recurso.
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Acesse o portal do Azure. Se o recurso de Treinamento da Visão Personalizada que você criou na seção **Pré-requisitos** tiver sido implantado com êxito, clique no botão **Ir para Recurso** em **Próximas Etapas**. Encontre a chave e o ponto de extremidade na página da **chave e do ponto de extremidade** do recurso, em **gerenciamento de recursos**. 
+> Acesse o portal do Azure. Se o recurso de Treinamento da Visão Personalizada que você criou na seção **Pré-requisitos** tiver sido implantado com êxito, clique no botão **Ir para Recurso** em **Próximas Etapas**. Encontre a chave e o ponto de extremidade na página de **chave e ponto de extremidade** do recurso. 
+>
+>Encontre o valor da ID de recurso de previsão na guia **Propriedades** do recurso, listada como **ID da Assinatura**.
 >
 > Lembre-se de remover a chave do seu código quando terminar e nunca poste-a publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Confira o artigo [segurança](../../../cognitive-services-security.md) de Serviços Cognitivos para obter mais informações.
 

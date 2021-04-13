@@ -4,20 +4,19 @@ description: Este início rápido mostra como usar o Azure Front Door Standard/P
 services: frontdoor
 author: duongau
 manager: KumudD
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 04/16/2021
 ms.author: duau
-ms.openlocfilehash: 18956948a32a79c1435bf4fc1554b09480c9010c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8c6fe355621b4f096814268dea8fd2fc8e1166a7
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101100632"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552862"
 ---
 # <a name="quickstart-create-an-azure-front-door-standardpremium-profile---azure-portal"></a>Início Rápido: Criar um perfil do Azure Front Door Standard/Premium – portal do Azure
 
@@ -58,7 +57,7 @@ Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](http
     | **Nome do ponto de extremidade** | Insira um nome exclusivo globalmente para o ponto de extremidade. |
     | **Tipo de origem** | Selecione o tipo de recurso de origem. Neste exemplo, selecionamos como a origem um serviço de aplicativo que tem o Link Privado habilitado. |
     | **Nome do host de origem** | Insira o nome do host de sua origem. |
-    | **Habilitar o Link Privado** | Se você quiser ter uma conexão privada entre o Azure Front Door e sua origem. Para obter mais detalhes, confira as [Diretrizes do link privado](concept-private-link.md) e [Habilitar o link privado](how-to-enable-private-link.md).
+    | **Habilitar o Link Privado** | Se você quiser ter uma conexão privada entre o Azure Front Door e sua origem. Para obter mais detalhes, confira as [Diretrizes do link privado](concept-private-link.md) e [Habilitar o link privado](./how-to-enable-private-link-web-app.md).
     | **Cache** | Marque a caixa de seleção se quiser armazenar em cache o conteúdo mais próximo dos usuários globalmente usando os POPs de borda do Azure Front Door e a rede da Microsoft. |
     | **Política do WAF** | Selecione **Criar** ou selecione uma política do WAF existente no menu suspenso se quiser habilitar esse recurso. |
 
@@ -148,7 +147,7 @@ Configure o Azure Front Door Standard/Premium (versão prévia) para direcionar 
     
     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-endpoint.png" alt-text="Captura de tela da adição do ponto de extremidade.":::
 
-1. Em seguida, adicione um Grupo de origem que contenha seus dois aplicativos Web. Selecione **+ Adicionar** para abrir a página **Adicionar um grupo de origem**. Para o Nome, insira *myOrignGroup* e selecione **+ Adicionar uma origem**.
+1. Em seguida, adicione um Grupo de origem que contenha seus dois aplicativos Web. Selecione **+ Adicionar** para abrir a página **Adicionar um grupo de origem**. Em Nome, insira  *myOrignGroup* e selecione  **+ Adicionar uma origem**.
  
      :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-group.png" alt-text="Captura de tela da adição de um grupo de origem.":::
 

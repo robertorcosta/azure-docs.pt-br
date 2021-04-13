@@ -5,20 +5,20 @@ ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: dd183e9088f24aa8b94955bc8ed2a68b4a7eb27c
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 773bca81694534346019e30e9d55190af6f51e74
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496161"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105106779"
 ---
 ## <a name="joining-the-meeting-chat"></a>Como participar do chat da reunião 
 
-Depois que a interoperabilidade do Teams estiver habilitada, um usuário dos Serviços de Comunicação poderá participar da chamada do Teams como um usuário externo usando a biblioteca de clientes de chamada. A participação na chamada o adicionará como um participante do chat da reunião também, em que ele poderá enviar mensagens para outros usuários na chamada e receber mensagens deles. O usuário não terá acesso às mensagens de chat que foram enviadas antes de ele se conectar à chamada. Para ingressar na reunião e iniciar o bate-papo, você pode seguir as próximas etapas.
+Quando a interoperabilidade do Teams estiver habilitada, um usuário dos Serviços de Comunicação poderá participar da chamada do Teams como um usuário externo usando o SDK de Chamada. A participação na chamada o adicionará como um participante do chat da reunião também, em que ele poderá enviar mensagens para outros usuários na chamada e receber mensagens deles. O usuário não terá acesso às mensagens de chat que foram enviadas antes de ele se conectar à chamada. Para ingressar na reunião e iniciar o bate-papo, você pode seguir as próximas etapas.
 
 ## <a name="install-the-chat-packages"></a>Instalar os pacotes de chat
 
-Use o comando `npm install` para instalar as bibliotecas de clientes dos Serviços de Comunicação necessárias para JavaScript.
+Use o comando `npm install` para instalar os SDKs dos Serviços de Comunicação necessários para JavaScript.
 
 ```console
 npm install @azure/communication-common --save

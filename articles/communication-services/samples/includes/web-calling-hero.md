@@ -10,22 +10,20 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 07aa1cb361f5f1853dbf93e5f4e064b1ed14f1de
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 0504467e387c0875a8e00bd1cf638ec437232092
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105152764"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554249"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 O **Exemplo de Destaque de Chamadas em Grupo** dos Serviços de Comunicação do Azure demonstra como o SDK da Web de Chamadas dos Serviços de Comunicação pode ser usado para criar uma experiência de chamada em grupo.
 
 Neste guia de início rápido de Exemplo, aprenderemos como o exemplo funciona antes de o executarmos no computador local. Em seguida, implantaremos o exemplo no Azure usando seus próprios recursos de Serviços de Comunicação do Azure.
 
 ## <a name="download-code"></a>Código de download
 
-Encontre o código finalizado para este guia de início rápido no [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
+Localize o projeto para este exemplo no [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). Uma versão do exemplo com a [Interoperabilidade do Teams](../../concepts/teams-interop.md) pode ser encontrada em um [Branch](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/teams-interop) separado.
 
 ## <a name="overview"></a>Visão geral
 
@@ -48,6 +46,9 @@ Componentes da tela principal de chamada:
 - **Galeria de Mídia**: a fase principal em que os participantes são mostrados. Se um participante tiver a câmera habilitada, o feed de vídeo dele será mostrado aqui. Cada participante tem um bloco individual que mostra seu nome de exibição e fluxo de vídeo (quando há um)
 - **Cabeçalho**: É aí que os controles de chamada primários estão localizados para alternar as configurações e a barra lateral do participante, ativar/desativar vídeo e combinação, compartilhar a tela e sair da chamada.
 - **Barra lateral**: é nela que as informações de participantes e configurações são mostradas quando alternadas usando os controles no cabeçalho. O componente pode ser descartado usando o "X"' no canto superior direito. A barra lateral dos participantes mostrará uma lista de participantes e um link para convidar mais usuários para o chat. A barra lateral de configurações permite que você defina as configurações de microfone e câmera.
+
+> [!NOTE]
+> Com base nas limitações do SDK de chamada da Web, apenas um fluxo de vídeo remoto é renderizado. Para obter mais informações, confira [Suporte ao Fluxo do SDK de chamada](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#calling-sdk-streaming-support).
 
 Abaixo, você encontrará mais informações sobre os pré-requisitos e as etapas para configurar o exemplo.
 

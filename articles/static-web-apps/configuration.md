@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: cshoe
-ms.openlocfilehash: 324a8e75488d74fc6aa52e499b8dde616cd9beb5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 280c13fdee281acc4f805aba27a10277eb3988c2
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034040"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218967"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configurar Aplicativos Web Estáticos do Azure
 
@@ -39,6 +39,7 @@ Confira o exemplo do [arquivo de configuração](#example-configuration-file) pa
 
 As regras de rota permitem que você defina o padrão das URLs que permitem o acesso do seu aplicativo à Web. As rotas são definidas como uma matriz de regras de roteamento. Confira o [exemplo de arquivo de configuração](#example-configuration-file) para obter exemplos de uso.
 
+- As regras são definidas na matriz `routes`, mesmo se você tiver apenas uma rota.
 - As regras são executadas na ordem em que aparecem na matriz de `routes`.
 - A avaliação da regra para na primeira correspondência. As regras de roteamento não são encadeadas.
 - Você tem controle total sobre o nome das funções personalizadas.
@@ -50,7 +51,7 @@ O arquivo padrão para conteúdo estático é *index.html*.
 
 ## <a name="defining-routes"></a>Definir rotas
 
-Cada regra é composta por um padrão de rota, juntamente com uma ou mais das propriedades de regra opcionais. Confira o [exemplo de arquivo de configuração](#example-configuration-file) para obter exemplos de uso.
+Cada regra é composta por um padrão de rota, juntamente com uma ou mais das propriedades de regra opcionais. As regras de rota são definidas na matriz `routes`. Confira o [exemplo de arquivo de configuração](#example-configuration-file) para obter exemplos de uso.
 
 | Propriedade de regra  | Obrigatório | Valor padrão | Comentário                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
@@ -275,7 +276,7 @@ A configuração de exemplo a seguir demonstra como substituir um código de err
         },
         {
             "route": "/.auth/login/twitter",
-            "statusCode": 404,
+            "statusCode": 404
         },
         {
             "route": "/logout",
@@ -315,7 +316,7 @@ A configuração de exemplo a seguir demonstra como substituir um código de err
     },
     "mimeTypes": {
         ".json": "text/json"
-    },
+    }
 }
 ```
 

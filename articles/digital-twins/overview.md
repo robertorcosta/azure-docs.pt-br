@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: c0bc245a4be1ab7c326fa27cc1422878aca6331d
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 315519472baa672e802855b5ab21b8bae8f51935
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071674"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109842"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que são Gêmeos Digitais do Azure?
 
@@ -94,7 +94,11 @@ O diagrama a seguir mostra onde se situam os Gêmeos Digitais do Azure no contex
 
 ## <a name="service-limits"></a>Limites de serviço
 
-Para obter uma lista de limites dos Gêmeos Digitais do Azure, confira [*Limites do serviço dos Gêmeos Digitais do Azure*](reference-service-limits.md).
+Você pode ler sobre os **limites de serviço** dos Gêmeos Digitais do Azure aqui: [limites do serviço dos Gêmeos Digitais do Azure](reference-service-limits.md). Isso pode ser útil ao trabalhar com o serviço para entender as limitações funcionais e de taxa do serviço, bem como quais limites podem ser ajustados, se necessário.
+
+## <a name="terminology"></a>Terminologia
+
+Você pode exibir uma lista de **termos comuns de IoT** e seus usos nos serviços de IoT do Azure, incluindo os Gêmeos Digitais do Azure, aqui: [Glossário de IoT do Azure](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). Essa pode ser uma referência útil enquanto você começa a usar os Gêmeos Digitais do Azure e cria uma solução de IoT.
 
 ## <a name="next-steps"></a>Próximas etapas
 

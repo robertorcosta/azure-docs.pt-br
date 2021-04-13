@@ -12,19 +12,19 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/06/2020
+ms.date: 04/05/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5390811c8da4a8cace32e0e7ba4524e8c537a26a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: c49ded056c642fa91331b7cc98d18da34d9c73a6
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055579"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504338"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
 
-Um desafio comum para desenvolvedores é o gerenciamento de segredos e credenciais para proteger a comunicação entre diferentes serviços. No Azure, as identidades gerenciadas eliminam a necessidade de os desenvolvedores precisarem gerenciar credenciais fornecendo uma identidade para o recurso do Azure no Azure AD e a usando para obter tokens do Azure AD (Azure Active Directory). Isso também ajuda a acessar o [Azure Key Vault](../../key-vault/general/overview.md), em que os desenvolvedores podem armazenar credenciais de maneira segura. As identidades gerenciadas para recursos do Azure resolvem esse problema fornecendo serviços do Azure com uma identidade gerenciada automaticamente no Azure AD.
+Um desafio comum para desenvolvedores é o gerenciamento de segredos e credenciais usadas para proteger a comunicação entre os diferentes componentes que formam uma solução. As identidades gerenciadas eliminam a necessidade de os desenvolvedores gerenciarem credenciais. As identidades gerenciadas fornecem uma identidade para os aplicativos usarem ao se conectarem a recursos que dão suporte à autenticação do Azure AD (Azure Active Directory). Os aplicativos podem usar a identidade gerenciada para obter tokens do Azure AD. Por exemplo, um aplicativo pode usar uma identidade gerenciada para acessar recursos como [Azure Key Vault](../../key-vault/general/overview.md), em que os desenvolvedores podem armazenar credenciais de maneira segura ou acessar contas de armazenamento.
 
 Para que uma identidade gerenciada pode ser usada?
 
@@ -33,7 +33,7 @@ Para que uma identidade gerenciada pode ser usada?
 Aqui estão alguns dos benefícios de usar identidades gerenciadas:
 
 - Você não precisa gerenciar credenciais. As credenciais nem sequer estão acessíveis para você.
-- Você pode usar identidades gerenciadas para fazer a autenticação em qualquer serviço do Azure que dê suporte à autenticação do Azure AD incluindo o Azure Key Vault.
+- Você pode usar identidades gerenciadas para se autenticar em qualquer recurso que dê suporte à [autenticação do Azure Active Directory](../authentication/overview-authentication.md), incluindo seus próprios aplicativos.
 - Identidades gerenciadas podem ser usadas sem nenhum custo adicional.
 
 > [!NOTE]
@@ -62,7 +62,7 @@ A tabela abaixo mostra as diferenças entre os dois tipos de identidades gerenci
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Como usar identidades gerenciadas para recursos do Azure?
 
-![Alguns exemplos de como um desenvolvedor pode usar identidades gerenciadas para obter acesso a recursos do código deles sem gerenciar informações de autenticação](media/overview/azure-managed-identities-examples.png)
+![Alguns exemplos de como um desenvolvedor pode usar identidades gerenciadas para obter acesso a recursos do código deles sem gerenciar informações de autenticação](media/overview/when-use-managed-identities.png)
 
 ## <a name="what-azure-services-support-the-feature"></a>O recurso tem suporte de quais serviços do Azure?<a name="which-azure-services-support-managed-identity"></a>
 

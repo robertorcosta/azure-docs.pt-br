@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/04/2021
+ms.date: 03/31/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 24ff39fba5ce4b484f23595a9f7d718b12faae10
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bd5533f4bc8420ee6d8900e8a17dfe7099d7945f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037261"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107190"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Funções de administrador da assinatura clássica, funções do Azure e funções do Azure AD
 
@@ -115,7 +115,7 @@ De maneira geral, as funções do Azure controlam permissões para gerenciar rec
 | --- | --- |
 | Gerenciar o acesso com recursos do Azure | Gerenciar o acesso a recursos do Azure Active Directory |
 | Dá suporte a funções personalizadas | Dá suporte a funções personalizadas |
-| O escopo pode ser especificado em vários níveis (grupo de gerenciamento, assinatura, grupo de recursos e recursos) | O escopo está no nível do locatário |
+| O escopo pode ser especificado em vários níveis (grupo de gerenciamento, assinatura, grupo de recursos e recursos) | O [escopo](../active-directory/roles/custom-overview.md#scope) pode ser especificado no nível do locatário (em toda a organização), na unidade administrativa ou em um objeto individual (por exemplo, um aplicativo específico) |
 | As informações de função podem ser acessadas no portal do Azure, na CLI do Azure, no Azure PowerShell, nos modelos do Azure Resource Manager, na API REST | As informações de função podem ser acessadas no portal de administração do Azure, no portal do administrador do Microsoft 365, no Microsoft Graph, no AzureAD PowerShell |
 
 ### <a name="do-azure-roles-and-azure-ad-roles-overlap"></a>As funções do Azure e as funções do Azure AD se sobrepõem?

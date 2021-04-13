@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: 445fdea4cb92ed8080528a41cf19ad774751b9ce
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: f28fba451a5fbad9efe76e0d6bd39488beebb103
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510687"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104761193"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -49,7 +49,7 @@ pip install azure-ai-formrecognizer --pre
 ```
 
 > [!NOTE]
-> O SDK do Reconhecimento de Formulários 3.1.0 reflete a versão prévia da API versão 2.1
+> O SDK do Reconhecimento de Formulários 3.1.0 reflete a _versão prévia da API versão 2.1.2_. Use a [**API REST**](../../quickstarts/client-library.md) para a _versão prévia da API versão 2.1. 3_.
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 

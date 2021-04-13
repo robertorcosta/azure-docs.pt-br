@@ -6,20 +6,21 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 03/27/2021
+ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 316a78f4725aa3c33a78b00c6de3b8419aea717e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bb09a25d7ea242dfafd7d853015ae8e127b13883
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600200"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383398"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>O que é o Azure Synapse Analytics?
 
 O **Azure Synapse** é um serviço de análise empresarial que acelera o tempo de descoberta de insights entre data warehouses e sistemas de Big Data. O Azure Synapse reúne o melhor das tecnologias de **SQL** usadas em data warehousing corporativo, tecnologias **Spark** usadas para Big Data, **Pipelines** para integração de dados e ETL/ELT e integração profunda com outros serviços do Azure, como **Power BI**, **CosmosDB** e **AzureML**.
 
+![Diagrama da arquitetura do Azure Synapse Analytics.](./media/overview-what-is/synapse-architecture.png)
 
 ## <a name="industry-leading-sql"></a>SQL líder do setor
 
@@ -42,11 +43,11 @@ O **Apache Spark para Azure Synapse** integra-se total e perfeitamente ao Apache
 
 O Azure Synapse remove as barreiras de tecnologia tradicionais entre o uso do SQL e do Spark juntos. Você pode fazer combinações e correspondências perfeitas de acordo com as suas necessidades e a sua experiência.
 
-* Um sistema compartilhado de metadados compatível com Hive permite que as tabelas definidas nos arquivos do data lake sejam consumidas diretamente pelo Spark ou pelo Hive.
+* As tabelas definidas em arquivos no data lake são consumidas continuamente pelo Spark ou pelo Hive.
 * O SQL e o Spark podem explorar e analisar diretamente arquivos Parquet, CSV, TSV e JSON armazenados no data lake.
-* Carregamento e descarregamento escalonáveis e rápidos para dados transferidos entre bancos de dados SQL e Spark
+* Carregamento de dados rápido e escalonável entre bancos de dados SQL e do Spark
 
-## <a name="built-in-data-integration-via-pipelines"></a>Integração de dados interna por meio de pipelines
+## <a name="built-in-data-integration"></a>Integração de dados interna
 
 O Azure Synapse contém o mesmo mecanismo de Integração de Dados e as mesmas experiências do Azure Data Factory, permitindo que você crie pipelines de ETL avançados em escala sem sair do Azure Synapse Analytics.
 
@@ -66,14 +67,14 @@ O Azure Synapse fornece um só modo para que as empresas gerenciem recursos de a
 
 O **Synapse Studio** é a experiência do usuário que reúne tudo para engenheiros de dados. Ele permite que eles realizem todas as tarefas necessárias para criar uma solução de análise completa.
 
-* Principais tarefas de engenheiro de dados em um único lugar: ingestão, exploração, preparação, orquestração, visualização
+* As principais tarefas dos engenheiros de dados em um só lugar: ingerir, explorar, preparar, orquestrar, visualizar
 * Produtividade líder do setor que trabalham com a codificação SQL ou Spark: criação, depuração e otimização de desempenho
 * Fazer integração com os processos CI/CD empresariais
 
-## <a name="engage-with-the-synapse-engineering-team"></a>Envolver-se com a equipe de engenharia do Azure Synapse
+## <a name="engage-with-the-synapse-community"></a>Interaja com a comunidade do Azure Synapse
 
+- [Microsoft Q&A](/answers/topics/azure-synapse-analytics.html): faça perguntas técnicas.
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): Faça perguntas sobre desenvolvimento.
-- [Página de perguntas e respostas da Microsoft](/answers/topics/azure-synapse-analytics.html): Faça perguntas técnicas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

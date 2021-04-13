@@ -5,18 +5,18 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: ff83b488a6e3193eee8cb12af7de0a60b42e4c75
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: f461778f988fafeacc480e100b00be7d4c165dfb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771389"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612510"
 ---
 # <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Descobrir servidores em execução no Hyper-V com a ferramenta Migrações para Azure: descoberta e avaliação
 
-Como parte de sua jornada de migração para o Azure, descubra seu inventário local e suas cargas de trabalho. 
+Como parte de sua jornada de migração para o Azure, descubra seu inventário local e suas cargas de trabalho.
 
 Este tutorial mostra como descobrir servidores locais em hosts do Hyper-V com a ferramenta Migrações para Azure: descoberta e avaliação usando um dispositivo leve de Migrações para Azure. O dispositivo é implantado como um servidor em um host do Hyper-V para descobrir continuamente os metadados de desempenho e do computador.
 
@@ -42,7 +42,7 @@ Antes de iniciar este tutorial, verifique se estes pré-requisitos estão em vig
 --- | ---
 **Host do Hyper-V** | Os hosts do Hyper-V nos quais os servidores estão localizados podem ser autônomos ou estar em um cluster.<br/><br/> O host deve executar Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2.<br/><br/> Verifique se as conexões de entrada são permitidas na porta 5985 (HTTP) do WinRM, de modo que o dispositivo possa se conectar para efetuar pull dos metadados do servidor e dos dados de desempenho usando uma sessão do modelo CIM.
 **Implantação do dispositivo** | O host do Hyper-V precisa de recursos para alocar um servidor ao dispositivo:<br/><br/> – 16 GB de RAM, 8 vCPUs e cerca de 80 GB de armazenamento em disco.<br/><br/> – Um comutador virtual externo e acesso à Internet no dispositivo, diretamente ou por um proxy.
-**Servidores** | Os servidores podem executar qualquer sistema operacional Windows ou Linux. 
+**Servidores** | Os servidores podem executar qualquer sistema operacional Windows ou Linux.
 
 ## <a name="prepare-an-azure-user-account"></a>Preparar uma conta de usuário do Azure
 
@@ -56,7 +56,7 @@ Se você acaba de criar uma conta gratuita do Azure, você é o proprietário da
 
     ![Caixa de pesquisa para pesquisar a assinatura do Azure](./media/tutorial-discover-hyper-v/search-subscription.png)
 
-2. Na página **Assinaturas**, selecione a assinatura na qual deseja criar um projeto. 
+2. Na página **Assinaturas**, selecione a assinatura na qual deseja criar um projeto.
 3. Na assinatura, selecione **Controle de acesso (IAM)**  > **Verificar o acesso**.
 4. Em **Verificar o acesso**, procure a conta de usuário relevante.
 5. Em **Adicionar uma atribuição de função**, clique em **Adicionar**.
@@ -101,7 +101,7 @@ Delegar credenciais se os discos de servidor estiverem localizados em compartilh
     ```powershell
     C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
     ```
-3. Depois de validar a integridade do script, execute o script em cada host Hyper-V com este comando do PowerShell:
+3. Após validar a integridade do script, execute o script em cada host Hyper-V com este comando do PowerShell com permissões elevadas:
 
     ```powershell
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
@@ -176,7 +176,7 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 
         **Cenário** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (8,91 GB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140422) |  40aa037987771794428b1c6ebee2614b092e6d69ac56d48a2bbc75eeef86c99a
+        Hyper-V (8,91 GB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
 
     - Para o Azure Government:
 
@@ -293,5 +293,3 @@ Após a conclusão da descoberta, você poderá verificar se os servidores são 
 
 - [Avaliar servidores no ambiente do Hyper-V](tutorial-assess-hyper-v.md) quanto à migração para VMs do Azure.
 - [Examinar os dados](migrate-appliance.md#collected-data---hyper-v) que o dispositivo coleta durante a descoberta.
-
-

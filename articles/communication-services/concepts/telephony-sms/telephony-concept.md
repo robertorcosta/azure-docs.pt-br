@@ -8,19 +8,20 @@ ms.author: bobazile
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d5e4920dcc422e848266f35c8a59175b5149b924
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7aebb10fb3855936d930685f1a8eef2588140ad1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492731"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105930448"
 ---
 # <a name="telephony-concepts"></a>Conceitos de telefonia
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
+
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-As bibliotecas de clientes de Chamada dos Serviços de Comunicação do Azure podem ser usadas para adicionar telefonia e PSTN aos seus aplicativos. Esta página resume os principais conceitos e funcionalidades de telefonia. Confira a [biblioteca de chamada](../../quickstarts/voice-video-calling/calling-client-samples.md) para saber mais sobre as funcionalidades e as linguagens específicas da biblioteca de clientes.
+Os SDKs de Chamada dos Serviços de Comunicação do Azure podem ser usados para adicionar telefonia e PSTN aos seus aplicativos. Esta página resume os principais conceitos e funcionalidades de telefonia. Confira a [biblioteca de chamada](../../quickstarts/voice-video-calling/calling-client-samples.md) para saber mais sobre as funcionalidades e as linguagens de SDKs específicos.
 
 ## <a name="overview-of-telephony"></a>Visão geral de telefonia
 Sempre que os usuários interagem com um número de telefone tradicional, as chamadas são facilitadas por chamadas de voz PSTN (Rede Telefônica Pública Comutada). Para fazer e receber chamadas PSTN, você precisa adicionar recursos de telefonia ao recurso de Serviços de Comunicação do Azure. Nesse caso, a sinalização e a mídia usam uma combinação de tecnologias baseadas em IP e PSTN para conectar seus usuários. Os Serviços de Comunicação oferecem duas maneiras diferenciadas de atingir a rede PSTN: Chamada de Nuvem do Azure e interface SIP.

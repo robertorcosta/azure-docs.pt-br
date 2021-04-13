@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/05/2020
 ms.author: v-jawe
-ms.openlocfilehash: 590ad577f3648ea9214ec4dcb6b6cab59dd5a3f1
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 8f968572a357bb3c98d9c3133a7ec0a0a94dbf93
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104557"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958214"
 ---
 ## <a name="quickstart-face-client-library-for-javascript"></a>Início Rápido: Biblioteca de clientes de Detecção Facial para JavaScript
 
@@ -24,7 +24,7 @@ Use a biblioteca de clientes de Detecção Facial para JavaScript para:
 
 * [Detectar faces em uma imagem](#detect-faces-in-an-image)
 * [Encontrar rostos semelhantes](#find-similar-faces)
-* [Criar um grupo de pessoas](#create-a-person-group)
+* [Criar um PersonGroup](#create-a-persongroup)
 * [Identificar um rosto](#identify-a-face)
 
 [Documentação de referência](/javascript/api/@azure/cognitiveservices-face/) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Pacote (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Exemplos](/samples/browse/?products=azure&term=face&languages=javascript)
@@ -106,7 +106,7 @@ Os snippets de código abaixo mostram como realizar as seguintes tarefas com a b
 * [Autenticar o cliente](#authenticate-the-client)
 * [Detectar faces em uma imagem](#detect-faces-in-an-image)
 * [Encontrar rostos semelhantes](#find-similar-faces)
-* [Criar um grupo de pessoas](#create-a-person-group)
+* [Criar um PersonGroup](#create-a-persongroup)
 * [Identificar um rosto](#identify-a-face)
 
 > [!TIP]
@@ -163,27 +163,27 @@ O método a seguir detecta rostos em um conjunto de imagens de destino e em uma 
 
 A operação [Identificar](/javascript/api/@azure/cognitiveservices-face/face#identify_string____FaceIdentifyOptionalParams__ServiceCallback_IdentifyResult____) usa uma imagem de uma pessoa (ou de várias pessoas) e procura encontrar a identidade de cada rosto na imagem (pesquisa de reconhecimento facial). Ele compara cada rosto detectado com um [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup), um banco de dados de diferentes objetos [Person](/javascript/api/@azure/cognitiveservices-face/person) cujas características faciais são conhecidas. Para fazer a operação de identificação, primeiro você precisa criar e treinar um [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup).
 
-### <a name="add-faces-to-person-group"></a>Adicionar rostos a um grupo de pessoas
+### <a name="add-faces-to-persongroup"></a>Adicionar rostos a um PersonGroup
 
 Crie a função a seguir para adicionar rostos ao [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup).
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="add_faces":::
 
-### <a name="wait-for-training-of-person-group"></a>Aguarde o treinamento do grupo de pessoas
+### <a name="wait-for-training-of-persongroup"></a>Aguardar o treinamento de PersonGroup
 
-Crie a função auxiliar a seguir para aguardar que o grupo de pessoas conclua o treinamento.
+Crie a função auxiliar a seguir para aguardar a conclusão do treinamento de **PersonGroup**.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="wait_for_training":::
 
-### <a name="create-a-person-group"></a>Criar um grupo de pessoas
+### <a name="create-a-persongroup"></a>Criar um PersonGroup
 
 O seguinte código:
-- Cria um [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup)
-- Adiciona rostos ao grupo de pessoas chamando `AddFacesToPersonGroup`, que você definiu anteriormente.
-- Treina o grupo de pessoas.
-- Identifica os rostos no grupo de pessoas.
+- Cria um [PersonGroup](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup)
+- Adiciona rostos ao **PersonGroup** chamando `AddFacesToPersonGroup`, que você definiu anteriormente.
+- Treina o **PersonGroup**.
+- Identifica os rostos no **PersonGroup**.
 
-Esse grupo **Person** e seus objetos **Person** associados agora estão prontos para serem usados nas operações Verificar, Identificar ou Agrupar.
+Esse **PersonGroup** e seus objetos **Person** associados estão prontos para serem usados nas operações Verificar, Identificar ou Agrupar.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="identify":::
 

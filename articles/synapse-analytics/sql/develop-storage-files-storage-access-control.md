@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 545331fdea56aef3d7b9dac8062d4fc2d6891254
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 726395e9f004130699dab061cfa752a2e516c834
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102501559"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552947"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controlar o acesso à conta de armazenamento para o pool de SQL sem servidor no Azure Synapse Analytics
 
@@ -36,11 +36,11 @@ Um usuário que fez logon em um pool de SQL sem servidor precisará estar autori
 A **Identidade do Usuário**, também conhecida como "passagem do Azure AD", é um tipo de autorização em que a identidade do usuário do Azure AD que fez logon no pool de SQL sem servidor é usada para autorizar o acesso a dados. Antes de acessar os dados, o administrador do Armazenamento do Azure deve conceder permissões ao usuário do Azure AD. Conforme indicado na tabela a seguir, não é compatível para o tipo de usuário do SQL.
 
 > [!IMPORTANT]
-> Você precisa ter uma função de Proprietário/Colaborador/Leitor de dados do blob de armazenamento para usar sua identidade para acessar os dados.
-> Mesmo se você for um Proprietário de uma Conta de Armazenamento, ainda precisará se adicionar a uma das funções de dados do blob de armazenamento.
->
-> Para saber mais sobre o controle de acesso no Azure Data Lake Storage Gen2, examine o artigo [Controle de acesso no Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
->
+> O token de autenticação do AAD pode ser armazenado em cache pelos aplicativos clientes. Por exemplo, o PowerBI armazena em cache o token do AAD e reutiliza o mesmo token por uma hora. As consultas de longa execução poderão falhar se o token expirar no meio da execução da consulta. Se você estiver enfrentando falhas de consulta causadas pela expiração do token de acesso do AAD no meio da consulta, considere a possibilidade de alternar para a assinatura de [Identidade Gerenciada](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) ou de [Acesso Compartilhado](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+
+Você precisa ter uma função de Proprietário/Colaborador/Leitor de dados do blob de armazenamento para usar sua identidade para acessar os dados. Como alternativa, você pode especificar regras de ACL refinadas para acessar arquivos e pastas. Mesmo se você for um Proprietário de uma Conta de Armazenamento, ainda precisará se adicionar a uma das funções de dados do blob de armazenamento.
+Para saber mais sobre o controle de acesso no Azure Data Lake Storage Gen2, examine o artigo [Controle de acesso no Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
+
 
 ### <a name="shared-access-signature"></a>[Assinatura de acesso compartilhado](#tab/shared-access-signature)
 
@@ -54,6 +54,10 @@ Você pode obter um token SAS navegando até o **Portal do Azure -> Conta de Arm
 > Token SAS: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
 Para permitir acesso usando um token SAS, você precisa criar uma credencial no escopo do banco de dados ou no escopo do servidor 
+
+
+> [!IMPORTANT]
+> Você não pode acessar contas de armazenamento privado com o token SAS. Considere a possibilidade de alternar para a autenticação por [Identidade Gerenciada](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) ou via [passagem do Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) a fim de acessar armazenamentos protegidos.
 
 ### <a name="managed-identity"></a>[Identidade gerenciada](#tab/managed-identity)
 
@@ -100,6 +104,15 @@ Ao acessar o armazenamento protegido pelo firewall, é possível usar a **Identi
 #### <a name="user-identity"></a>Identidade do Usuário
 
 Para acessar o armazenamento protegido com o firewall por meio da identidade do usuário, você pode usar o módulo Az.Storage do PowerShell.
+#### <a name="configuration-via-azure-portal"></a>Configuração por meio do portal do Azure
+
+1. Pesquise pela sua conta de armazenamento no portal do Azure.
+1. Acesse Rede na seção Configurações.
+1. Na seção "Instâncias de recurso", adicione uma exceção para o workspace do Azure Synapse.
+1. Selecione Microsoft.Synapse/workspaces como tipo de recurso.
+1. Selecione o nome do seu workspace como o nome da instância.
+1. Clique em Salvar.
+
 #### <a name="configuration-via-powershell"></a>Configuração por meio do PowerShell
 
 Siga estas etapas para configurar o firewall da conta de armazenamento e adicionar uma exceção para o workspace do Synapse.

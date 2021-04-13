@@ -9,12 +9,13 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: 4e01b1ca9a3858ff31ad9b5da1d1159209c44330
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+monikerRange: =iotedge-2018-06
+ms.openlocfilehash: 84e5bbff11d0a5ff5d47ca43a3da54d1f1fb5555
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103464047"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218848"
 ---
 # <a name="tutorial-develop-c-iot-edge-modules-using-windows-containers"></a>Tutorial: Desenvolver módulos do IoT Edge em C# usando contêineres do Windows
 
@@ -23,7 +24,7 @@ ms.locfileid: "103464047"
 Este artigo mostra como usar o Visual Studio para desenvolver código em C# e implantá-lo em um dispositivo Windows que executa o Azure IoT Edge.
 
 >[!NOTE]
->O IoT Edge 1.1 LTS é o último canal de lançamento que dará suporte a contêineres do Windows. Começando na versão 1.2, os contêineres do Windows deixarão de ter suporte. Considere usar ou mudar para o [IoT Edge para Linux no Windows](iot-edge-for-linux-on-windows.md) para executar o IoT Edge em dispositivos Windows.
+>O IoT Edge 1.1 LTS é o último canal de lançamento que dá suporte a contêineres do Windows. Começando na versão 1.2, os contêineres do Windows deixarão de ter suporte. Considere usar ou mudar para o [IoT Edge para Linux no Windows](iot-edge-for-linux-on-windows.md) para executar o IoT Edge em dispositivos Windows.
 
 Use módulos do Azure IoT Edge para implantar um código que implementa sua lógica de negócios diretamente em seus dispositivos IoT Edge. Este tutorial o orienta através da criação e implantação de um módulo IoT Edge que filtra os dados do sensor.
 

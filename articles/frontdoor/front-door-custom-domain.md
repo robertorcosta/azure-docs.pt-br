@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: 6abed66a5fbd9987e5a8a677dde7b4a77589e907
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: e1540602bae0779d69c0cb4bb59e93b810b52904
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064980"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550754"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutorial: Adicionar um domínio personalizado ao seu Front Door
 
@@ -70,7 +70,7 @@ Para criar um registro CNAME com o subdomínio afdverify:
     |---------------------------|-------|---------------------------------|
     | afdverify. www.contoso.com | CNAME | afdverify.contoso-frontend.azurefd.net |
 
-    - Origem: Insira o nome de domínio personalizado, incluindo o subdomínio afdverify, no seguinte formato: afdverify. _&lt;nome de domínio personalizado&gt;_ . Por exemplo, afdverify. www.contoso.com.
+    - Origem: Insira o nome de domínio personalizado, incluindo o subdomínio afdverify, no seguinte formato: afdverify. _&lt;nome de domínio personalizado&gt;_ . Por exemplo, afdverify. www.contoso.com. Se você estiver mapeando um domínio curinga, como \*.contoso.com, o valor de origem será o mesmo que seria sem o curinga: afdverify.contoso.com.
 
     - Tipo: Insira *CNAME*.
 

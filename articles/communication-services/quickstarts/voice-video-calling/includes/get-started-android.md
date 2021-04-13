@@ -1,22 +1,24 @@
 ---
 title: Guia de início rápido – Adicionar uma chamada VOIP a um aplicativo Android usando os Serviços de Comunicação do Azure
-description: Neste tutorial, você aprenderá a usar a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para Android
-author: matthewrobertson
-ms.author: marobert
-ms.date: 08/11/2020
+description: Neste tutorial, você aprenderá a usar o SDK de Chamada dos Serviços de Comunicação do Azure para Android
+author: chpalm
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: a387261b392ea6718941f5eabe889e0c1a41fd5a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 38194ed7290d6cd9c4889d27ff458f950603c5be
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750674"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "106073000"
 ---
-Neste guia de início rápido, você aprenderá a iniciar uma chamada usando a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para Android.
+Neste guia de início rápido, você aprenderá a iniciar uma chamada usando o SDK de Chamada dos Serviços de Comunicação do Azure para Android.
+
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
 
 > [!NOTE]
-> Este documento usa a versão 1.0.0-beta.8 da biblioteca de clientes de chamada.
+> Este documento usa a versão 1.0.0-beta.8 do SDK de Chamada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +39,7 @@ Selecione o modelo de projeto "Atividade Vazia" em "Telefone e Tablet".
 
 :::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Captura de tela que mostra a opção 'Atividade Vazia' selecionada na Tela do Modelo do Projeto.":::
 
-Selecione a biblioteca de clientes Mínima de "API 26: Android 8.0 (Oreo)" ou superior.
+Selecione o SDK Mínimo de "API 26: Android 8.0 (Oreo)" ou superior.
 
 :::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Captura de tela que mostra a opção 'Atividade Vazia' selecionada na Tela do Modelo do Projeto 2.":::
 
@@ -110,8 +112,8 @@ Para solicitar as permissões necessárias para fazer uma chamada, elas precisam
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--Our calling client library depends on the Apache HTTP client library.
-When targeting Android client library 28+, this library needs to be explicitly referenced.
+        <!--Our Calling SDK depends on the Apache HTTP SDK.
+When targeting Android SDK 28+, this library needs to be explicitly referenced.
 See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apache-p-->
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity android:name=".MainActivity">
@@ -260,11 +262,11 @@ private void getAllPermissions() {
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As seguintes classes e as interfaces administram alguns dos principais recursos da biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure:
+As seguintes classes e interfaces cuidam de alguns dos principais recursos do SDK de Chamada da Interface do Usuário dos Serviços de Comunicação do Azure:
 
-| Name                                  | Descrição                                                  |
+| Nome                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| O CallClient é o ponto de entrada principal para a biblioteca de clientes de Chamada.|
+| CallClient| O CallClient é o ponto de entrada principal para o SDK de Chamada.|
 | CallAgent | O CallAgent é usado para iniciar e gerenciar chamadas. |
 | CommunicationUserCredential | O CommunicationUserCredential é usado como a credencial de token para criar uma instância do CallAgent.|
 | CommunicationIdentifier | O CommunicationIdentifier é usado como um tipo diferente de participante que poderia fazer parte de uma chamada.|
@@ -305,7 +307,7 @@ private void startCall() {
     
     StartCallOptions options = new StartCallOptions();
 
-    callAgent.call(
+    callAgent.startCall(
         getApplicationContext(),
         new CommunicationUserIdentifier[] {new CommunicationUserIdentifier(calleeId)},
         options);

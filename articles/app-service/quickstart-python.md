@@ -9,19 +9,16 @@ adobe-target: true
 adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-1
-ms.openlocfilehash: 36c1b112127fadd5149c62a92ca469322db65edd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7fa0939dabdef27366d6c5d211a4d9879046c681
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592346"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382651"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Python no Serviço de Aplicativo do Azure no Linux
 
-Neste Início Rápido, você implantará um aplicativo Web Python no [Serviço de Aplicativo no Linux](overview.md#app-service-on-linux), um serviço de hospedagem Web do Azure que é altamente escalonável e conta com aplicação automática de patch. Use a [CLI (interface de linha de comando) do Azure](/cli/azure/install-azure-cli) local em um computador Mac, Linux ou Windows para implantar um exemplo com as estruturas Flask ou Django. O aplicativo Web que você configura usa uma camada de Serviço de Aplicativo gratuita, portanto, os procedimentos neste artigo não resultam em custos para você.
-
-> [!TIP]
-> Se preferir usar o Visual Studio Code, siga nosso **[guia de início rápido do Serviço de Aplicativo do Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** .
+Neste Início Rápido, você implantará um aplicativo Web Python no [Serviço de Aplicativo no Linux](overview.md#app-service-on-linux), um serviço de hospedagem Web do Azure que é altamente escalonável e conta com aplicação automática de patch. Use a [CLI (interface de linha de comando) do Azure](/cli/azure/install-azure-cli) local em um computador Mac, Linux ou Windows para implantar um exemplo com as estruturas Flask ou Django. O aplicativo Web que você configura usa uma camada básica de Serviço de Aplicativo que gera um pequeno custo na sua assinatura do Azure.
 
 ## <a name="set-up-your-initial-environment"></a>Configurar o seu ambiente inicial
 

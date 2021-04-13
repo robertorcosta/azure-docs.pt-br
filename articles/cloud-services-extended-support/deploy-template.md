@@ -8,34 +8,33 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6cb4abd536cc0d4177df424ac6a774e4e2e328d7
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 9849648c8a0a76ff89a6f95e64eeade791e7135c
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105564748"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106381767"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implantar um Serviço de Nuvem (suporte estendido) usando modelos do ARM
 
 Este tutorial explica como usar [modelos do ARM](../azure-resource-manager/templates/overview.md) para criar uma implantação do Serviço de Nuvem (suporte estendido). 
-
-> [!IMPORTANT]
-> No momento, os Serviços de Nuvem (suporte estendido) estão em versão prévia pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 1. Examine os [pré-requisitos de implantação](deploy-prerequisite.md) dos Serviços de Nuvem (suporte estendido) e crie os recursos associados.
 
 2. Crie um grupo de recursos usando o [portal do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md) ou o [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md). Essa etapa é opcional se você está usando um grupo de recursos existente.
+
+3. Crie um endereço IP público e defina a propriedade rótulo DNS do endereço IP público. Os Serviços de Nuvem (suporte estendido) dão suporte somente aos endereços IP Públicos do SKU (https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) ) [Básico]. Os IPs públicos do SKU Standard não funcionam com os Serviços de Nuvem.
+Se você estiver usando um IP estático, ele precisará ser referenciado como um IP Reservado no arquivo de Configuração de Serviço (.cscfg). Se estiver usando um endereço IP existente, ignore esta etapa e adicione as informações de endereço IP diretamente aos parâmetros de configuração do balanceador de carga do modelo do ARM.
+
+4. Crie um objeto de perfil de rede e associe o endereço IP público ao front-end do balanceador de carga. A plataforma Azure cria automaticamente um recurso de balanceador de carga de SKU 'clássico' na mesma assinatura que o recurso de serviço de nuvem. O recurso de balanceador de carga é um recurso somente leitura no ARM. Todas as atualizações para o recurso têm suporte apenas por meio dos arquivos de implantação do serviço de nuvem (.cscfg e .csdef)
  
-3. Crie uma conta de armazenamento usando o [portal do Azure](../storage/common/storage-account-create.md?tabs=azure-portal) ou o [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Essa etapa é opcional se você está usando uma conta de armazenamento existente.
+5. Crie uma conta de armazenamento usando o [portal do Azure](../storage/common/storage-account-create.md?tabs=azure-portal) ou o [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Essa etapa é opcional se você está usando uma conta de armazenamento existente.
 
-4. Carregue os arquivos de Definição de Serviço (.csdef) e de Configuração de Serviço (.cscfg) para a conta de armazenamento usando o [portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou o [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtenha os URIs de SAS dos dois arquivos a serem adicionados ao modelo do ARM posteriormente neste tutorial.
+6. Carregue os arquivos de Definição de Serviço (.csdef) e de Configuração de Serviço (.cscfg) para a conta de armazenamento usando o [portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou o [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtenha os URIs de SAS dos dois arquivos a serem adicionados ao modelo do ARM posteriormente neste tutorial.
 
-5. (Opcional) Criar um cofre de chaves e carregar um certificado.
+6. (Opcional) Criar um cofre de chaves e carregar um certificado.
 
     -  Certificados podem ser anexados aos serviços de nuvem para habilitar a comunicação segura com o serviço. Para usar certificados, suas impressões digitais devem ser especificadas no arquivo de Configuração do Serviço (.cscfg) e carregadas em um Key Vault. Um Key Vault pode ser criado por meio do [portal do Azure](../key-vault/general/quick-create-portal.md) ou do [PowerShell](../key-vault/general/quick-create-powershell.md).
     - O Key Vault associado precisa estar localizado na mesma região e assinatura que o serviço de nuvem.
@@ -351,7 +350,7 @@ Este tutorial explica como usar [modelos do ARM](../azure-resource-manager/templ
           }
         },
         {
-          "apiVersion": "2020-10-01-preview",
+          "apiVersion": "2021-03-01",
           "type": "Microsoft.Compute/cloudServices",
           "name": "[variables('cloudServiceName')]",
           "location": "[parameters('location')]",

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 44245bc3cd9fd1afcfe9a74d60e2f51135a247ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2262290486047c225cec8e8f6bb73242df7258fa
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101734007"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106271536"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede – Azure Resource Manager
 Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo **Azure Resource Manager** por região e assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
@@ -73,12 +73,12 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Regras por NIC (em todos os IPs em uma NIC) | 300                           |
 | Configuração do IP de front-end              | 600                           |
 | Tamanho do pool de back-end                       | 1\.000 configurações de IP, rede virtual única |
-| Recursos de back-end por Load Balancer <sup>1<sup> | 250                   |
+| Recursos de back-end por Load Balancer <sup>1<sup> | 1.200                   |
 | Portas de alta disponibilidade                 | 1 por front-end interno       |
 | Regras de saída por Load Balancer        | 600                           |
 | Load Balancers por VM                   | 2 (1 público e 1 interno)   |
 
-<sup>1</sup> O limite é até 150 recursos, em qualquer combinação de recursos de máquina virtual autônoma, recursos do conjunto de disponibilidade e grupos de posicionamento de conjunto de dimensionamento da máquina virtual.
+<sup>1</sup> O limite é, no máximo, 1.200 recursos, em qualquer combinação de recursos de máquina virtual autônoma, recursos do conjunto de disponibilidade e grupos de posicionamento de conjunto de dimensionamento de máquinas virtuais.
 
 **Load Balancer Básico**
 

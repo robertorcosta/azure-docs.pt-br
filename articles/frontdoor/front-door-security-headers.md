@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 1727193faa028a1d681f2a74df950afeb9570ec9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e8462b98aee1d34b6c7a2ed671667223eca45a25
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91270042"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551910"
 ---
 # <a name="tutorial-add-security-headers-with-rules-engine"></a>Tutorial: Adicionar cabeçalhos de segurança com o Mecanismo de Regras
 
@@ -41,6 +41,9 @@ Neste tutorial, você aprenderá como:
 1. Defina o Operador como **Acréscimo** para adicionar esse cabeçalho como uma resposta a todas as solicitações de entrada para essa rota.
 
 1. Adicione o nome do cabeçalho: **Content-Security-Policy** e defina os valores que esse cabeçalho deverá aceitar. Nesse cenário, escolhemos *"script-src 'self' https://apiphany.portal.azure-api.net".*
+
+   > [!NOTE]
+   > Os valores de cabeçalho estão limitados a 128 caracteres.
 
 1. Depois de adicionar todas as regras desejadas à configuração, não se esqueça de acessar sua rota preferencial e associar a configuração do mecanismo de regras à regra de rota. Essa etapa é necessária para permitir que a regra funcione. 
 

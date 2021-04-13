@@ -10,13 +10,15 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: dedea2a622cb0eece92bb8b57871c76daa05fb68
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 30dcda4d7bb95ac59add104452415a0ddfc3c016
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495366"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106178445"
 ---
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, é preciso:
 
@@ -128,9 +130,9 @@ Este guia de início rápido não abrange a criação de uma camada de serviço 
 Saiba mais sobre os [tokens de acesso do usuário](../../access-tokens.md).
 
 ## <a name="object-model"></a>Modelo de objeto 
-As classes e as interfaces a seguir lidam com alguns dos principais recursos da biblioteca de clientes de Chat dos Serviços de Comunicação do Azure para JavaScript.
+As classes e as interfaces a seguir lidam com alguns dos principais recursos do SDK de Chat dos Serviços de Comunicação do Azure para JavaScript.
 
-| Name                                   | Descrição                                                                                                                                                                           |
+| Nome                                   | Descrição                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ChatClient | Essa classe é necessária para a funcionalidade de chat. Crie uma instância dela com suas informações de assinatura e use-a para criar, obter e excluir conversas. |
 | ChatThreadClient | Essa classe é necessária para a funcionalidade de conversa de chat. Obtenha uma instância por meio de ChatClient e use-a para enviar/receber/atualizar/excluir mensagens, adicionar/remover/obter usuários, enviar notificações de digitação e confirmações de leitura e assinar eventos de chat. |
@@ -275,5 +277,4 @@ Substitua `<USER ID>` pela ID de usuário dos Serviços de Comunicação do part
 ## <a name="run-the-code"></a>Executar o código
 
 No Xcode, pressione o botão Executar para criar e executar o projeto. No console, você pode exibir a saída do código e a saída do agente do ChatClient.
-
 

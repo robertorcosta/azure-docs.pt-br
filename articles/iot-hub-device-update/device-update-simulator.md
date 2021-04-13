@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 4740bf02c33314dd7c887356f2ef1ed12bea44cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 90e72bd12d9115e5ff95213428ae4ac37979dcf3
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443804"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120088"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Tutorial da Atualização de dispositivo do Hub IoT do Azure usando o Agente de referência do simulador do Ubuntu (18.04 x64)
 
@@ -30,10 +30,8 @@ Neste tutorial, você aprenderá a:
 > * Implantar uma atualização de imagem
 > * Monitorar a implantação da atualização
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
 ## <a name="prerequisites"></a>Pré-requisitos
-* Acesso a um Hub IoT. É recomendável usar uma camada S1 (Standard) ou posterior.
+* Se você ainda não tiver feito isso, crie uma [conta e uma instância de atualização de dispositivo](create-device-update-account.md), incluindo a configuração de um hub IoT.
 
 ### <a name="download-and-install"></a>Baixar e instalar
 
@@ -104,7 +102,7 @@ Existem duas versões do agente. Caso esteja executando um cenário baseado em i
   ```
 A Atualização de dispositivo do software do Hub IoT do Azure está sujeita aos seguintes termos de licença:
    * [Licença da atualização de dispositivo do Hub IoT](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-   * [Licença de cliente de otimização de entrega](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+   * [Licença de cliente de otimização de entrega](https://github.com/microsoft/do-client/blob/main/LICENSE)
    
 Leia os termos da licença antes de usar o agente. A instalação e o uso confirmam sua aceitação desses termos. Caso não concorde com os termos de licença, não use a Atualização de dispositivo do agente do Hub IoT.
 
@@ -149,9 +147,9 @@ Agent running. [main]
 
 1. Entre no [portal do Azure](https://portal.azure.com) e navegue até Hub IoT.
 
-2. Em "Dispositivos IoT" ou "IoT Edge" no painel de navegação esquerdo, encontre seu dispositivo IoT e navegue até Dispositivo gêmeo.
+2. Em "Dispositivos IoT" ou "IoT Edge" no painel de navegação esquerdo, encontre seu dispositivo IoT e navegue até o Dispositivo Gêmeo ou Módulo Gêmeo.
 
-3. Em Dispositivo gêmeo, exclua todos os valores de marca existentes da Atualização de dispositivo definindo-os como null.
+3. No Módulo Gêmeo do módulo de agente de Atualização de Dispositivo, exclua qualquer valor de marca de Atualização de Dispositivo existente definindo-o como nulo. Se você estiver usando a Identidade do dispositivo com o agente de Atualização de Dispositivo, faça essas alterações no Dispositivo Gêmeo.
 
 4. Adicione um novo valor de marca da Atualização de dispositivo, conforme mostrado abaixo.
 

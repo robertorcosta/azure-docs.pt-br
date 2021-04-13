@@ -1,7 +1,7 @@
 ---
-title: Visão geral da biblioteca de clientes de chamada dos Serviços de Comunicação do Azure
+title: Visão geral do SDK de Chamada dos Serviços de Comunicação do Azure
 titleSuffix: An Azure Communication Services concept document
-description: Fornece uma visão geral da biblioteca de clientes de chamada.
+description: Fornece uma visão geral do SDK de Chamada.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,25 +9,31 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e154e43f9e9378d6cccd23e2e5892f2a8ccf9a1e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ac9cef77569dffe461f7711195c5638e831aa218
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598874"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110097"
 ---
-# <a name="calling-client-library-overview"></a>Visão geral da biblioteca de clientes de chamada
+# <a name="calling-sdk-overview"></a>Visão geral do SDK de Chamada
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+O SDK de Chamada permite que os dispositivos do usuário final conduzam experiências de comunicação de voz e vídeo. Esta página fornece descrições detalhadas de recursos de Chamada, incluindo informações de suporte a plataformas e navegadores. Para começar imediatamente, confira [Guia de início rápido de Chamada](../../quickstarts/voice-video-calling/getting-started-with-calling.md) ou [Exemplo em destaque de Chamada](../../samples/calling-hero-sample.md). 
 
+Depois de começar o desenvolvimento, confira a [página de problemas conhecidos](../known-issues.md) para encontrar os bugs nos quais estamos trabalhando.
 
-Há duas famílias separadas de bibliotecas de clientes de chamada, para *clientes* e *serviços.* No momento, as bibliotecas de clientes disponíveis se destinam a experiências do usuário final: sites e aplicativos nativos.
+Principais recursos do SDK de chamada:
 
-As bibliotecas de cliente para serviços ainda não estão disponíveis e fornecem acesso aos planos de dados brutos de voz e vídeo, adequados para a integração com bots e outros serviços.
+- **Endereçamento** – os Serviços de Comunicação do Azure fornecem [identidades](../identity-model.md) genéricas que são usadas para lidar com pontos de extremidade de comunicação. Os clientes usam essas identidades para se autenticarem no serviço e se comunicarem. Essas identidades são usadas em APIs de Chamada, fornecendo aos clientes visibilidade de quem está conectado a uma chamada (a lista de participantes).
+- **Criptografia** – o SDK de Chamada criptografa o tráfego e impede a adulteração da conexão. 
+- **Gerenciamento de Dispositivos e Mídia** – o SDK de Chamada fornece recursos para associação a dispositivos de áudio e vídeo, codifica o conteúdo para transmissão eficiente no plano de dados de comunicação e renderiza o conteúdo para dispositivos de saída e exibições que você especificar. As APIs também são fornecidas para compartilhamento de tela e de aplicativo.
+- **PSTN** – o SDK de Chamada pode receber e iniciar chamadas de voz com o tradicional sistema telefônico público comutado, [usando números de telefone adquiridos no portal do Azure](../../quickstarts/telephony-sms/get-phone-number.md) ou de modo programático.
+- **Reuniões no Teams** – o SDK de Chamada pode [ingressar em reuniões do Teams](../../quickstarts/voice-video-calling/get-started-teams-interop.md) e interagir com o plano de dados de voz e vídeo do Teams. 
+- **Notificações** – o SDK de Chamada fornece APIs que permitem que os clientes sejam notificados de uma chamada de entrada. Em situações em que seu aplicativo não está em execução em primeiro plano, os padrões estão disponíveis para [acionar notificações pop-up](../notifications.md) ("notificações do sistema") para informar os usuários finais de uma chamada de entrada. 
 
-## <a name="calling-client-library-capabilities"></a>Funcionalidades da biblioteca de clientes de chamada
+## <a name="detailed-capabilities"></a>Funcionalidades detalhadas 
 
-A lista a seguir apresenta o conjunto de recursos que estão disponíveis atualmente nas bibliotecas de clientes de chamada dos Serviços de Comunicação do Azure.
+A lista a seguir apresenta o conjunto de recursos que estão disponíveis nos SDKs de Chamada dos Serviços de Comunicação do Azure.
 
 | Grupo de recursos | Funcionalidade                                                                                                          | JS  | Java (Android) | Objective-C (iOS)
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
@@ -36,30 +42,30 @@ A lista a seguir apresenta o conjunto de recursos que estão disponíveis atualm
 |                   | Promover uma chamada de um-para-um com dois usuários em uma chamada de grupo com mais de dois usuários                                 | ✔️   | ✔️            | ✔️
 |                   | Ingressar em uma chamada de grupo depois que ela for iniciada                                                                              | ✔️   | ✔️            | ✔️
 |                   | Convidar outro participante de VoIP para ingressar em uma chamada de grupo em andamento                                                       | ✔️   | ✔️            | ✔️
-|  Controle de chamada média | Ativar/desativar seu vídeo                                                                                              | ✔️   | ✔️            | ✔️ 
-|                   | Ativar/desativar mudo do microfone                                                                                                     | ✔️   | ✔️            | ✔️         
-|                   | Alternar entre câmeras                                                                                              | ✔️   | ✔️            | ✔️           
-|                   | Ativar/desativar colocação em espera local                                                                                                  | ✔️   | ✔️            | ✔️           
-|                   | Alto-falante ativo                                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Escolher alto-falante para chamadas                                                                                            | ✔️   | ✔️            | ✔️           
-|                   | Escolher microfone para chamadas                                                                                         | ✔️   | ✔️            | ✔️           
-|                   | Mostrar o estado de um participante<br/>*Ocioso, Mídia inicial, Conectando, Conectado, Em espera, No lobby, Desconectado*         | ✔️   | ✔️            | ✔️           
-|                   | Mostrar o estado de uma chamada<br/>*Mídia inicial, Realizando, Conectando, Tocando, Conectada, Em espera, Desconectando, Desconectada* | ✔️   | ✔️            | ✔️           
-|                   | Mostrar se um participante está mudo                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Mostrar o motivo pelo qual um participante saiu de uma chamada                                                                       | ✔️   | ✔️            | ✔️     
-| Compartilhamento de tela    | Compartilhar a tela inteira de dentro do aplicativo                                                                 | ✔️   | ❌            | ❌           
-|                   | Compartilhar um aplicativo específico (na lista de aplicativos em execução)                                                | ✔️   | ❌            | ❌           
-|                   | Compartilhar uma guia do navegador da Web na lista de guias abertas                                                                  | ✔️   | ❌            | ❌           
-|                   | O participante pode exibir o compartilhamento de tela remoto                                                                            | ✔️   | ✔️            | ✔️         
-| Lista de participantes            | Listar participantes                                                                                                   | ✔️   | ✔️            | ✔️           
-|                   | Remover um participante                                                                                                | ✔️   | ✔️            | ✔️         
-| PSTN              | Fazer uma chamada um-para-um com um participante PSTN                                                                     | ✔️   | ✔️            | ✔️   
+|  Controle de chamada média | Ativar/desativar seu vídeo                                                                                              | ✔️   | ✔️            | ✔️
+|                   | Ativar/desativar mudo do microfone                                                                                                     | ✔️   | ✔️            | ✔️
+|                   | Alternar entre câmeras                                                                                              | ✔️   | ✔️            | ✔️
+|                   | Ativar/desativar colocação em espera local                                                                                                  | ✔️   | ✔️            | ✔️
+|                   | Alto-falante ativo                                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Escolher alto-falante para chamadas                                                                                            | ✔️   | ✔️            | ✔️
+|                   | Escolher microfone para chamadas                                                                                         | ✔️   | ✔️            | ✔️
+|                   | Mostrar o estado de um participante<br/>*Ocioso, Mídia inicial, Conectando, Conectado, Em espera, No lobby, Desconectado*         | ✔️   | ✔️            | ✔️
+|                   | Mostrar o estado de uma chamada<br/>*Mídia inicial, Realizando, Conectando, Tocando, Conectada, Em espera, Desconectando, Desconectada* | ✔️   | ✔️            | ✔️
+|                   | Mostrar se um participante está mudo                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Mostrar o motivo pelo qual um participante saiu de uma chamada                                                                       | ✔️   | ✔️            | ✔️
+| Compartilhamento de tela    | Compartilhar a tela inteira de dentro do aplicativo                                                                 | ✔️   | ❌            | ❌
+|                   | Compartilhar um aplicativo específico (na lista de aplicativos em execução)                                                | ✔️   | ❌            | ❌
+|                   | Compartilhar uma guia do navegador da Web na lista de guias abertas                                                                  | ✔️   | ❌            | ❌
+|                   | O participante pode exibir o compartilhamento de tela remoto                                                                            | ✔️   | ✔️            | ✔️
+| Lista de participantes            | Listar participantes                                                                                                   | ✔️   | ✔️            | ✔️
+|                   | Remover um participante                                                                                                | ✔️   | ✔️            | ✔️
+| PSTN              | Fazer uma chamada um-para-um com um participante PSTN                                                                     | ✔️   | ✔️            | ✔️
 |                   | Fazer uma chamada de grupo com participantes PSTN                                                                           | ✔️   | ✔️            | ✔️
 |                   | Promover uma chamada um-para-um com um participante PSTN em uma chamada de grupo                                                 | ✔️   | ✔️            | ✔️
-|                   | Discar de uma chamada de grupo como um participante PSTN                                                                    | ✔️   | ✔️            | ✔️   
-| Geral           | Teste o microfone, o alto-falante e a câmera com um serviço de teste de áudio (disponível chamando 8:echo123)                   | ✔️   | ✔️            | ✔️ 
+|                   | Discar de uma chamada de grupo como um participante PSTN                                                                    | ✔️   | ✔️            | ✔️
+| Geral           | Teste o microfone, o alto-falante e a câmera com um serviço de teste de áudio (disponível chamando 8:echo123)                   | ✔️   | ✔️            | ✔️
 | Gerenciamento de Dispositivo | Solicitar permissão para usar áudio e/ou vídeo                                                                       | ✔️   | ✔️            | ✔️
-|                   | Obter lista de câmeras                                                                                                     | ✔️   | ✔️            | ✔️ 
+|                   | Obter lista de câmeras                                                                                                     | ✔️   | ✔️            | ✔️
 |                   | Definir a câmera                                                                                                          | ✔️   | ✔️            | ✔️
 |                   | Obter a câmera selecionada                                                                                                 | ✔️   | ✔️            | ✔️
 |                   | Obter lista de microfones                                                                                                 | ✔️   | ✔️            | ✔️
@@ -69,16 +75,36 @@ A lista a seguir apresenta o conjunto de recursos que estão disponíveis atualm
 |                   | Definir o alto-falante                                                                                                         | ✔️   | ✔️            | ✔️
 |                   | Obter o alto-falante selecionado                                                                                                | ✔️   | ✔️            | ✔️
 | Renderização de vídeo   | Renderizar um vídeo único em vários locais (câmera local ou fluxo remoto)                                                  | ✔️   | ✔️            | ✔️
-|                   | Definir/atualizar o modo de dimensionamento                                                                                           | ✔️   | ✔️            | ✔️ 
+|                   | Definir/atualizar o modo de dimensionamento                                                                                           | ✔️   | ✔️            | ✔️
 |                   | Renderizar um fluxo de vídeo remoto                                                                                          | ✔️   | ✔️            | ✔️
 
+## <a name="calling-sdk-streaming-support"></a>Suporte para streaming do SDK de Chamada
+O SDK de Chamada dos Serviços de Comunicação dá suporte às seguintes configurações de streaming:
 
+| Limite          |Web | Android/iOS|
+|-----------|----|------------|
+|**Nº de fluxos de saída que podem ser enviados simultaneamente** |1 vídeo ou 1 compartilhamento de tela | 1 vídeo + 1 compartilhamento de tela|
+|**Nº de fluxos de entrada que podem ser renderizados simultaneamente** |1 vídeo ou 1 compartilhamento de tela| 6 vídeos + 1 compartilhamento de tela |
 
-## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Suporte para bibliotecas de clientes de Chamada ao JavaScript por SO e navegador
+## <a name="calling-sdk-timeouts"></a>Tempos limite do SDK de Chamada
+
+Os seguintes tempos limite se aplicam aos SDKs de Chamada dos Serviços de Comunicação:
+
+| Ação           | Tempo limite em segundos |
+| -------------- | ---------- |
+| Reconectar/remover participante | 120 |
+| Adicionar ou remover nova modalidade de uma chamada (iniciar/parar o vídeo ou compartilhamento de tela) | 40 |
+| Tempo limite da operação de Transferência de Chamada | 60 |
+| Tempo limite de estabelecimento de chamada 1:1 | 85 |
+| Tempo limite de estabelecimento de chamada de grupo | 85 |
+| Tempo limite de estabelecimento de chamada PSTN | 115 |
+| Tempo limite para promover chamada 1:1 a chamada de grupo | 115 |
+
+## <a name="javascript-calling-sdk-support-by-os-and-browser"></a>Suporte ao SDK de Chamada JavaScript por sistema operacional e navegador
 
 A tabela a seguir representa um conjunto de navegadores compatíveis que atualmente estão disponíveis. Damos suporte às três versões mais recentes do navegador, a menos que seja indicado de outro modo.
 
-|                                  | Chrome | Safari*  | Edge (Chromium) | 
+| Plataforma                         | Chrome | Safari*  | Edge (Chromium) |
 | -------------------------------- | -------| ------  | --------------  |
 | Android                          |  ✔️    | ❌     | ❌             |
 | iOS                              |  ❌    | ✔️**** | ❌             |
@@ -86,9 +112,9 @@ A tabela a seguir representa um conjunto de navegadores compatíveis que atualme
 | Windows***                       |  ✔️    | ❌     | ✔️             |
 | Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
 
-*As versões do Safari 13.1+ têm suporte, chamadas individuais no Safari não têm suporte. 
+*As versões do Safari 13.1+ têm suporte, chamadas individuais no Safari não têm suporte.
 
-**O Safari 14+ e o macOS 11+ são necessários para obter suporte ao vídeo de saída. 
+**O Safari 14+ e o macOS 11+ são necessários para obter suporte ao vídeo de saída.
 
 ***O compartilhamento da tela de saída é compatível somente com plataformas de desktop (Windows, macOS e Linux), não importa a versão do navegador. Além disso, ele não é compatível com plataformas móveis (Android, iOS, iPad e tablets).
 
@@ -114,15 +140,6 @@ Por exemplo, esse iframe permite o acesso à câmera e ao microfone:
 ```html
 <iframe allow="camera *; microphone *">
 ```
-
-## <a name="calling-client-library-streaming-support"></a>Como chamar o suporte de streaming da biblioteca de clientes
-A biblioteca de clientes de chamada dos Serviços de Comunicação dá suporte às seguintes configurações de streaming:
-
-|           |Web | Android/iOS|
-|-----------|----|------------|
-|**Nº de fluxos de saída que podem ser enviados simultaneamente** |1 vídeo ou 1 compartilhamento de tela | 1 vídeo + 1 compartilhamento de tela|
-|**Nº de fluxos de entrada que podem ser renderizados simultaneamente** |1 vídeo ou 1 compartilhamento de tela| 6 vídeos + 1 compartilhamento de tela |
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

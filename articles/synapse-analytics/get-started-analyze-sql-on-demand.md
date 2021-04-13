@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 5f0a7477df2e281748c053ea8c7e7d3e79626296
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0ef76be2c083d6185b8b919d174de28aa3b65446
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588011"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106293763"
 ---
 # <a name="analyze-data-with-a-serverless-sql-pool"></a>Analisar dados com um pool de SQL sem servidor
 
-Neste tutorial, você aprenderá a analisar dados com o pool de SQL sem servidor usando dados localizados em bancos de dados do Spark. 
+Neste tutorial, você aprenderá a analisar dados com o pool de SQL sem servidor. 
 
 ## <a name="the-built-in-serverless-sql-pool"></a>O pool de SQL sem servidor interno
 

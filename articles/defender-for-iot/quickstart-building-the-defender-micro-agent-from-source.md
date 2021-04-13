@@ -1,16 +1,16 @@
 ---
-title: Criar o microagente do Defender com base no código-fonte (versão prévia)
-description: O microagente inclui uma infraestrutura, que pode ser usada para personalizar sua distribuição.
+title: 'Guia de início rápido: Compilar o microagente do Defender com base no código-fonte (versão prévia)'
+description: Neste guia de início rápido, saiba mais sobre o microagente, que inclui uma infraestrutura que pode ser usada para personalizar a distribuição.
 ms.date: 1/18/2021
 ms.topic: quickstart
-ms.openlocfilehash: aac9bf224064dd8393acfeb2928f5ed2d1f84381
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: a3a8f82989d6abbaf2657e4b45638c77b3b2f704
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781102"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384590"
 ---
-# <a name="build-the-defender-micro-agent-from-source-code-preview"></a>Criar o microagente do Defender com base no código-fonte (versão prévia)
+# <a name="quickstart-build-the-defender-micro-agent-from-source-code-preview"></a>Guia de início rápido: Compilar o microagente do Defender com base no código-fonte (versão prévia)
 
 O microagente inclui uma infraestrutura, que pode ser usada para personalizar sua distribuição. Para ver uma lista dos parâmetros de configuração disponíveis, confira o arquivo `configs/LINUX_BASE.conf`.
 
@@ -32,17 +32,7 @@ Para substituir os valores:
 
     `cmake -DCMAKE_BUILD_TYPE=Debug -Dlog_level=DEBUG -Dlog_level_cmdline:BOOL=ON -DIOT_SECURITY_MODULE_DIST_TARGET=UBUNTU1804 ..` 
 
-## <a name="baseline-configuration-signing"></a>Assinatura da configuração de linha de base 
-
-Por padrão, o agente verifica a autenticidade dos arquivos de configuração que são colocados no disco para atenuar a adulteração.
-
-Você pode interromper esse processo definindo o sinalizador de pré-processador `ASC_BASELINE_CONF_SIGN_CHECK_DISABLE`.
-
-Não recomendamos desativar a verificação de assinatura em ambientes de produção. 
-
-Caso precise de outra configuração para cenários de produção, entre em contato com a equipe do Defender para IoT. 
-
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Entre em contato com seu gerente de conta para solicitar o acesso ao código-fonte do Defender para IoT.
  
@@ -77,7 +67,17 @@ Caso precise de outra configuração para cenários de produção, entre em cont
 
 1. (Opcional) Baixe e instale o [VS Code](https://code.visualstudio.com/download ) 
 
-1. (Opcional) Instale a [extensão do C/C++](https://code.visualstudio.com/docs/languages/cpp ) para VS Code.
+1. (Opcional) Instale a [extensão do C/C++](https://code.visualstudio.com/docs/languages/cpp ) para VS Code. – Nenhum
+
+## <a name="baseline-configuration-signing"></a>Assinatura da configuração de linha de base 
+
+Por padrão, o agente verifica a autenticidade dos arquivos de configuração que são colocados no disco para atenuar a adulteração.
+
+Você pode interromper esse processo definindo o sinalizador de pré-processador `ASC_BASELINE_CONF_SIGN_CHECK_DISABLE`.
+
+Não recomendamos desativar a verificação de assinatura em ambientes de produção. 
+
+Caso precise de outra configuração para cenários de produção, entre em contato com a equipe do Defender para IoT. 
 
 ## <a name="building-the-defender-iot-micro-agent"></a>Como criar o microagente do Defender para IoT 
 

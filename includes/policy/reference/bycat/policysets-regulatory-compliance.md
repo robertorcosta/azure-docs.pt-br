@@ -2,22 +2,22 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f929b5d3c285752a14bea34cf043c1eeb496c506
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 7b618a19f6e6a3510b3d587970124e5a7c12b309
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105032610"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090033"
 ---
 |Nome |Descrição |Políticas |Versão |
 |---|---|---|---|
 |[\[Versão prévia\]: PROTEGIDO POR ISM do Governo Australiano](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/IRAP_Audit.json) |Essa iniciativa inclui políticas de auditoria e de implantação de extensão de máquina virtual que abordam um subconjunto de controles do ISM (manual de segurança de informações) do governo australiano. Políticas adicionais serão adicionadas em versões futuras. Para obter mais informações, visite [https://aka.ms/AustralianGovernmentISM-blueprint](https://aka.ms/AustralianGovernmentISM-blueprint). |61 |4.0.1-preview |
 |[PBMM Federal do Canadá](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |Essa iniciativa inclui políticas de implantação de auditoria e extensão de máquina virtual que abordam um subconjunto de controles PBMM federais do Canadá. Políticas adicionais serão adicionadas em versões futuras. Para obter mais informações, visite [https://aka.ms/canadafederalpbmm-blueprint](https://aka.ms/canadafederalpbmm-blueprint). |59 |5.0.0 |
-|[CIS Microsoft Azure Foundations Benchmark 1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0.json) |Essa iniciativa inclui políticas que abordam um subconjunto de recomendações do CIS Microsoft Azure Foundations Benchmark. Políticas adicionais serão adicionadas em versões futuras. Para obter mais informações, visite [https://aka.ms/cisazure110-initiative](https://aka.ms/cisazure110-initiative). |92 |9.0.0 |
-|[\[Versão prévia\]: CIS Microsoft Azure Foundations Benchmark 1.3.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_3_0.json) |Essa iniciativa inclui políticas que abordam um subconjunto de recomendações do CIS Microsoft Azure Foundations Benchmark. Políticas adicionais serão adicionadas em versões futuras. Para obter mais informações, visite [https://aka.ms/cisazure130-initiative](https://aka.ms/cisazure130-initiative). |104 |1.0.0 – versão prévia |
+|[CIS Microsoft Azure Foundations Benchmark v1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0.json) |Essa iniciativa inclui políticas que abordam um subconjunto de recomendações do CIS Microsoft Azure Foundations Benchmark. Políticas adicionais serão adicionadas em versões futuras. Para obter mais informações, visite [https://aka.ms/cisazure110-initiative](https://aka.ms/cisazure110-initiative). |99 |10.0.0 |
+|[\[Versão prévia\]: CIS Microsoft Azure Foundations Benchmark v1.3.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_3_0.json) |Essa iniciativa inclui políticas que abordam um subconjunto de recomendações do CIS Microsoft Azure Foundations Benchmark. Políticas adicionais serão adicionadas em versões futuras. Para obter mais informações, visite [https://aka.ms/cisazure130-initiative](https://aka.ms/cisazure130-initiative). |104 |1.0.1-preview |
 |[\[Versão prévia\]: CMMC nível 3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CMMC_L3.json) |Essa iniciativa inclui políticas que abordam um subconjunto de requisitos do CMMC (Cybersecurity Maturity Model Certification) nível 3. Políticas adicionais serão adicionadas em versões futuras. Para obter mais informações, visite [https://aka.ms/cmmc-initiative](https://aka.ms/cmmc-initiative). |183 |3.0.0 – versão prévia |
 |[FedRAMP High](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Essa iniciativa inclui políticas de implantação de auditoria e extensão de máquina virtual que abordam um subconjunto de controles FedRAMP H. Políticas adicionais serão adicionadas em versões futuras. Para obter mais informações, visite [https://aka.ms/fedramph-blueprint](https://aka.ms/fedramph-blueprint). |71 |4.0.1 |
 |[FedRAMP Moderado](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_M_audit.json) |Essa iniciativa inclui políticas de implantação de auditoria e extensão de máquina virtual que abordam um subconjunto de controles FedRAMP M. Políticas adicionais serão adicionadas em versões futuras. Para obter mais informações, visite [https://aka.ms/fedrampm-blueprint](https://aka.ms/fedrampm-blueprint). |62 |4.0.1 |

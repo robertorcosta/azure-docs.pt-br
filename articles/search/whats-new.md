@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 03/12/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8e78fa46125b8aca378598c673ba76829e11d70e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b9ae576a2d0ab8aee00be5b755c348806b412bef
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600421"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108482"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades no Azure Cognitive Search
 
@@ -23,10 +23,12 @@ Conheça o que há de novo no serviço. Marque esta página para manter-se atual
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descrição | Disponibilidade  |
 |------------------------------|---------------|---------------|
-| [Pesquisa semântica](semantic-search-overview.md) | Uma coleção de recursos relacionados à consulta que aprimoram significativamente a relevância dos resultados da pesquisa com pouquíssimo esforço. </br></br>A [classificação semântica](semantic-ranking.md) calcula pontuações de relevância usando o significado semântico por trás das palavras e do conteúdo. </br></br>As [legendas semânticas](semantic-how-to-query-request.md) são passagens relevantes do documento que melhor o resumem, com destaques sobre os termos ou as frases mais importantes. </br></br>As [respostas semânticas](semantic-answers.md) são passagens importantes, extraídas de um documento de pesquisa, que são formuladas como uma resposta direta a uma consulta que se parece com uma pergunta. | Versão prévia pública ([por solicitação](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use a api-version=2020-06-30-Preview de [Pesquisar documentos (REST)](/rest/api/searchservice/preview-api/search-documents) e o [Gerenciador de pesquisa](search-explorer.md) no portal do Azure. </br></br>Aplicam-se restrições de região e nível. |
+| [Pesquisa semântica](semantic-search-overview.md) | Uma coleção de recursos relacionados a consulta que aprimoram significativamente a relevância dos resultados da pesquisa por meio de ajustes mínimos a uma solicitação de consulta. </br></br>A [classificação semântica](semantic-ranking.md) calcula pontuações de relevância usando o significado semântico por trás das palavras e do conteúdo. </br></br>As [legendas semânticas](semantic-how-to-query-request.md) retornam passagens relevantes do documento que melhor o resumem, com destaques sobre os termos ou as frases mais importantes. </br></br>As [respostas semânticas](semantic-answers.md) retornam passagens importantes, extraídas de um documento de pesquisa, que são formuladas como uma resposta direta a uma consulta que se parece com uma pergunta. | Versão prévia pública ([por solicitação](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use a api-version=2020-06-30-Preview de [Pesquisar Documentos (REST)](/rest/api/searchservice/preview-api/search-documents) ou o [Gerenciador de pesquisa](search-explorer.md) no portal do Azure. </br></br>Aplicam-se restrições de região e nível. |
 | [Verificação ortográfica dos termos da consulta](speller-how-to-add.md) | Antes que os termos da consulta cheguem ao mecanismo de pesquisa, você pode solicitar a verificação de erros ortográficos. A opção `speller` funciona com qualquer tipo de consulta (simples, completa ou semântica). |  Visualização pública, somente REST, api-version=2020-06-30-Preview|
 | [Indexador do SharePoint Online](search-howto-index-sharepoint-online.md) | Este indexador conecta você a um site do SharePoint Online para que possa indexar o conteúdo de uma biblioteca de documentos. | Visualização pública, somente REST, api-version=2020-06-30-Preview |
 | [Normalizadores](search-normalizers.md) | Os normalizadores fornecem pré-processamento de texto simples como maiúsculas e minúsculas, remoção de acentos, asciifolding e assim por diante, sem passar por toda a cadeia de análise.| Visualização pública, somente REST, api-version=2020-06-30-Preview |
+[**Habilidade de Pesquisa de Entidade Personalizada**](cognitive-search-skill-custom-entity-lookup.md ) |  Uma habilidade cognitiva que procura o texto de uma lista personalizada e definida pelo usuário de palavras e frases. Usando essa lista, ela rotula todos os documentos com entidades correspondentes. A habilidade também dá suporte a um grau de correspondência difusa que pode ser aplicado para localizar correspondências semelhantes, mas não exatas. | Em disponibilidade geral. |
+|
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 

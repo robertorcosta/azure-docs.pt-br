@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: 7fc1822c219c6c881e3d788f6b0e56675cecc466
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0939216e1d96e898d7c45b9e7a3ec72453b263d6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102445609"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105957974"
 ---
 Comece a usar o reconhecimento facial usando a biblioteca de clientes de Detecção Facial para Python. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O serviço de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
@@ -22,7 +22,7 @@ Use a biblioteca de clientes de Detecção Facial para Python para:
 
 * [Detectar faces em uma imagem](#detect-faces-in-an-image)
 * [Encontrar rostos semelhantes](#find-similar-faces)
-* [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group)
+* [Criar e treinar um PersonGroup](#create-and-train-a-persongroup)
 * [Identificar um rosto](#identify-a-face)
 * [Verificar rostos](#verify-faces)
 
@@ -86,7 +86,7 @@ Estes snippets de código mostram como realizar as seguintes tarefas com a bibli
 * [Autenticar o cliente](#authenticate-the-client)
 * [Detectar faces em uma imagem](#detect-faces-in-an-image)
 * [Encontrar rostos semelhantes](#find-similar-faces)
-* [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group)
+* [Criar e treinar um PersonGroup](#create-and-train-a-persongroup)
 * [Identificar um rosto](#identify-a-face)
 * [Verificar rostos](#verify-faces)
 
@@ -133,7 +133,7 @@ Use o código a seguir para imprimir os detalhes da correspondência no console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar_print)]
 
-## <a name="create-and-train-a-person-group"></a>Criar e treinar um grupo de pessoas
+## <a name="create-and-train-a-persongroup"></a>Criar e treinar um PersonGroup
 
 O código a seguir cria um **PersonGroup** com três objetos **Person** diferentes. Ele associa cada **Person** a um conjunto de imagens de exemplo e, em seguida, treina para ser capaz de reconhecer cada pessoa. 
 
@@ -174,7 +174,7 @@ Depois de atribuir os rostos, você precisa treinar o **PersonGroup** para que e
 A operação Identificar usa uma imagem de uma pessoa (ou de várias pessoas) e procura encontrar a identidade de cada rosto na imagem (pesquisa de reconhecimento facial). Ele compara cada rosto detectado com um **PersonGroup**, um banco de dados de diferentes objetos **Person** cujas características faciais são conhecidas.
 
 > [!IMPORTANT]
-> Para executar este exemplo, você deve primeiro executar o código em [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group).
+> Para executar este exemplo, primeiro você precisa executar o código em [Criar e treinar um PersonGroup](#create-and-train-a-persongroup).
 
 ### <a name="get-a-test-image"></a>Obter uma imagem de teste
 

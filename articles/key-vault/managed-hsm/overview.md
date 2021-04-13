@@ -7,15 +7,15 @@ ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/15/2020
+ms.date: 04/01/2021
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: 95feeebf009cae22cf3952df80596c12e75cbe4b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 605e3f0451cc2029ecc98e42741f30a2d3ef190b
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94357565"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167950"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>O que é o HSM Gerenciado do Azure Key Vault (versão prévia)?
 
@@ -36,6 +36,7 @@ O HSM Gerenciado do Azure Key Vault é um serviço de nuvem em conformidade com 
 - **Controle de acesso isolado**: o modelo de controle de acesso "RBAC local" do HSM Gerenciado permite que os administradores de cluster do HSM designados tenham controle total sobre os HSMs que nem mesmo administradores de grupo de recursos, assinatura ou grupo de gerenciamento podem substituir.
 - **HSMs validados para FIPS 140-2 Nível 3**: proteja seus dados e cumpra os requisitos de conformidade com HSMs validados para FIPS (Federal Information Protection Standard) 140-2 Nível 3. Os HSMs gerenciados usam adaptadores HSM Marvell LiquidSecurity.
 - **Monitorar e auditar**: totalmente integrado ao Azure Monitor. Obtenha logs completos de todas as atividades por meio do Azure Monitor. Use o Log Analytics do Azure para análise e alertas.
+- **Residência de dados**: o HSM gerenciado não armazena/processa dados do cliente fora da região em que o cliente implanta a instância do HSM.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integrado ao Azure e aos serviços de PaaS/SaaS da Microsoft 
 

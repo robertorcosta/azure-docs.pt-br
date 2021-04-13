@@ -8,12 +8,12 @@ ms.author: ddematheu2
 ms.date: 03/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 41d959468e3183af00d2ab514e7c1bf0a134a1f8
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 5b71a0581bf4f9d8239171e6abc56f87e7ae8183
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490460"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105152805"
 ---
 ## <a name="download-code"></a>Código de download
 
@@ -76,7 +76,7 @@ Agora, vamos continuar instalando as bibliotecas dos Serviços de Comunicação 
 
 Usaremos a biblioteca `Identity` para gerar `User Access Tokens`.
 
-Use o comando `npm install` para instalar a biblioteca de clientes da Identidade dos Serviços de Comunicação do Azure para JavaScript.
+Use o comando `npm install` para instalar o SDK de Identidade dos Serviços de Comunicação do Azure para JavaScript.
 
 ```console
 
@@ -104,7 +104,7 @@ const connectionString = 'INSERT YOUR RESOURCE CONNECTION STRING'
 
 Em seguida, modificaremos a função original para gerar `User Access Tokens`.
 
-`User Access Tokens` são gerados criando um usuário pelo método `createUser`. Depois que o usuário é criado, podemos usar o método `issueToken` para gerar um token para ele, que a função do Azure retorna.
+`User Access Tokens` são gerados criando um usuário pelo método `createUser`. Depois que o usuário é criado, podemos usar o método `getToken` para gerar um token para ele, que a função do Azure retorna.
 
 Para este exemplo, vamos configurar o escopo do token para `voip`. Outros escopos podem ser necessários para seu aplicativo. Saiba mais sobre os [escopos](../../quickstarts/access-tokens.md)
 
@@ -114,7 +114,7 @@ module.exports = async function (context, req) {
 
     const user = await tokenClient.createUser();
 
-    const userToken = await tokenClient.issueToken(user, ["voip"]);
+    const userToken = await tokenClient.getToken(user, ["voip"]);
 
     context.res = {
         body: userToken

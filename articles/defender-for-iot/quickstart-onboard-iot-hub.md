@@ -1,14 +1,14 @@
 ---
 title: 'Início rápido: integrar o Defender para IoT a uma solução baseada em agente'
-description: Neste início rápido você aprenderá como integrar e habilitar o serviço de segurança do Defender para IoT no Hub IoT do Azure.
+description: Neste guia de início rápido, você aprenderá a integrar e habilitar o serviço de segurança do Defender para IoT no Hub IoT do Azure.
 ms.topic: quickstart
 ms.date: 1/20/2021
-ms.openlocfilehash: b795773ae0eb667cf7f53f4209b6476ba937b17f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 2704f8989ab39825cef052ca5556a2e6461efe75
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780949"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384486"
 ---
 # <a name="quickstart-onboard-defender-for-iot-to-an-agent-based-solution"></a>Início rápido: integrar o Defender para IoT a uma solução baseada em agente
 

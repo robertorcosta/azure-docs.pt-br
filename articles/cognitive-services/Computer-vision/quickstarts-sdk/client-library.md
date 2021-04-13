@@ -1,14 +1,14 @@
 ---
-title: 'Início Rápido: Biblioteca de clientes da Pesquisa Visual Computacional'
+title: 'Guia de início rápido: Biblioteca de clientes ou API REST de Leitura'
 titleSuffix: Azure Cognitive Services
-description: Saiba como usar a Pesquisa Visual Computacional do Azure em seu aplicativo por meio de uma biblioteca de clientes nativa no idioma da sua escolha.
+description: Saiba como usar o OCR (reconhecimento óptico de caracteres) no seu aplicativo por meio de uma biblioteca de clientes nativa na linguagem de sua escolha.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/15/2020
+ms.date: 03/21/2020
 ms.author: pafarley
 ms.custom:
 - devx-track-python
@@ -17,16 +17,16 @@ ms.custom:
 - cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-computer-vision
 keywords: computer vision, computer vision service
-ms.openlocfilehash: 50976de4a60e5330740bcbf387d74c505316c0cf
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 865002fbc9e492b43b9c572468f722c85c6cc4b8
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560807"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284731"
 ---
-# <a name="quickstart-use-the-computer-vision-client-library"></a>Início Rápido: usar a biblioteca de clientes da Pesquisa Visual Computacional
+# <a name="quickstart-use-the-read-client-library-or-rest-api"></a>Guia de início rápido: Usar a biblioteca de clientes ou a API REST de Leitura
 
-Introdução às API REST ou bibliotecas de clientes da Pesquisa Visual Computacional. O serviço Pesquisa Visual Computacional fornece algoritmos de IA para processar imagens e retornar informações sobre os recursos visuais delas. Siga essas etapas para instalar um pacote para seu aplicativo e experimentar o código de exemplo para tarefas básicas.
+Introdução à API REST ou às bibliotecas de clientes de Leitura. O serviço de Leitura fornece algoritmos de IA para extrair o texto visível de imagens e retorná-lo como cadeias de caracteres estruturadas. Siga essas etapas para instalar um pacote para seu aplicativo e experimentar o código de exemplo para tarefas básicas.
 
 
 

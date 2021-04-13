@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ca689df97e7268a5c0f7c0479e6514b98ffda9f2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 143a7c411bea6a451645c860b7b5d12d2aa8d9f5
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443447"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121329"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Tutorial de Atualização de dispositivo do Hub IoT do Azure usando a imagem de referência do Raspberry Pi 3 B+
 
@@ -30,10 +30,8 @@ Neste tutorial, você aprenderá a:
 > * Implantar uma atualização de imagem
 > * Monitorar a implantação da atualização
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
 ## <a name="prerequisites"></a>Pré-requisitos
-* Acesso a um Hub IoT. É recomendável usar uma camada S1 (Standard) ou posterior.
+* Se você ainda não tiver feito isso, crie uma [conta e uma instância de atualização de dispositivo](create-device-update-account.md), incluindo a configuração de um Hub IoT.
 
 ## <a name="download-image"></a>Baixar a imagem
 
@@ -75,7 +73,7 @@ Usando sua ferramenta de atualização de SO favorita, instale a imagem de base 
    
 A Atualização de dispositivo do software do Hub IoT do Azure está sujeita aos seguintes termos de licença:
    * [Licença da atualização de dispositivo do Hub IoT](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-   * [Licença de cliente de otimização de entrega](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+   * [Licença de cliente de otimização de entrega](https://github.com/microsoft/do-client/blob/main/LICENSE)
    
 Leia os termos da licença antes de usar o agente. A instalação e o uso confirmam sua aceitação desses termos. Caso não concorde com os termos de licença, não use a Atualização de dispositivo do agente do Hub IoT.
 
@@ -83,7 +81,7 @@ Leia os termos da licença antes de usar o agente. A instalação e o uso confir
 
 Agora, o dispositivo precisa ser adicionado ao Hub IoT do Azure.  De dentro do Hub IoT do Azure, será gerada uma cadeia de conexão para o dispositivo.
 
-1. No portal do Azure, inicie a Atualização de dispositivo do Hub IoT.
+1. No portal do Azure, inicie o Hub IoT do Azure.
 2. Crie um novo dispositivo.
 3. No lado esquerdo da página, navegue até "Explorers" > "Dispositivos IoT" > e selecione "Novo".
 4. Dê um nome para o dispositivo em "ID do dispositivo"— verifique se a caixa de seleção "Gerar chaves automaticamente" está marcada.
@@ -105,9 +103,9 @@ Agora, o dispositivo precisa ser adicionado ao Hub IoT do Azure.  De dentro do H
  
 Substitua `<device connection string>` por sua cadeia de conexão
  ```markdown
-    echo "connection_string=<device connection string>" > adu-conf.txt  
-    echo "aduc_manufacturer=ADUTeam" >> adu-conf.txt
-    echo "aduc_model=RefDevice" >> adu-conf.txt
+    echo "connection_string=<device connection string>" > /adu/adu-conf.txt  
+    echo "aduc_manufacturer=ADUTeam" >> /adu/adu-conf.txt
+    echo "aduc_model=RefDevice" >> /adu/adu-conf.txt
    ```
 
 ## <a name="connect-the-device-in-device-update-iot-hub"></a>Conectar o dispositivo na Atualização de dispositivo do Hub IoT
@@ -129,9 +127,9 @@ Use esse número de versão na etapa de Atualização de importação abaixo.
 
 1. Entre no [portal do Azure](https://portal.azure.com) e navegue até Hub IoT.
 
-2. Em "Dispositivos IoT" ou "IoT Edge" no painel de navegação esquerdo, encontre seu dispositivo IoT e navegue até Dispositivo gêmeo.
+2. Em "Dispositivos IoT" ou "IoT Edge" no painel de navegação esquerdo, encontre seu dispositivo IoT e navegue até o Dispositivo Gêmeo ou Módulo Gêmeo.
 
-3. Em Dispositivo gêmeo, exclua todos os valores de marca existentes da Atualização de dispositivo definindo-os como null.
+3. No Módulo Gêmeo do módulo de agente de Atualização de Dispositivo, exclua qualquer valor de marca de Atualização de Dispositivo existente definindo-o como nulo. Se você estiver usando a Identidade do dispositivo com o agente de Atualização de Dispositivo, faça essas alterações no Dispositivo Gêmeo.
 
 4. Adicione um novo valor de marca da Atualização de dispositivo, conforme mostrado abaixo.
 

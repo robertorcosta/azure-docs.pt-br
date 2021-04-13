@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: eee020e5d96b301e8278d31c26360639553be0ee
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 68b5fc7c958f611c43ba3f38bf30ceb63608886a
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495277"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113334"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ npm init -y
 
 ### <a name="install-the-package"></a>Instalar o pacote
 
-Use o comando `npm install` para instalar a biblioteca de clientes de Identidade dos Serviços de Comunicação do Azure para JavaScript.
+Use o comando `npm install` para instalar o SDK de Identidade dos Serviços de Comunicação do Azure para JavaScript.
 
 ```console
 
@@ -80,7 +80,7 @@ main().catch((error) => {
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Crie a instância de um `CommunicationIdentityClient` com a sua cadeia de conexão. O código abaixo recupera a cadeia de conexão do recurso de uma variável de ambiente chamada `COMMUNICATION_SERVICES_CONNECTION_STRING`. Saiba como [gerenciar a cadeia de conexão do recurso](../create-communication-resource.md#store-your-connection-string).
+Crie a instância de um `CommunicationIdentityClient` com a sua cadeia de conexão. O código abaixo recupera a cadeia de conexão do recurso de uma variável de ambiente chamada `COMMUNICATION_SERVICES_CONNECTION_STRING`. Saiba como [gerenciar a cadeia de conexão do seu recurso](../create-communication-resource.md#store-your-connection-string).
 
 Adicione o seguinte código ao método `main`:
 
@@ -108,7 +108,7 @@ Se você tiver configurado a identidade gerenciada, consulte [Usar identidades g
 ```javascript
 const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
 const tokenCredential = new DefaultAzureCredential();
-var client = new CommunicationIdentityClient(endpoint, tokenCredential);
+const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential);
 ```
 
 ## <a name="create-an-identity"></a>Criar uma identidade
@@ -140,7 +140,7 @@ Use o método `createUserAndToken` para criar uma identidade dos Serviços de Co
 
 ```javascript
 // Issue an identity and an access token with the "voip" scope for the new identity
-let identityTokenResponse = await this.client.createUserAndToken(["voip"]);
+let identityTokenResponse = await identityClient.createUserAndToken(["voip"]);
 const { token, expiresOn, user } = identityTokenResponse;
 console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
 console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
@@ -153,7 +153,7 @@ A atualização de tokens de acesso é tão fácil quanto chamar `getToken` com 
 
 ```javascript
 // // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
-let refreshedTokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
+let refreshedTokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
 ```
 
 

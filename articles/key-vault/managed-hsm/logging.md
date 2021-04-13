@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 03/30/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 7420ffbe5b365c635c1eac2620cfd54ceb649ebf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0d5749894fd277ff6a2f77e3db9721e6989d72ac
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211763"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109230"
 ---
 # <a name="managed-hsm-logging"></a>Registro em log do HSM Gerenciado 
 
@@ -74,9 +74,10 @@ az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource 
 O que é registrado em log:
 
 * Todas as solicitações à API REST autenticadas, incluindo solicitações que falharam devido a permissões de acesso, erros do sistema ou solicitações inválidas.
-* Operações no próprio HSM Gerenciado, incluindo criação, exclusão e atualização de atributos, como as marcações.
+* Operações de plano gerenciado no próprio HSM Gerenciado, incluindo criação, exclusão e atualização de atributos, como marcas.
 * Operações relacionadas ao Domínio de Segurança, como inicializar e baixar, inicializar recuperação, carregar
 * Operações completas de backup, restauração e restauração seletiva do HSM
+* Operações de gerenciamento de função, como criar/exibir/excluir atribuições de função e criar/exibir/excluir definições de função personalizadas
 * Operações em chaves, incluindo:
   * Criar, modificar ou excluir as chaves.
   * Assinar, verificar, criptografar, descriptografar, encapsular, desencapsular e listar as chaves.
@@ -121,30 +122,13 @@ Os blobs individuais são armazenados como texto e formatados como um JSON. Vamo
 ]
 ```
 
-A tabela a seguir lista os nomes e as descrições de campo:
 
-| Nome do campo | Descrição |
-| --- | --- |
-| **TenantId** | A ID de locatário do Azure Active Directory da assinatura em que o HSM Gerenciado foi criado |
-| **time** |Data e hora em UTC. |
-| **resourceId** |ID do Recurso do Azure Resource Manager. Para os logs do HSM Gerenciado, essa é sempre a ID do recurso do HSM Gerenciado. |
-| **operationName** |Nome da operação, como documentado na tabela a seguir. |
-| **operationVersion** |Versão da API REST solicitada pelo cliente. |
-| **category** |Tipo de resultado. Para logs do HSM Gerenciado, **AuditEvent** é o único valor disponível. |
-| **resultType** |Resultado da solicitação à API REST. |
-| **properties** |Informações que variam de acordo com a operação (**operationName**)|
-| **resultSignature** |Código de status HTTP. |
-| **resultDescription** |Descrição adicional sobre o resultado, quando disponível. |
-| **durationMs** |Tempo necessário para atender à solicitação da API REST, em milissegundos. Isso não inclui a latência de rede e, portanto, o tempo medido no lado cliente pode não corresponder a esse tempo. |
-| **callerIpAddress** |Endereço IP do cliente que fez o a solicitação. |
-| **correlationId** |Um GUID opcional que o cliente pode passar para correlacionar os logs do lado do cliente com os logs do lado do serviço. |
-| **identidade** |Identidade do token que foi apresentado na solicitação à API REST. Geralmente é um "usuário" ou uma "entidade de serviço". |
-| **requestUri** | URI de solicitação da API REST |
-| **clientInfo** | 
 
 ## <a name="use-azure-monitor-logs"></a>Usar os logs do Azure Monitor
 
-Você pode usar a solução do Key Vault nos logs do Azure Monitor para examinar os logs do **AuditEvent** do HSM Gerenciado. Nos logs do Azure Monitor, você usa consultas de log para analisar dados e obter as informações necessárias. 
+Você pode usar a solução do Key Vault nos logs do Azure Monitor para examinar os logs do **AuditEvent** do HSM Gerenciado. Nos logs do Azure Monitor, você usa consultas de log para analisar dados e obter as informações necessárias.
+
+Para obter mais informações, incluindo como configurar isso, confira [Azure Key Vault no Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

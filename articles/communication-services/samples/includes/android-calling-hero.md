@@ -2,26 +2,29 @@
 title: incluir arquivo
 description: incluir arquivo
 services: azure-communication-services
-author: mikben
-manager: mikben
+author: ddematheu2
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: e8ef354480c69fa9b0b5407c88209b368485127d
-ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
+ms.author: dademath
+ms.openlocfilehash: c6e8be5462e0caffec7a1c88dae54f3f818ec323
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105729802"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498831"
 ---
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
+
+
 O **Exemplo de Destaque de Chamadas em Grupo para Android** dos Serviços de Comunicação do Azure demonstra como o SDK de Chamada do Android dos Serviços de Comunicação pode ser usado para criar uma experiência de chamada em grupo que inclua voz e vídeo. Neste exemplo de guia de início rápido, você aprenderá a configurar e executar o exemplo. Uma visão geral do exemplo é fornecida para o contexto.
 
 ## <a name="download-code"></a>Código de download
 
-Encontre o código finalizado para este guia de início rápido no [GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero).
+Localize o projeto para este exemplo no [GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero). Uma versão do exemplo com a [Interoperabilidade do Teams](../../concepts/teams-interop.md) pode ser encontrada em um [Branch](https://github.com/Azure-Samples/communication-services-android-calling-hero/tree/feature/teams_interop) separado.
 
 ## <a name="overview"></a>Visão geral
 

@@ -11,18 +11,18 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 3beba1db82cc2a618ba7544228975c953b01acd9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: bbf94b6e000d5c082debd6a0d41a8d62b8b3f26e
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064895"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491008"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Tutorial: Criar e conectar um aplicativo cliente ao seu aplicativo do Azure IoT Central
 
 *Este artigo se aplica a construtores de solução e desenvolvedores de dispositivos.*
 
-Este tutorial mostra a você, desenvolvedor de dispositivos, como conectar um aplicativo cliente ao seu aplicativo do Azure IoT Central. O aplicativo simula o comportamento de um dispositivo de termostato. Quando o aplicativo se conecta ao IoT Central, ele envia a ID do modelo de dispositivo de termostato. O IoT Central usa a ID do modelo para recuperar o modelo de dispositivo e criar um modelo de dispositivo para você. Adicione personalizações e exibições ao modelo de dispositivo para permitir que um operador interaja com um dispositivo.
+Este tutorial mostra a você, desenvolvedor de dispositivos, como conectar um aplicativo cliente ao seu aplicativo do Azure IoT Central. O aplicativo simula o comportamento de um dispositivo controlador de temperatura. Quando o aplicativo se conecta ao IoT Central, ele envia a ID de modelo do dispositivo controlador de temperatura. O IoT Central usa a ID do modelo para recuperar o modelo de dispositivo e criar um modelo de dispositivo para você. Adicione personalizações e exibições ao modelo de dispositivo para permitir que um operador interaja com um dispositivo.
 
 Neste tutorial, você aprenderá como:
 
@@ -70,7 +70,7 @@ Como desenvolvedor de dispositivos, você pode usar a exibição de **Dados brut
 
 :::image type="content" source="media/tutorial-connect-device/raw-data.png" alt-text="A exibição de dados brutos":::
 
-Nessa exibição, você pode selecionar as colunas a serem exibidas e definir um intervalo de tempo para exibição. A coluna **Dados não modelados** mostra dados do dispositivo que não correspondem a nenhuma propriedade ou definição de telemetria no modelo de dispositivo.
+Nessa exibição, você pode selecionar as colunas a serem exibidas e definir um intervalo de tempo para exibição. A coluna **Dados não modelados** mostra dados de dispositivo que não correspondem a nenhuma propriedade ou definição de telemetria do modelo de dispositivo.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

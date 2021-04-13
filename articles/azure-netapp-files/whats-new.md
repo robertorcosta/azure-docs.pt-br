@@ -12,18 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/19/2021
+ms.date: 04/05/2021
 ms.author: b-juche
-ms.openlocfilehash: f2167159b03cd0387acfccf4bbd0a2e840f739df
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 94981cd0912f76b710b3a60040ffbffd38381bcd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104955208"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552097"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novidades do Azure NetApp Files
 
 O Azure NetApp Files é atualizado regularmente. Este artigo mostra um resumo dos novos recursos mais recentes e de melhorias. 
+
+## <a name="april-2021"></a>Abril de 2021
+
+* [Mapeamento de usuário LDAP do ADDS (Active Directory Domain Services) com grupos estendidos de NFS](configure-ldap-extended-groups.md) (versão prévia)   
+
+    Por padrão, o Azure NetApp Files dá suporte a até 16 IDs de grupo ao gerenciar as credenciais de usuário do NFS, conforme definido no [RFC 5531](https://tools.ietf.org/html/rfc5531). Com essa nova funcionalidade, agora você pode aumentar o máximo para até 1.024 se tiver usuários que são membros de mais do que o número padrão de grupos. Para dar suporte a essa funcionalidade, os volumes de NFS agora também podem ser adicionados ao LDAP do ADDS, o que permite aos usuários LDAP do Active Directory com entradas de grupos estendidas (com até 1.024 grupos) acessar o volume. 
 
 ## <a name="march-2021"></a>Março de 2021
 

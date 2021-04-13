@@ -10,18 +10,16 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 6ec0b32e487739c33b1b2b49bd0645130fc88581
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 66edf35f292f5b681578d49b8be784de66e4d904
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104729525"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936522"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Tipos de número de telefone nos Serviços de Comunicação do Azure
 
-
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
 
 > [!IMPORTANT]
 > A disponibilidade do número de telefone atualmente está restrita a assinaturas pagas do Azure que têm um endereço para cobrança nos Estados Unidos e a recursos dos Serviços de Comunicação que têm um local de dados nos EUA. Números de telefone não podem ser adquiridos em contas de avaliação ou usando créditos gratuitos do Azure. Para obter mais informações, visite a seção [qualificação para assinatura](#azure-subscriptions-eligibility) deste documento.
@@ -31,7 +29,7 @@ Os Serviços de Comunicação do Azure permitem que você use números de telefo
 
 ## <a name="azure-subscriptions-eligibility"></a>Qualificação das assinaturas do Azure
 
-Para adquirir um número de telefone, você precisa ter uma assinatura paga do Azure. Os números de telefone não podem ser adquiridos em contas de avaliação ou por créditos gratuitos do Azure. 
+Para adquirir um número de telefone, você precisa ter uma assinatura paga do Azure. Os números de telefone não podem ser adquiridos em contas de avaliação ou por créditos gratuitos do Azure.
 
 A disponibilidade do número de telefone atualmente está restrita a assinaturas do Azure que têm um endereço para cobrança nos Estados Unidos e a recursos dos Serviços de Comunicação que têm um local de dados nos EUA.
 
@@ -59,13 +57,13 @@ A tabela a seguir resume esses tipos de números de telefone:
 | Chamada gratuita         | \+ 1 (*código* de área gratuita) XXX XX XX | EUA                      | Chamada (de saída), SMS (entrada/saída)| Como atribuir números de telefone a sistemas IVR (resposta interativa de voz)/bots, aplicativos de SMS                                        |
 
 
-### <a name="phone-number-features-in-azure-communication-services"></a>Recursos de número de telefone nos Serviços de Comunicação do Azure
+### <a name="phone-number-capabilities-in-azure-communication-services"></a>Funcionalidades de número de telefone nos Serviços de Comunicação do Azure
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
-Para a maioria dos números de telefone, permitimos que você configure um conjunto de recursos "a la carte". Esses recursos podem ser selecionados à medida que você arrenda seus números de telefone nos Serviços de Comunicação do Azure.
+Para a maioria dos números de telefone, permitimos que você configure um conjunto de funcionalidades "a la carte". Essas funcionalidades podem ser selecionados à medida que você arrenda seus números de telefone nos Serviços de Comunicação do Azure.
 
-Os recursos disponíveis dependem do país/região em que você está operando, no caso de uso e no tipo de número de telefone escolhido. Esses recursos variam conforme o país/região devido a requisitos regulatórios. Os Serviços de Comunicação do Azure oferecem os seguintes recursos de números de telefone:
+As funcionalidades disponíveis dependem do país em que você está operando, no caso de uso e no tipo de número de telefone escolhido. Esses recursos variam por país devido a requisitos regulatórios. Os Serviços de Comunicação do Azure oferecem as seguintes funcionalidades de números de telefone:
 
 - **SMS de saída unidirecional** Essa opção permite que você envie mensagens SMS para os usuários. Isso pode ser útil em cenários de notificação e autenticação de dois fatores.
 - **SMS de entrada e saída bidirecional** Essa opção permite que você envie e receba mensagens dos usuários usando números de telefone. Isso pode ser útil em cenários de atendimento ao cliente.

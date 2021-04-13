@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 03/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 00d4381c7af7fdf82ee1e895072d92d1e641f8c4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d8c94bfaeb3438ef54e745505e51442d6d391929
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92454687"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643037"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o DocuSign
 
@@ -45,8 +45,6 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 * o DocuSign dá suporte ao provisionamento de usuário **Just-In-Time**.
 
 * o DocuSign dá suporte a [provisionamento automático de usuários](./docusign-provisioning-tutorial.md).
-
-* Depois de configurar o DocuSign, você poderá impor um controle de sessão, que fornece proteção contra o vazamento e a infiltração de dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-docusign-from-the-gallery"></a>Adicionando o DocuSign por meio da galeria
 
@@ -79,7 +77,7 @@ Para habilitar o SSO do Azure AD no portal do Azure, siga estas etapas:
 
 1. No portal do Azure, na página de integração de aplicativos do **DocuSign**, localize a seção **Gerenciar** e selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, selecione o ícone de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, selecione o ícone de lápis da **Configuração Básica de SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
@@ -97,8 +95,11 @@ Para habilitar o SSO do Azure AD no portal do Azure, siga estas etapas:
     
     | URL de resposta |
     |-------------|
-    |`https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/<IDPID>`|
-    |`https://<subdomain>.docusign.net/SAML/`|
+    | Produção: |
+    | `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/<IDPID>` |
+    | `https://<subdomain>.docusign.net/SAML/` |
+    | Instância de QA:|
+    | `https://<SUBDOMAIN>.docusign.com/organizations/saml2` |
 
     > [!NOTE]
     > Esses valores entre colchetes são espaços reservados. Substitua-os pelos valores na URL de logon, no Identificador e na URL de Resposta reais. Esses detalhes são explicados na seção “Exibir Pontos de Extremidade do SAML 2.0” mais adiante neste tutorial.
@@ -235,7 +236,7 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 2. Acesse a URL de Logon do DocuSign diretamente e inicie o fluxo de logon nela.
 
-3. Use o Painel de Acesso da Microsoft. Ao clicar no bloco do DocuSign no Painel de Acesso, você deverá ser conectado automaticamente ao DocuSign para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+3. Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do DocuSign em Meus Aplicativos, você deverá ser conectado automaticamente ao DocuSign para o qual você configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -244,16 +245,16 @@ Depois de configurar o DocuSign, você poderá impor um controle de sessão, que
 
 <!--Image references-->
 
-[50]: ./media/docusign-tutorial/tutorial_docusign_18.png
-[51]: ./media/docusign-tutorial/tutorial_docusign_21.png
-[52]: ./media/docusign-tutorial/tutorial_docusign_22.png
-[53]: ./media/docusign-tutorial/tutorial_docusign_23.png
-[54]: ./media/docusign-tutorial/tutorial_docusign_19.png
-[55]: ./media/docusign-tutorial/tutorial_docusign_20.png
-[56]: ./media/docusign-tutorial/tutorial_docusign_24.png
-[57]: ./media/docusign-tutorial/tutorial_docusign_25.png
-[58]: ./media/docusign-tutorial/tutorial_docusign_26.png
-[59]: ./media/docusign-tutorial/tutorial_docusign_27.png
-[60]: ./media/docusign-tutorial/tutorial_docusign_28.png
-[61]: ./media/docusign-tutorial/tutorial_docusign_29.png
-[62]: ./media/docusign-tutorial/tutorial_docusign_30.png
+[50]: ./media/docusign-tutorial/tutorial-docusign-18.png
+[51]: ./media/docusign-tutorial/tutorial-docusign-21.png
+[52]: ./media/docusign-tutorial/tutorial-docusign-22.png
+[53]: ./media/docusign-tutorial/tutorial-docusign-23.png
+[54]: ./media/docusign-tutorial/tutorial-docusign-19.png
+[55]: ./media/docusign-tutorial/tutorial-docusign-20.png
+[56]: ./media/docusign-tutorial/tutorial-docusign-24.png
+[57]: ./media/docusign-tutorial/tutorial-docusign-25.png
+[58]: ./media/docusign-tutorial/tutorial-docusign-26.png
+[59]: ./media/docusign-tutorial/tutorial-docusign-27.png
+[60]: ./media/docusign-tutorial/tutorial-docusign-28.png
+[61]: ./media/docusign-tutorial/tutorial-docusign-29.png
+[62]: ./media/docusign-tutorial/tutorial-docusign-30.png

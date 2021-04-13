@@ -8,19 +8,16 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 65a968747e7ed12e6ee03bd5fea4b7b4af7ee10e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a24b62875fedcb976b06517cf61ddd69ab9abcf1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104729508"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726729"
 ---
 # <a name="quickstart-call-to-phone"></a>Início Rápido: Ligar para um telefone
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-
-Comece a usar os Serviços de Comunicação do Azure usando a biblioteca de clientes de chamada dos Serviços de Comunicação para adicionar uma chamada PSTN ao seu aplicativo.
+Comece a usar os Serviços de Comunicação do Azure usando o SDK de Chamada dos Serviços de Comunicação para adicionar chamadas PSTN ao aplicativo.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/pstn-call-js.md)]
@@ -42,5 +39,5 @@ Se quiser limpar e remover uma assinatura dos Serviços de Comunicação, exclua
 
 Para obter mais informações, consulte os seguintes artigos:
 
-- Saiba mais sobre as [funcionalidades da biblioteca de clientes de chamada](./calling-client-samples.md)
+- Conheça os recursos do [SDK de Chamada](./calling-client-samples.md)
 - Saiba mais sobre [como a chamada funciona](../../concepts/voice-video-calling/about-call-types.md)

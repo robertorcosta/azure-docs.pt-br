@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 4f6dc61b0e05fcb16a03a1183518069b98aa575f
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 17740763777372a5eaed6941974c120860839279
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771406"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382702"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Descobrir servidores físicos com a ferramenta Migrações para Azure: descoberta e avaliação
 
@@ -80,6 +80,9 @@ Se você acaba de criar uma conta gratuita do Azure, você é o proprietário da
 Configure uma conta que o dispositivo possa usar para acessar os servidores físicos.
 
 - Para **servidores Windows**, use uma conta de domínio para os servidores conectados ao domínio e uma conta local para os servidores que não estão conectados ao domínio. A conta de usuário deve ser adicionada a estes grupos: Usuários de Gerenciamento Remoto, Usuários do Monitor de Desempenho e Usuários do Log de Desempenho.
+    > [!Note]
+    > Para o Windows Server 2008 e 2008 R2, verifique se o WMF 3.0 está instalado nos servidores e se a conta local/o domínio usado para acessar os servidores é adicionado a estes grupos: Usuários do Monitor de Desempenho, Usuários do Log de Desempenho e WinRMRemoteWMIUsers.
+
 - Para **servidores Linux**, você precisará ter uma conta raiz nos servidores Linux que deseja descobrir. Como alternativa, é possível definir uma conta não raiz com as funcionalidades necessárias usando os seguintes comandos:
 
 **Comando** | **Finalidade**

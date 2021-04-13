@@ -12,12 +12,12 @@ ms.date: 03/22/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8d517aaa6121120399e09bfef8aa6dd36e745563
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8192c5c6734009f69e3f741531251dd85675b47
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022935"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449442"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desenvolver e planejar o provisionamento para um ponto de extremidade SCIM
 
@@ -168,10 +168,10 @@ Há vários pontos de extremidade definidos no SCIM RFC. Você pode começar com
 |--|--|
 |/User|Executa operações CRUD em um objeto de usuário.|
 |/Group|Executa operações CRUD em um objeto de grupo.|
-|/ServiceProviderConfig|Fornece detalhes sobre os recursos do padrão SCIM que têm suporte, por exemplo, os recursos com suporte e o método de autenticação.|
-|/ResourceTypes|Especifica os metadados sobre cada recurso.|
 |/Schemas|O conjunto de atributos com suporte de cada cliente e provedor de serviços pode variar. Um provedor de serviços poderá incluir `name`, `title` e `emails`, enquanto outro provedor de serviços usará `name`, `title` e `phoneNumbers`. O ponto de extremidade de esquemas permite a descoberta dos atributos com suporte.|
 |/Bulk|As operações em lote permitem que você execute operações em uma grande coleção de objetos de recurso em uma única operação (por exemplo, atualizar associações para um grupo grande).|
+|/ServiceProviderConfig|Fornece detalhes sobre os recursos do padrão SCIM que têm suporte, por exemplo, os recursos com suporte e o método de autenticação.|
+|/ResourceTypes|Especifica os metadados sobre cada recurso.|
 
 **Lista de exemplos de pontos de extremidade**
 
@@ -1329,9 +1329,9 @@ Use a lista de verificação para integrar seu aplicativo rapidamente e para que
 > * 3 credenciais de teste sem expiração para seu aplicativo (obrigatório)
 > * Dar suporte à concessão de código de autorização OAuth ou a um token de vida útil longa, conforme é descrito abaixo (obrigatório)
 > * Estabelecer um ponto de contato de engenharia e suporte para ajudar os clientes após a integração à galeria (obrigatório)
+> * [Dar suporte à descoberta de esquema (obrigatório)](https://tools.ietf.org/html/rfc7643#section-6)
 > * Dar suporte à atualização de várias associações de grupo com um único PATCH
 > * Documentar seu ponto de extremidade do SCIM publicamente
-> * [Descoberta de esquema de suporte](https://tools.ietf.org/html/rfc7643#section-6)
 
 ### <a name="authorization-to-provisioning-connectors-in-the-application-gallery"></a>Autorização para conectores de provisionamento na galeria de aplicativos
 A especificação do SCIM não define um esquema específico de SCIM para autenticação e autorização e se baseia no uso de padrões existentes do setor.

@@ -7,12 +7,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/18/2021
 ms.author: jingwang
-ms.openlocfilehash: adcefc21ac4fc8a00d97d5ac4352bad1287b60de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1950fa5269460bd3daeb671a37a072dc4f5f050
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102517626"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385251"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Início Rápido: Crie um pipeline e um Azure Data Factory usando a API REST
 
@@ -37,7 +37,9 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 * Crie um **contêiner de blob** no Armazenamento de Blobs, crie uma **pasta** de entrada no contêiner e carregue alguns arquivos na pasta. Você pode usar ferramentas como o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para se conectar ao armazenamento de Blobs do Azure, criar um contêiner de blobs, carregar arquivo de entrada e verificar o arquivo de saída.
 * Instale o **Azure PowerShell**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps). Este guia de início rápido usa o PowerShell para invocar chamadas à API REST.
 * **Crie um aplicativo no Azure Active Directory** seguindo [esta instrução](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Anote os valores a seguir, que você usará em etapas posteriores: **ID do aplicativo**, **clientSecrets** e **ID do locatário**. Atribua o aplicativo à função "**Colaborador**".
-
+>[!NOTE]
+>   Para nuvens soberanas, é necessário usar os pontos de extremidade apropriados específicos da nuvem para ActiveDirectoryAuthority e ResourceManagerUrl (BaseUri). Você pode usar o PowerShell para obter com facilidade as URLs de ponto de extremidade para várias nuvens executando “Get-AzEnvironment | Format-List”, que retornará uma lista de pontos de extremidade para cada ambiente de nuvem.  
+>    
 ## <a name="set-global-variables"></a>Definir variáveis globais
 
 1. Inicie o **PowerShell**. Mantenha o Azure PowerShell aberto até o fim deste guia de início rápido. Se você fechar e reabrir, precisará executar os comandos novamente.
