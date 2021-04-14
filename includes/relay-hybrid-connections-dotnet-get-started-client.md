@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: 2d6836b2bf667e4170e67a95dc1daad72a769eb9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67172156"
 ---
 ### <a name="create-a-console-application"></a>Criar um aplicativo de console
@@ -18,7 +18,7 @@ N o Visual Studio, crie um novo projeto de **Aplicativo de Console (.NET Framewo
 ### <a name="add-the-relay-nuget-package"></a>Adicione o pacote NuGet de retransmissão
 
 1. Clique com o botão direito do mouse no projeto recém-criado e selecione **Gerenciar Pacotes NuGet**.
-2. Selecione **Procurar** e, em seguida, procure **Microsoft.Azure.Relay**. Nos resultados da pesquisa, selecione **Microsoft Azure retransmissão**. 
+2. Selecione **Procurar** e, em seguida, procure **Microsoft.Azure.Relay**. Nos resultados da pesquisa, selecione **Retransmissão do Microsoft Azure**. 
 3. Selecione **Instalar** para concluir a instalação. Feche a caixa de diálogo.
 
 ### <a name="write-code-to-send-messages"></a>Gravar código para enviar mensagens

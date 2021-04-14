@@ -3,12 +3,18 @@
 - name: Visão geral
   expanded: true
   items:
-    - name: O que é o Detector de Anomalias?
+    - name: O que é o Detector de Anomalias (multivariadas)?
+      href: overview-multivariate.md
+    - name: O que é o Detector de Anomalias (univariadas)?
       href: overview.md
     - name: Preços e limites
       href: 'https://aka.ms/adpricing'
-- name: Guia de início rápido do Detector de Anomalias
-  href: ./quickstarts/client-libraries.md
+- name: Guias de início rápido do Detector de Anomalias
+  items:
+    - name: Bibliotecas de cliente multivariadas
+      href: ./quickstarts/client-libraries-multivariate.md
+    - name: Bibliotecas de cliente univariadas
+      href: ./quickstarts/client-libraries.md
 - name: Exemplos
   items:
     - name: Demonstração interativa
@@ -39,10 +45,18 @@
               href: how-to/deploy-anomaly-detection-on-container-instances.md
 - name: Conceitos
   items:
-    - name: Melhores práticas da API do Detector de Anomalias
+    - name: Melhores práticas da API do Detector de Anomalias (multivariadas)
+      href: concepts/best-practices-multivariate.md
+    - name: Melhores práticas da API do Detector de Anomalias (univariadas)
       href: concepts/anomaly-detection-best-practices.md
+    - name: Arquitetura de manutenção preditiva (multivariada)
+      href: concepts/multivariate-architecture.md
+    - name: Solução de problemas multivariados
+      href: concepts/troubleshoot.md
     - name: Detecção de anomalias de SR (espectro residual) e CNN (rede neural convolucional)
       href: 'https://arxiv.org/abs/1906.03821'
+    - name: Detecção de anomalias de série temporal multivariada por meio da rede de atenção do grafo
+      href: 'https://arxiv.org/abs/2009.02040'
 - name: Tutoriais
   items:
     - name: Visualizar anomalias como um lote usando o Power BI
