@@ -3,12 +3,12 @@ title: Exceções de Retransmissão do Azure e como resolvê-las | Microsoft Doc
 description: Lista de exceções de Retransmissão do Azure e ações sugeridas que você pode realizar para ajudar a resolvê-las.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 44eeba6eb7b8cfd4e81a923c2d9a3155f1709f2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3f9fe2e8aac826bd63d9842bd3380be10e1b87e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98625141"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313939"
 ---
 # <a name="azure-relay-exceptions"></a>Exceções de Retransmissão do Azure
 
@@ -80,7 +80,7 @@ Há duas causas comuns para esse erro:
     Ocasionalmente, o serviço Retransmissão pode sofrer atrasos no processamento de solicitações. Isso pode acontecer, por exemplo, durante períodos de tráfego intenso. Nesses casos, repita a operação após um atraso até que a operação seja bem-sucedida. Se a mesma operação continuar a falhar após várias tentativas, verifique o [Site de status do serviço do Azure](https://azure.microsoft.com/status/) para ver se há interrupções de serviço conhecidas.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Perguntas frequentes sobre Retransmissão do Azure](relay-faq.md)
+* [Perguntas frequentes sobre Retransmissão do Azure](relay-faq.yml)
 * [Criar um namespace de retransmissão](relay-create-namespace-portal.md)
 * [Introdução à Retransmissão do Azure e .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução à Retransmissão do Azure e Nó](relay-hybrid-connections-node-get-started.md)
