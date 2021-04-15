@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 05/19/2020
 ms.openlocfilehash: 5197b71db4f46d9908d5539c114d636b9474a870
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87317616"
 ---
 Use marcas HTML para formatar sua descrição para que ela seja mais atraente. A maioria das marcas exige um componente de abertura e de fechamento, conforme mostrado nesta tabela.

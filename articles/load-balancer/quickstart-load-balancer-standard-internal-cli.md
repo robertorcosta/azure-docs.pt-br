@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: f728e1f1e2186188135666ed54e02c9ed3507509
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 66b3db9a7aec45a2a0881379db6f7ef51950b5c5
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056528"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364304"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-by-using-the-azure-cli"></a>Início Rápido: Criar um balanceador de carga interno usando a CLI do Azure
 
@@ -30,9 +30,6 @@ Veja uma introdução ao Azure Load Balancer usando a CLI do Azure para criar um
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)] 
 
 Este guia de início rápido requer a versão 2.0.28 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a última versão já está instalada.
-
->[!NOTE]
->O Azure Load Balancer Standard é a opção recomendada para cargas de trabalho de produção. Este artigo contém informações sobre o Azure Load Balancer Standard e sobre o Azure Load Balancer Básico. Para obter mais informações sobre SKUs, confira [SKUs do Azure Load Balancer](skus.md).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -47,7 +44,11 @@ Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create
 
 ```
 
-## <a name="azure-load-balancer-standard"></a>Azure Load Balancer Standard
+---
+# <a name="standard-sku"></a>[**SKU Standard**](#tab/option-1-create-load-balancer-standard)
+
+>[!NOTE]
+>O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção. Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
 
 Nesta seção, você criará um balanceador de carga que faz o balanceamento da carga de máquinas virtuais. Quando você cria um balanceador de carga interno, uma rede virtual é configurada como a rede para o balanceador de carga. O seguinte diagrama mostra os recursos criados neste guia de início rápido:
 
@@ -335,7 +336,10 @@ Adicione as máquinas virtuais ao pool de back-end com [az network nic ip-config
 
 ```
 
-## <a name="azure-load-balancer-basic"></a>Azure Load Balancer Básico
+# <a name="basic-sku"></a>[**SKU Básico**](#tab/option-1-create-load-balancer-basic)
+
+>[!NOTE]
+>O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção. Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
 
 Nesta seção, você criará um balanceador de carga que faz o balanceamento da carga de máquinas virtuais. Quando você cria um balanceador de carga interno, uma rede virtual é configurada como a rede para o balanceador de carga. O seguinte diagrama mostra os recursos criados neste guia de início rápido:
 
@@ -636,7 +640,7 @@ Adicione as máquinas virtuais ao pool de back-end com [az network nic ip-config
   done
 
 ```
-
+---
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
 
 Crie os adaptadores de rede com [az network nic create](/cli/azure/network/nic#az-network-nic-create). Especifique o seguinte:

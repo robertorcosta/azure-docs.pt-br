@@ -1,5 +1,5 @@
 ---
-title: Alta disponibilidade de SAP HANA em VMs do Azure no SLES | Microsoft Docs
+title: Alta disponibilidade do SAP HANA nas VMs do Azure no SLES | Microsoft Docs
 description: Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 03/16/2021
 ms.author: radeltch
 ms.openlocfilehash: 42a4c4a41f6c8bdf9d4a8e78f634893722c8f389
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104576383"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server
@@ -60,8 +60,8 @@ Primeiro, leia os seguintes documentos e Notas SAP:
   * O software SAP e combinações de SO (sistema operacional) e banco de dados com suporte.
   * A versão do kernel do SAP necessária para Windows e Linux no Microsoft Azure.
 * A Nota SAP [2015553] lista os pré-requisitos para implantações de software SAP com suporte do SAP no Azure.
-* A observação do SAP [2205917] tem as configurações do sistema operacional recomendadas para SuSE Linux Enterprise Server para aplicativos SAP.
-* O SAP Note [1944799] tem diretrizes SAP HANA para SuSE Linux Enterprise Server para aplicativos SAP.
+* A Nota SAP [2205917] tem configurações de SO recomendadas para SUSE Linux Enterprise Server para aplicativos SAP.
+* A Nota SAP [1944799] tem Diretrizes SAP HANA para SUSE Linux Enterprise Server para aplicativos SAP.
 * A Nota SAP [2178632] contém informações detalhadas sobre todas as métricas de monitoramento relatadas para SAP no Azure.
 * A Nota SAP [2191498] tem a versão necessária do SAP Host Agent para Linux no Azure.
 * A Nota SAP [2243692] tem informações sobre o licenciamento do SAP no Linux no Azure.
@@ -69,9 +69,9 @@ Primeiro, leia os seguintes documentos e Notas SAP:
 * A Nota SAP [1999351] tem informações de solução de problemas adicionais para a Extensão de Monitoramento Avançado do Azure para SAP.
 * A Nota SAP [401162] contém informações sobre como evitar o "endereço já em uso" ao configurar a Replicação do Sistema HANA.
 * [WIKI da comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as Notas SAP necessárias para Linux.
-* [SAP HANA plataformas IaaS certificadas](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+* [SAP HANA certificada IaaS plataformas](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * Guia de [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide].
-* [Implantação de máquinas virtuais do Azure para SAP no Linux][deployment-guide] (este artigo).
+* [Implantação de Máquinas Virtuais do Azure para SAP no Linux][deployment-guide] (este artigo).
 * Guia de [Implantação de Máquinas Virtuais do Azure do DBMS para SAP no Linux][dbms-guide].
 * [Guias de melhores práticas do SUSE Linux Enterprise Server for SAP Applications 12 SP3][sles-for-sap-bp]
   * Configuração de uma infraestrutura otimizada de desempenho do SAP HANA SR (SLES para Aplicativos SAP 12 SP1). O guia contém todas as informações necessárias para configurar a Replicação de Sistema do SAP HANA para desenvolvimento local. Use este guia como uma linha de base.
@@ -105,14 +105,14 @@ Para implantar o modelo, siga estas etapas:
 
 1. Insira os parâmetros s seguir:
     - **ID do sistema SAP**: Insira a ID do sistema SAP do sistema SAP que você deseja instalar. A ID é usada como um prefixo para os recursos que serão implantados.
-    - **Tipo de pilha**: (esse parâmetro é aplicável somente se você usar o modelo convergido.) Selecione o tipo de pilha do SAP NetWeaver.
+    - **Tipo de pilha**: (este parâmetro é aplicável somente quando você usa o modelo convergido.) Selecione o tipo de pilha do SAP NetWeaver.
     - **Tipo de SO**: Selecione uma das distribuições do Linux. Para este exemplo, selecione **SLES 12**.
     - **Tipo de banco de dados**: Selecionar **HANA**.
     - **Tamanho do Sistema SAP**: Insira o número de SAPS que o novo sistema irá fornecer. Se não tiver certeza de quantos SAPS o sistema precisará, pergunte ao Parceiro de Tecnologia SAP ou ao Integrador de Sistemas.
     - **Disponibilidade do Sistema**: Selecione **HA**.
-    - **Nome de usuário e senha de** administrador: um novo usuário é criado e pode ser usado para entrar no computador.
+    - **Nome de usuário do administrador e senha do administrador**: um usuário é criado e pode ser usado para entrar no computador.
     - **Sub-rede nova ou existente**: determina se uma nova rede virtual e sub-rede devem ser criadas ou se uma sub-rede existente é usada. Se já tiver uma rede virtual conectada à rede local, selecione **Existente**.
-    - **ID da Sub-rede**: Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente é semelhante a **/subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /Providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /Subnets/ \<subnet name>**.
+    - **ID da Sub-rede**: Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente é semelhante a **/subscriptions/\<subscription ID>/resourceGroups/\<resource group name>/providers/Microsoft.Network/virtualNetworks/\<virtual network name>/subnets/\<subnet name>** .
 
 ### <a name="manual-deployment"></a>Implantação manual
 
@@ -135,7 +135,7 @@ Para implantar o modelo, siga estas etapas:
 1. Adicione discos de dados.
 
 > [!IMPORTANT]
-> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.   
+> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, confira [Limitações do Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.   
 
 > [!Note]
 > Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Standard Azure Load Balancer (sem endereço IP público), não haverá nenhuma conectividade de saída com a Internet se não houver configuração adicional a fim de permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como alcançar conectividade de saída, veja [Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -153,7 +153,7 @@ Para implantar o modelo, siga estas etapas:
    
       1. Abra o balanceador de carga, selecione **pools de back-end** e selecione **Adicionar**.
       1. Insira o nome do novo pool de back-end (por exemplo, **hana-backend**).
-      1. Selecione **rede virtual**.
+      1. Selecione **Rede Virtual**.
       1. Selecione **Adicionar uma máquina virtual**.
       1. Selecione **Máquina virtual**.
       1. Selecione as máquinas virtuais do cluster SAP HANA e os respectivos endereços IP.
@@ -411,14 +411,14 @@ As etapas nesta seção usam os seguintes prefixos:
 
    Se você estiver usando o SAP HANA 2.0 ou o MDC, crie um banco de dados de locatário para o sistema SAP NetWeaver. Substitua **NW1** pelo SID do sistema SAP.
 
-   Execute o seguinte comando como <hanasid \> ADM:
+   Execute o seguinte comando como <hanasid\>adm:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** Configure a Replicação de Sistema no primeiro nó:
 
-   Faça backup dos bancos de dados como <\> ADM hanasid:
+   Faça backup dos bancos de dados como <hanasid\>adm:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -438,7 +438,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[2]** Configure a Replicação de Sistema no segundo nó:
     
-   Registre o segundo nó para iniciar a replicação de sistema. Execute o seguinte comando como <hanasid \> ADM:
+   Registre o segundo nó para iniciar a replicação de sistema. Execute o seguinte comando como <hanasid\>adm:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -485,7 +485,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[1]** Configure a Replicação de Sistema no primeiro nó.
 
-   Crie o site primário como <\> ADM hanasid:
+   Crie o site primário como <hanasid\>adm:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -531,7 +531,7 @@ Em seguida, crie os recursos do HANA:
 
 
 > [!NOTE]
-> Este artigo contém referências aos termos *mestre* e *subordinado*, termos que a Microsoft não usa mais. Quando esses termos forem removidos do software, nós os removeremos deste artigo.
+> Este artigo contém referências aos termos *mestre* e *escravo*, os quais a Microsoft não usa mais. Quando esses termos forem removidos do software, nós os removeremos deste artigo.
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 
@@ -593,49 +593,49 @@ Certifique-se de que o status do cluster está correto e que todos os recursos f
 #     rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
 </code></pre>
 
-## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Configurar a replicação de sistema habilitada para leitura/ativo do HANA no cluster pacemaker
+## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Configurar a replicação de sistema ativa/habilitada para leitura do HANA no cluster do Pacemaker
 
-A partir do SAP HANA 2,0 SPS 01, o SAP permite a instalação ativa/de leitura habilitada para replicação de sistema SAP HANA, em que os sistemas secundários de replicação de sistema SAP HANA podem ser usados ativamente para cargas de trabalho com uso intenso de leitura. Para dar suporte a essa configuração em um cluster, um segundo endereço IP virtual é necessário, o que permite que os clientes acessem o banco de dados de SAP HANA habilitado para leitura secundário. Para garantir que o site de replicação secundária ainda possa ser acessado depois que um tomada tiver ocorrido, o cluster precisará mover o endereço IP virtual com o secundário do recurso SAPHana.
+Começando com o SAP HANA 2.0 SPS 01, o SAP permite a configuração ativa/habilitada para leitura da replicação de sistema do SAP HANA, em que os sistemas secundários de replicação de sistema do SAP HANA podem ser usados ativamente para cargas de trabalho com uso intensivo de leitura. Para dar suporte a essa configuração em um cluster, um segundo endereço IP virtual é necessário. Isso permite que os clientes acessem o banco de dados secundário do SAP HANA habilitado para leitura. Para garantir que o site de replicação secundária ainda possa ser acessado após uma tomada de controle, o cluster precisa mover o endereço IP virtual com o secundário do recurso SAPHana.
 
-Esta seção descreve as etapas adicionais necessárias para gerenciar a replicação de sistema habilitada para leitura/ativação do HANA em um cluster de alta disponibilidade do SUSE com o segundo IP virtual.    
-Antes de continuar, verifique se você configurou totalmente o cluster de alta disponibilidade do SUSE, gerenciando SAP HANA banco de dados conforme descrito nos segmentos acima da documentação.  
+Esta seção descreve as etapas adicionais necessárias para gerenciar a replicação de sistema ativa/habilitada para leitura do HANA em um cluster de alta disponibilidade do SUSE com um segundo IP virtual.    
+Antes de continuar, verifique se você configurou totalmente o cluster de alta disponibilidade do SUSE, gerenciando o banco de dados do SAP HANA conforme descrito nos segmentos acima da documentação.  
 
-![SAP HANA alta disponibilidade com o secundário habilitado para leitura](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
+![Alta disponibilidade do SAP HANA com secundário habilitado para leitura](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
 
-### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>Configuração adicional no Azure Load Balancer para a instalação ativa/de leitura habilitada
+### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>Configuração adicional no Azure Load Balancer para configuração ativa/habilitada para leitura
 
-Para continuar com etapas adicionais sobre o provisionamento do segundo IP virtual, verifique se você configurou o Azure Load Balancer conforme descrito na seção [implantação manual](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#manual-deployment) .
+Para continuar com as etapas adicionais sobre o provisionamento do segundo IP virtual, verifique se você configurou o Azure Load Balancer conforme descrito na seção [Implantação manual](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#manual-deployment).
 
-1. Para o balanceador de carga **padrão** , siga as etapas adicionais abaixo no mesmo balanceador de carga que você criou na seção anterior.
+1. Para o **Standard** Load Balancer, siga as etapas adicionais abaixo no mesmo balanceador de carga que você criou na seção anterior.
 
-   a. Crie um segundo pool de IPS de front-end: 
+   a. Crie um segundo pool de IPs de front-end: 
 
    - Abra o balanceador de carga, selecione **pool de front-end** e selecione **Adicionar**.
-   - Insira o nome do segundo pool de IPS de front-end (por exemplo, **Hana-secondaryIP**).
-   - Defina a **atribuição** como **estática** e insira o endereço IP (por exemplo, **10.0.0.14**).
+   - Insira o nome do segundo pool de IPs de front-end (por exemplo, **hana-secondaryIP**).
+   - Defina a **Atribuição** como **Estático** e insira o endereço IP (por exemplo, **10.0.0.14**).
    - Selecione **OK**.
-   - Depois que o novo pool de IPS de front-end for criado, observe o endereço IP de front-end.
+   - Depois que o novo pool de IPs de front-end for criado, anote o endereço IP de front-endereço IP de front-end.
 
    b. Em seguida, crie uma investigação de integridade:
 
    - Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
-   - Insira o nome da nova investigação de integridade (por exemplo, **Hana-secondaryhp**).
+   - Insira o nome da nova investigação de integridade (por exemplo, **hana-secondaryhp**).
    - Selecione **TCP** como o protocolo e a porta **62603**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
    - Selecione **OK**.
 
    c. Em seguida, crie as regras de balanceamento de carga:
 
    - Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-   - Insira o nome da nova regra do balanceador de carga (por exemplo, **Hana-secondarylb**).
-   - Selecione o endereço IP de front-end, o pool de back-ends e a investigação de integridade que você criou anteriormente (por exemplo, **Hana-secondaryIP**, **Hana-backend** e **Hana-secondaryhp**).
+   - Insira o nome da nova regra do balanceador de carga (por exemplo **hana-secondarylb**).
+   - Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **hana-secondaryIP**, **hana-backend** e **hana-secondaryhp**).
    - Selecione **Portas de HA**.
    - Aumente o **tempo limite de ociosidade** para 30 minutos.
    - Certifique-se de **habilitar IP Flutuante**.
    - Selecione **OK**.
 
-### <a name="configure-hana-activeread-enabled-system-replication"></a>Configurar a replicação de sistema habilitada para leitura/ativo do HANA
+### <a name="configure-hana-activeread-enabled-system-replication"></a>Configurar a replicação de sistema ativa/habilitada para leitura do HANA
 
-As etapas para configurar a replicação do sistema HANA são descritas em [configurar SAP Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#configure-sap-hana-20-system-replication) seção de replicação do sistema do 2,0. Se você estiver implantando o cenário secundário habilitado para leitura, ao configurar a replicação do sistema no segundo nó, execute o comando a seguir como **hanasid** ADM:
+As etapas para configurar a replicação do sistema HANA são descritas na seção [Configurar a replicação do sistema SAP HANA 2.0](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#configure-sap-hana-20-system-replication). Se você estiver implantando o cenário secundário habilitado para leitura, ao configurar a replicação do sistema no segundo nó, execute o seguinte comando como **hanasid** adm:
 
 ```
 sapcontrol -nr 03 -function StopWait 600 10 
@@ -643,9 +643,9 @@ sapcontrol -nr 03 -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2 --operationMode=logreplay_readaccess 
 ```
 
-### <a name="adding-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>Adicionando um recurso de endereço IP virtual secundário para uma instalação ativa/de leitura habilitada
+### <a name="adding-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>Como adicionar um recurso de endereço IP virtual secundário para uma configuração ativa/habilitada para leitura
 
-O segundo IP virtual e a restrição de colocalização apropriada podem ser configurados com os seguintes comandos:
+O segundo IP virtual e a restrição de colocação apropriada podem ser configurados com os seguintes comandos:
 
 ```
 crm configure property maintenance-mode=true
@@ -692,13 +692,13 @@ sudo crm_mon -r
 
 Na próxima seção, você pode encontrar o conjunto típico de testes de failover a serem executados.
 
-Lembre-se do segundo comportamento de IP virtual, ao testar um cluster HANA configurado com secundário habilitado para leitura:
+Lembre-se do comportamento do segundo IP virtual, ao testar um cluster HANA configurado com um secundário habilitado para leitura:
 
-1. Quando você migra **SAPHana_HN1_HDB03** recurso de cluster para **HN1-DB-1**, o segundo IP virtual será movido para o outro servidor **HN1-dB-0**. Se você tiver configurado AUTOMATED_REGISTER = "false" e a replicação do sistema HANA não for registrada automaticamente, o segundo IP virtual será executado em **hn1-dB-0,** pois o servidor está disponível e os serviços de cluster estão online.  
+1. Quando você migra o recurso de cluster **SAPHana_HN1_HDB03** para **hn1-db-1**, o segundo IP virtual será movido para o outro **servidor hn1-db-0**. Caso você tenha configurado AUTOMATED_REGISTER="false" e a replicação do sistema HANA não tenha sido registrada automaticamente, o segundo IP virtual é executado em **hn1-db-0**, pois o servidor está disponível e os serviços de cluster estão online.  
 
-2. Ao testar uma falha do servidor, os segundos **rsc_secip_HN1_HDB03**(recursos de IP virtual) e o recurso de porta do Azure Load Balancer (**rsc_secnc_HN1_HDB03**) serão executados no servidor primário junto com os recursos de IP virtual primários. Enquanto o servidor secundário está inativo, os aplicativos que estão conectados ao banco de dados HANA habilitado para leitura se conectarão ao banco de dados HANA primário. O comportamento é esperado porque você não deseja que os aplicativos conectados ao banco de dados HANA habilitado para leitura fiquem inacessíveis enquanto o servidor secundário não estiver disponível.
+2. Ao testar uma falha do servidor, os recursos do segundo IP virtual (**rsc_secip_HN1_HDB03**) e o recurso de porta do Azure Load Balancer (**rsc_secnc_HN1_HDB03**) serão executados no servidor primário junto com os recursos de IP virtual primários. Enquanto o servidor secundário está inativo, os aplicativos que estão conectados ao banco de dados HANA habilitado para leitura vão se conectar ao banco de dados HANA primário. O comportamento é esperado porque você não deseja que os aplicativos conectados ao banco de dados HANA habilitado para leitura fiquem inacessíveis enquanto o servidor secundário não estiver disponível.
   
-3. Quando o servidor secundário estiver disponível e os serviços de cluster estiverem online, o segundo IP virtual e os recursos de porta serão movidos automaticamente para o servidor secundário, mesmo que a replicação do sistema HANA não possa ser registrada como secundária. Você precisa se certificar de registrar o banco de dados do HANA secundário como habilitado para leitura antes de iniciar os serviços de cluster nesse servidor. Você pode configurar o recurso de cluster da instância do HANA para registrar automaticamente o secundário, definindo o parâmetro AUTOMATED_REGISTER = true.       
+3. Quando o servidor secundário estiver disponível e os serviços de cluster estiverem online, o segundo IP virtual e os recursos de porta serão movidos automaticamente para o servidor secundário, mesmo que a replicação do sistema HANA não possa ser registrada como secundária. Você precisa garantir que registrou o banco de dados secundário do HANA como habilitado para leitura antes de iniciar os serviços de cluster nesse servidor. Você pode configurar o recurso de cluster da instância do HANA para registrar automaticamente o secundário definindo o parâmetro AUTOMATED_REGISTER=true.       
 
 4. Durante o failover e o fallback, as conexões existentes para aplicativos, usando o segundo IP virtual para se conectar ao banco de dados do HANA, podem ser interrompidas.  
 
@@ -876,7 +876,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Execute os comandos a seguir como <hanasid \> ADM no nó hn1-dB-0:
+   Execute os seguintes comandos como <hanasid\>adm no nó hn1-db-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -917,7 +917,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Execute os comandos a seguir como <hanasid \> ADM no nó hn1-DB-1:
+   Execute os seguintes comandos como <hanasid\>adm no nó hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -958,7 +958,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Execute os comandos a seguir como <hanasid \> ADM no nó hn1-dB-0:
+   Execute os seguintes comandos como <hanasid\>adm no nó hn1-db-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -999,7 +999,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Execute os comandos a seguir como <hanasid \> ADM no nó hn1-DB-1:
+   Execute os seguintes comandos como <hanasid\>adm no nó hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -1142,7 +1142,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Execute os comandos a seguir como <hanasid \> ADM no nó hn1-DB-1:
+   Execute os seguintes comandos como <hanasid\>adm no nó hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -1179,7 +1179,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Execute os comandos a seguir como <hanasid \> ADM no nó hn1-DB-1:
+   Execute os seguintes comandos como <hanasid\>adm no nó hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
