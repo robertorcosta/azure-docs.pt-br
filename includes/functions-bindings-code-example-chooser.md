@@ -6,17 +6,17 @@ ms.date: 09/24/2020
 ms.author: glenga
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 1ff9606d10ac62e0bab15f970a964bfd0b08bee8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97506299"
 ---
 # <a name="c"></a>[C#](#tab/csharp)
 
 | Serviço | Exemplos | Exemplos |
 | ---- | ----- | ------ | 
-| Armazenamento de Blobs | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=csharp#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=C%23) |
+| Armazenamento de blobs | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=csharp#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=C%23) |
 | Azure Cosmos DB |[Gatilho](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=csharp#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=C%23) |
 | Grade de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=C%23) |
 | Hubs de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=csharp#example) | |
@@ -35,7 +35,7 @@ ms.locfileid: "97506299"
 
 | Serviço | Exemplos | Exemplos |
 | ---- | ----- | ------ | 
-| Armazenamento de Blobs | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=java#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=Java) |
+| Armazenamento de blobs | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=java#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=Java) |
 | Azure Cosmos DB |[Gatilho](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=java#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=Java) |
 | Grade de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=Java) |
 | Hubs de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=java#example) | |
@@ -54,7 +54,7 @@ ms.locfileid: "97506299"
 
 | Serviço | Exemplos | Exemplos |
 | ---- | ----- | ------ | 
-| Armazenamento de Blobs | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=javascript#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=JavaScript) |
+| Armazenamento de blobs | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=javascript#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=JavaScript) |
 | Azure Cosmos DB |[Gatilho](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=javascript#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=JavaScript) |
 | Grade de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=JavaScript) |
 | Hubs de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=javascript#example) | |
@@ -73,7 +73,7 @@ ms.locfileid: "97506299"
 
 | Serviço | Exemplos | Exemplos |
 | ---- | ----- | ------ | 
-| Armazenamento de Blobs | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=powershell#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=PowerShell) |
+| Armazenamento de blobs | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=powershell#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=PowerShell) |
 | Azure Cosmos DB |[Gatilho](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=powershell#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=PowerShell) |
 | Grade de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=PowerShell) |
 | Hubs de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=powershell#example) | |
@@ -92,7 +92,7 @@ ms.locfileid: "97506299"
 
 | Serviço | Exemplos | Exemplos |
 | ---- | ----- | ------ | 
-| Armazenamento de Blobs | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=python#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=Python) |
+| Armazenamento de blobs | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=python#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=Python) |
 | Azure Cosmos DB |[Gatilho](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=python#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=Python) |
 | Grade de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=Python) |
 | Hubs de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=python#example) | |

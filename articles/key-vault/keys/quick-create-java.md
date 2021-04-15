@@ -2,18 +2,18 @@
 title: Guia de início rápido – Biblioteca de clientes da Chave do Azure Key Vault para Java
 description: Fornece um guia de início rápido para usar a biblioteca de clientes de Chaves do Azure Key Vault para Java.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ms.author: mbaldwin
 ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: cb5abf59c446ef0835375bac45d1e852144a6f28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 124e56fad35be0f3ac5b08ee9dd66454b9d077c5
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935267"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374685"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Início Rápido: biblioteca de clientes da Chave do Azure Key Vault para Java
 Introdução à biblioteca de clientes da Chave do Azure Key Vault para Java. Siga as etapas abaixo para instalar o pacote e testar o código de exemplo para tarefas básicas.
