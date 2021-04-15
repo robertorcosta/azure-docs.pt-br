@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/09/2021
 ms.author: alkohli
 ms.openlocfilehash: 400c5f0b2281679c3ec913e94643ffec6082d9e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100552827"
 ---
 #### <a name="to-create-a-volume"></a>Para criar um volume
@@ -43,7 +43,7 @@ ms.locfileid: "100552827"
       1. Na folha **Hosts conectados**, escolha um ACR existente ou adicionar um novo ACR executando as seguintes etapas:
 
          1. Forneça um **Nome** para seu ACR.
-         2. Em **Nome do Iniciador iSCSI**, forneça o Nome Qualificado do iSCSI (IQN) do seu host do Windows. Se você não tiver o IQN, vá para [obter o IQN de um host do Windows Server](#get-the-iqn-of-a-windows-server-host).
+         2. Em **Nome do Iniciador iSCSI**, forneça o Nome Qualificado do iSCSI (IQN) do seu host do Windows. Se você não tiver o IQN, vá para [Obter o IQN de um host do Windows Server](#get-the-iqn-of-a-windows-server-host).
 
       1. Clique em **Criar**. Será criado um volume com as configurações especificadas.
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 2f27c50b1d016265c20102521a137bcbb0646115
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67172140"
 ---
 Se você possui uma URL de SAS (assinatura de acesso compartilhado) que concede acesso a recursos em uma conta de armazenamento, pode usar a SAS em uma cadeia de conexão. Como a SAS contém as informações necessárias para autenticar a solicitação, uma cadeia de conexão com uma SAS fornece o protocolo, o ponto de extremidade de serviço e as credenciais necessárias para acessar o recurso.

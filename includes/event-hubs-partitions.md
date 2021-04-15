@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/15/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 2cb203a00bb00767126f95e1fdc2f5aff8990f01
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1dd78ba3799573e05e4ebbf55887bae3d9674b7c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103601263"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310063"
 ---
 Os Hubs de Eventos organizam sequências de eventos enviados a um hub de eventos em uma ou mais partições. À medida que novos eventos chegam, eles são adicionados ao final dessa sequência. 
 
@@ -32,7 +32,7 @@ Os Hubs de Eventos são projetados para ajudar no processamento de grandes volum
 ### <a name="number-of-partitions"></a>Número of partições
 O número de partições é especificado na criação e precisa estar entre 1 e 32 nos Hubs de Eventos Standard. A contagem de partições pode ter até 2.000 partições por unidade de capacidade em Hubs de Eventos Dedicados. 
 
-Recomendamos que você escolha pelo menos tantas partições quanto espera exigir nas [TU (unidades de produtividade)](../articles/event-hubs/event-hubs-faq.md#what-are-event-hubs-throughput-units) sustentadas durante o pico de carga do seu aplicativo para aquele Hub de Eventos em particular. É recomendável calcular com uma única partição que tem uma capacidade de taxa de transferência de 1 TU (1 MByte de entrada, 2 MByte de saída). É possível escalar as TUs no seu namespace ou nas unidades de capacidade do seu cluster independentemente da contagem de partições. Um Hub de Eventos com 32 partições ou um Hub de Eventos com uma partição incorre exatamente no mesmo custo quando o namespace é definido como capacidade de 1 TU. 
+Recomendamos que você escolha pelo menos tantas partições quanto espera exigir nas [TU (unidades de produtividade)](../articles/event-hubs/event-hubs-faq.yml#what-are-event-hubs-throughput-units-) sustentadas durante o pico de carga do seu aplicativo para aquele Hub de Eventos em particular. É recomendável calcular com uma única partição que tem uma capacidade de taxa de transferência de 1 TU (1 MByte de entrada, 2 MByte de saída). É possível escalar as TUs no seu namespace ou nas unidades de capacidade do seu cluster independentemente da contagem de partições. Um Hub de Eventos com 32 partições ou um Hub de Eventos com uma partição incorre exatamente no mesmo custo quando o namespace é definido como capacidade de 1 TU. 
 
 A contagem de partições de um hub de eventos em um [cluster de Hubs de Eventos dedicados](../articles/event-hubs/event-hubs-dedicated-overview.md) pode ser [aumentada](../articles/event-hubs/dynamically-add-partitions.md) após o hub de eventos ter sido criado, mas a distribuição de fluxos entre partições será alterada quando for feita como o mapeamento de chaves de partição para alterações de partições. Portanto, você deve tentar evitar essas alterações se a ordem relativa dos eventos é importante em seu aplicativo.
 
