@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/30/2021
+ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: 9bd61d65d6d64dac6081d3491deb8a15efc4a45b
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 56e3ba46ffb43aec907d729a2e74cdf6f7a62c32
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048412"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530642"
 ---
 # <a name="features"></a>Recursos
 
@@ -29,22 +29,22 @@ As versões anteriores também têm suporte no momento incluem: `3.0.2`
 
 | API                            | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
-| ler                           | Sim       | Sim       | Sim       |                                                     |
-| vread                          | Sim       | Sim       | Sim       |                                                     |
-| atualizar                         | Sim       | Sim       | Sim       |                                                     |
-| atualizar com bloqueio otimista | Sim       | Sim       | Sim       |                                                     |
-| atualizar (condicional)           | Sim       | Sim       | Sim       |                                                     |
-| distribuído                          | Não        | Não        | Não        |                                                     |
-| excluir                         | Sim       | Sim       | Sim       |  Consulte a observação abaixo.                                   |
+| leitura                           | Sim       | Sim       | Yes       |                                                     |
+| vread                          | Sim       | Sim       | Yes       |                                                     |
+| atualizar                         | Sim       | Sim       | Yes       |                                                     |
+| atualizar com bloqueio otimista | Sim       | Sim       | Yes       |                                                     |
+| atualizar (condicional)           | Sim       | Sim       | Yes       |                                                     |
+| patch                          | Não        | Não        | Não        |                                                     |
+| excluir                         | Sim       | Sim       | Yes       |  Consulte a observação abaixo.                                   |
 | excluir (condicional)           | Não        | Não        | Não        |                                                     |
-| history                        | Sim       | Sim       | Sim       |                                                     |
-| create                         | Sim       | Sim       | Sim       | Suporte para POST/PUT                               |
-| criar (condicional)           | Sim       | Sim       | Sim       | Problema [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
+| history                        | Sim       | Sim       | Yes       |                                                     |
+| create                         | Sim       | Sim       | Yes       | Suporte para POST/PUT                               |
+| criar (condicional)           | Sim       | Sim       | Yes       | Problema [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | pequisa                         | Parcial   | Parcial   | Parcial   | Consulte a seção de pesquisa abaixo.                           |
-| pesquisa encadeada                 | Sim       | Sim       | Parcial   | Veja a observação 2 abaixo.                                   |
-| pesquisa encadeada inversa         | Sim       | Sim       | Parcial   | Veja a observação 2 abaixo.                                   |
-| funcionalidades                   | Sim       | Sim       | Sim       |                                                     |
-| lote                          | Sim       | Sim       | Sim       |                                                     |
+| pesquisa encadeada                 | Parcial       | Sim       | Parcial   | Veja a observação 2 abaixo.                                   |
+| pesquisa encadeada inversa         | Parcial       | Sim       | Parcial   | Veja a observação 2 abaixo.                                   |
+| funcionalidades                   | Sim       | Sim       | Yes       |                                                     |
+| lote                          | Sim       | Sim       | Yes       |                                                     |
 | transaction                    | Não        | Sim       | Não        |                                                     |
 | paginação                         | Parcial   | Parcial   | Parcial   | `self` e `next` têm suporte                     |
 | intermediários                 | Não        | Não        | Não        |                                                     |
@@ -58,20 +58,20 @@ As versões anteriores também têm suporte no momento incluem: `3.0.2`
 
   Na API do Azure para FHIR e o servidor FHIR de código-fonte aberto com suporte de Cosmos, a pesquisa encadeada e a pesquisa encadeada inversa é uma implementação MVP. Para realizar uma pesquisa encadeada no Cosmos DB, a implementação percorre a expressão de pesquisa e emite subconsultas para resolver os recursos correspondentes. Isso é feito para cada nível da expressão. Se qualquer consulta retornar mais de 100 resultados, um erro será gerado. Por padrão, a pesquisa encadeada está atrás de um sinalizador de recurso. Para usar a pesquisa encadeada em Cosmos DB, use o cabeçalho `x-ms-enable-chained-search: true` . Para obter mais detalhes, consulte [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 
-## <a name="search"></a>Search
+## <a name="search"></a>Pesquisar
 
 Todos os tipos de parâmetro de pesquisa têm suporte. 
 
 | Tipo de parâmetro de pesquisa | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário |
 |-----------------------|-----------|-----------|-----------|---------|
-| Número                | Sim       | Sim       | Sim       |         |
+| Número                | Sim       | Sim       | Yes       |         |
 | Data/Data e Hora         | Sim       | Sim       | Sim       |         |
-| String                | Sim       | Sim       | Sim       |         |
-| Token                 | Sim       | Sim       | Sim       |         |
-| Referência             | Sim       | Sim       | Sim       |         |
-| Composição             | Sim       | Sim       | Sim       |         |
-| Quantidade              | Sim       | Sim       | Sim       |         |
-| URI                   | Sim       | Sim       | Sim       |         |
+| String                | Sim       | Sim       | Yes       |         |
+| Token                 | Sim       | Sim       | Yes       |         |
+| Referência             | Sim       | Sim       | Yes       |         |
+| Composição             | Sim       | Sim       | Yes       |         |
+| Quantidade              | Sim       | Sim       | Yes       |         |
+| URI                   | Sim       | Sim       | Yes       |         |
 | Especial               | Não        | Não        | Não        |         |
 
 
@@ -80,10 +80,10 @@ Todos os tipos de parâmetro de pesquisa têm suporte.
 |`:missing`             | Sim       | Sim       | Sim       |         |
 |`:exact`               | Sim       | Sim       | Sim       |         |
 |`:contains`            | Sim       | Sim       | Sim       |         |
-|`:text`                | Sim       | Sim       | Sim       |         |
+|`:text`                | Sim       | Sim       | Yes       |         |
 |`:[type]` referência  | Sim       | Sim       | Sim       |         |
-|`:not`                 | Sim       | Sim       | Sim       |         |
-|`:below` URI         | Sim       | Sim       | Sim       |         |
+|`:not`                 | Sim       | Sim       | Yes       |         |
+|`:below` URI         | Sim       | Sim       | Yes       |         |
 |`:above` URI         | Não        | Não        | Não        | Problema [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 |`:in` token          | Não        | Não        | Não        |         |
 |`:below` token       | Não        | Não        | Não        |         |
@@ -96,7 +96,7 @@ Todos os tipos de parâmetro de pesquisa têm suporte.
 | `_lastUpdated`          | Sim       | Sim       | Sim       |         |
 | `_tag`                  | Sim       | Sim       | Sim       |         |
 | `_list`                 | Sim       | Sim       | Sim       |         |
-| `_type`                 | Sim       | Sim       | Sim       | Problema [#1562](https://github.com/microsoft/fhir-server/issues/1562)        |
+| `_type`                 | Sim       | Sim       | Yes       | Problema [#1562](https://github.com/microsoft/fhir-server/issues/1562)        |
 | `_security`             | Sim       | Sim       | Sim       |         |
 | `_profile`              | Parcial   | Parcial   | Parcial   | Com suporte no STU3. Se você criou seu banco de dados **após** 20 de fevereiro de 2021, também terá suporte no R4. Estamos trabalhando para habilitar _profile em bancos de dados criados antes de 20 de fevereiro de 2021. |
 | `_text`                 | Não        | Não        | Não        |         |
@@ -107,10 +107,10 @@ Todos os tipos de parâmetro de pesquisa têm suporte.
 
 | Parâmetros de resultado da pesquisa | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário |
 |-------------------------|-----------|-----------|-----------|---------|
-| `_elements`             | Sim       | Sim       | Sim       | Problema [#1256](https://github.com/microsoft/fhir-server/issues/1256)        |
-| `_count`                | Sim       | Sim       | Sim       | `_count` é limitado a 1000 caracteres. Se definido como maior que 1000, somente 1000 será retornado e um aviso será retornado no grupo. |
-| `_include`              | Sim       | Sim       | Sim       |Os itens incluídos são limitados a 100. Incluir em PaaS e OSS no Cosmos DB não inclui: suporte a iteração.|
-| `_revinclude`           | Sim       | Sim       | Sim       | Os itens incluídos são limitados a 100. Incluir em PaaS e OSS no Cosmos DB não [inclui: suporte a iteração](https://github.com/microsoft/fhir-server/issues/1313). Problema [#1319](https://github.com/microsoft/fhir-server/issues/1319)|
+| `_elements`             | Sim       | Sim       | Yes       | Problema [#1256](https://github.com/microsoft/fhir-server/issues/1256)        |
+| `_count`                | Sim       | Sim       | Yes       | `_count` é limitado a 1000 caracteres. Se definido como maior que 1000, somente 1000 será retornado e um aviso será retornado no grupo. |
+| `_include`              | Sim       | Sim       | Yes       |Os itens incluídos são limitados a 100. Incluir em PaaS e OSS no Cosmos DB não inclui: suporte a iteração.|
+| `_revinclude`           | Sim       | Sim       | Yes       | Os itens incluídos são limitados a 100. Incluir em PaaS e OSS no Cosmos DB não [inclui: suporte a iteração](https://github.com/microsoft/fhir-server/issues/1313). Problema [#1319](https://github.com/microsoft/fhir-server/issues/1319)|
 | `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` é compatível |
 | `_total`                | Parcial   | Parcial   | Parcial   | `_total=none` e `_total=accurate`      |
 | `_sort`                 | Parcial   | Parcial   | Parcial   |   `_sort=_lastUpdated` é compatível       |
@@ -124,10 +124,10 @@ Todas as operações com suporte que estendem a API RESTful.
 
 | Tipo de parâmetro de pesquisa | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário |
 |------------------------|-----------|-----------|-----------|---------|
-| $export (sistema inteiro) | Sim       | Sim       | Sim       |         |
-| Paciente/$export        | Sim       | Sim       | Sim       |         |
-| Grupo/$export          | Sim       | Sim       | Sim       |         |
-| $convert-dados          | Sim       | Sim       | Sim       |         |
+| $export (sistema inteiro) | Sim       | Sim       | Yes       |         |
+| Paciente/$export        | Sim       | Sim       | Yes       |         |
+| Grupo/$export          | Sim       | Sim       | Yes       |         |
+| $convert-dados          | Sim       | Sim       | Yes       |         |
 
 
 ## <a name="persistence"></a>Persistência
@@ -146,7 +146,7 @@ Atualmente, as ações permitidas para uma determinada função são aplicadas *
 
 ## <a name="service-limits"></a>Limites de serviço
 
-* [**Unidades de solicitação (RUs)**](../../cosmos-db/concepts-limits.md) – você pode configurar até 10.000 RUs no portal para a API do Azure para FHIR. Será necessário um mínimo de 400 RUs ou 10 RUs/GB, o que for maior. Se você precisar de mais de 10.000 RUs, poderá colocar em um tíquete de suporte para que isso seja aumentado. O máximo disponível é 1 milhão.
+* [**Unidades de solicitação (RUs)**](../../cosmos-db/concepts-limits.md) – você pode configurar até 10.000 RUs no portal para a API do Azure para FHIR. Será necessário um mínimo de 400 RUs ou 40 RUs/GB, o que for maior. Se você precisar de mais de 10.000 RUs, poderá colocar em um tíquete de suporte para que isso seja aumentado. O máximo disponível é 1 milhão.
 
 * **Conexões simultâneas** e **instâncias** -por padrão, você tem cinco conexões simultâneas em duas instâncias no cluster (para um total de 10 solicitações simultâneas). Se você acreditar que precisa de mais solicitações simultâneas, abra um tíquete de suporte com detalhes sobre suas necessidades.
 
@@ -160,12 +160,12 @@ O desempenho do sistema depende do número de RUs, conexões simultâneas e do t
 
 | n º de RUs | Recursos/s |    Armazenamento máximo (GB) *    |
 |----------|---------------|--------|                 
-| 400      | 5-10          |     40   |
-| 1,000    | 100-150       |      100  |
-| 10.000   | 225-400       |      1,000  |
-| 100.000  | 2500 a 4.000   |      10.000  |
+| 400      | 5-10          |     10   |
+| 1,000    | 100-150       |      25  |
+| 10.000   | 225-400       |      250  |
+| 100.000  | 2500 a 4.000   |      2\.500  |
 
-Observação: por Cosmos DB requisito, há um requisito de uma taxa de transferência mínima de 10 RU/s por GB de armazenamento. Para obter mais informações, confira [Cosmos DB cotas de serviço](../../cosmos-db/concepts-limits.md).
+Observação: por Cosmos DB requisito, há um requisito de uma taxa de transferência mínima de 40 RU/s por GB de armazenamento. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

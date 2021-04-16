@@ -1,6 +1,6 @@
 ---
 title: Usar entidades para classificar e analisar dados no Azure Sentinel | Microsoft Docs
-description: Atribua classificações de entidade (usuários, nomes de host, endereços IP) a itens de dados no Azure Sentinel e use-os para comparar, analisar e correlacionar dados de várias fontes.
+description: Atribua classificações de entidade (usuários, nomes de host e endereços IP) a itens de dados no Azure Sentinel e use-os para comparar, analisar e correlacionar dados de várias fontes.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,29 +15,29 @@ ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
 ms.openlocfilehash: 43da1af7a3001d7f8e000a878948428a3d63aa4e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102456204"
 ---
 # <a name="classify-and-analyze-data-using-entities-in-azure-sentinel"></a>Classificar e analisar dados usando entidades no Azure Sentinel
 
 ## <a name="what-are-entities"></a>O que são entidades?
 
-Quando os alertas são enviados ou gerados pelo Azure Sentinel, eles contêm itens de dados que o sentinela pode reconhecer e classificar em categorias como **entidades**. Quando o Azure Sentinel compreende que tipo de entidade um determinado item de dados representa, ele sabe as perguntas certas a serem feitas sobre ele e, em seguida, pode comparar informações sobre esse item em toda a gama de fontes de dados e rastreá-la facilmente e consultá-la em toda a experiência do Sentinela – análise, investigação, correção, busca e assim por diante. Alguns exemplos comuns de entidades são usuários, hosts, arquivos, processos, endereços IP e URLs.
+Quando os alertas são enviados ou gerados pelo Azure Sentinel, eles contêm itens de dados que o Sentinel pode reconhecer e classificar em categorias como **entidades**. Quando o Azure Sentinel compreende que tipo de entidade um determinado item de dados representa, ele sabe as perguntas certas a serem feitas sobre isso e, depois, pode comparar insights sobre esse item em toda a gama de fontes de dados e rastreá-la com facilidade e consultá-la em toda a experiência do Sentinel – análise, investigação, correção, busca e assim por diante. Alguns exemplos comuns de entidades são usuários, hosts, arquivos, processos, endereços IP e URLs.
 
 ### <a name="entity-identifiers"></a>Identificadores de entidade
 
-O Azure Sentinel dá suporte a uma ampla variedade de tipos de entidade. Cada tipo tem seus próprios atributos exclusivos, incluindo alguns que podem ser usados para identificar uma entidade específica. Esses atributos são representados como campos na entidade e são chamados de **identificadores**. Consulte a lista completa de entidades com suporte e seus identificadores abaixo.
+O Azure Sentinel dá suporte a uma ampla variedade de tipos de entidade. Cada tipo tem atributos exclusivos próprios, incluindo alguns que podem ser usados para identificar uma entidade em particular. Esses atributos são representados como campos na entidade e são chamados de **identificadores**. Confira abaixo a lista completa de entidades com suporte e seus identificadores.
 
 #### <a name="strong-and-weak-identifiers"></a>Identificadores fortes e fracos
 
-Conforme observado acima, para cada tipo de entidade, há campos, ou conjuntos de campos, que podem identificá-lo. Esses campos ou conjuntos de campos podem ser chamados de **identificadores fortes** se puderem identificar exclusivamente uma entidade sem nenhuma ambiguidade ou como **identificadores fracos** se puderem identificar uma entidade em algumas circunstâncias, mas não houver garantia de identificar exclusivamente uma entidade em todos os casos. Em muitos casos, no entanto, uma seleção de identificadores fracos pode ser combinada para produzir um identificador forte.
+Conforme observado logo acima, para cada tipo de entidade, há campos (ou conjuntos de campos) que podem identificá-lo. Esses campos (ou conjuntos de campos) podem ser chamados de **identificadores fortes**, se puderem identificar exclusivamente uma entidade sem nenhuma ambiguidade, ou de **identificadores fracos**, se puderem identificar uma entidade em algumas circunstâncias, mas não houver garantia de identificar exclusivamente uma entidade em todos os casos possíveis. Em muitos casos, no entanto, uma seleção de identificadores fracos pode ser combinada para produzir um identificador forte.
 
-Por exemplo, as contas de usuário podem ser identificadas como entidades de **conta** de mais de uma maneira: usando um único **identificador forte** , como um identificador numérico da conta do Azure AD (o campo **GUID** ) ou seu valor **UPN (nome principal do usuário)** ou, como alternativa, usando uma combinação de **identificadores fracos** como seus campos **Name** e **domínio do NT** . Fontes de dados diferentes podem identificar o mesmo usuário de maneiras diferentes. Sempre que o Azure Sentinel encontra duas entidades que ele pode reconhecer como a mesma entidade com base em seus identificadores, ele mescla as duas entidades em uma única entidade, para que possa ser manipulado de forma adequada e consistente.
+Por exemplo, as contas de usuário podem ser identificadas como entidades de **conta** de mais de uma forma: usando apenas um **identificador forte**, como um identificador numérico de conta do Azure AD (o campo **GUID**) ou seu valor **UPN (nome UPN)** ou, como alternativa, usando uma combinação de **identificadores fracos** como os campos **Nome** e **NTDomain**. Fontes de dados diferentes podem identificar o mesmo usuário de maneiras diferentes. Sempre que o Azure Sentinel encontra duas entidades que ele pode reconhecer como a mesma entidade com base em seus identificadores, ele mescla as duas entidades em apenas uma, para que possa ser gerenciada de maneira adequada e consistente.
 
-No entanto, se um de seus provedores de recursos criar um alerta no qual uma entidade não está suficientemente identificada, por exemplo, usando apenas um único **identificador fraco** , como um nome de usuário sem o contexto do nome de domínio, a entidade do usuário não poderá ser mesclada com outras instâncias da mesma conta de usuário. Essas outras instâncias seriam identificadas como uma entidade separada, e essas duas entidades permanecerão separadas em vez de unificadas.
+No entanto, se um de seus provedores de recursos criar um alerta no qual uma entidade não está suficientemente identificada – por exemplo, usando apenas um **identificador fraco**, como um nome de usuário sem o contexto do nome de domínio – então a entidade do usuário não poderá ser mesclada com outras instâncias da mesma conta de usuário. Essas outras instâncias seriam identificadas como uma entidade separada e essas duas entidades permaneceriam separadas em vez de unificadas.
 
 Para minimizar o risco dessa ocorrência, você deve verificar se todos os provedores de alertas identificam corretamente as entidades nos alertas produzidos. Além disso, a sincronização de entidades de conta de usuário com o Azure Active Directory pode criar um diretório unificado, que pode mesclar entidades de conta de usuário.
 
@@ -65,19 +65,19 @@ Os seguintes tipos de entidades estão identificados no Azure sentinela atualmen
 - Mensagem de e-mail
 - E-mail de envio
 
-Você pode exibir os identificadores dessas entidades e outras informações relevantes na [referência de entidades](entities-reference.md).
+Você pode ver os identificadores dessas entidades e outras informações relevantes na [referência das entidades](entities-reference.md).
 
 ## <a name="entity-mapping"></a>Mapeamento de entidade
 
-Como o Azure Sentinel reconhece uma parte dos dados em um alerta como identificação de uma entidade?
+Como o Azure Sentinel reconhece uma parte dos dados de um alerta como a identificação de uma entidade?
 
-Vejamos como o processamento de dados é feito no Azure Sentinel. Os dados são ingeridos de várias fontes por meio de [conectores](connect-data-sources.md), seja o serviço a serviço, baseado em agente ou usando um serviço de syslog e um encaminhador de log. Os dados são armazenados em tabelas em seu espaço de trabalho do Log Analytics. Em seguida, essas tabelas são consultadas em intervalos agendados regularmente pelas regras de análise definidas e habilitadas. Uma das muitas ações tomadas por essas regras de análise é o mapeamento de campos de dados nas tabelas para entidades reconhecidas pelo sentinela do Azure. De acordo com os mapeamentos que você definir em suas regras de análise, o Azure Sentinel pegará campos dos resultados retornados por sua consulta, os reconhecerá pelos identificadores especificados para cada tipo de entidade e se aplicará a eles o tipo de entidade identificado por esses identificadores.
+Vejamos como o processamento de dados é feito no Azure Sentinel. Os dados são ingeridos de várias fontes por meio de [conectores](connect-data-sources.md), seja de serviço para serviço, baseado em agente ou usando um serviço de syslog e um encaminhador de logs. Os dados são armazenados em tabelas no seu workspace do Log Analytics. Em seguida, essas tabelas são consultadas em intervalos agendados regularmente pelas regras de análise definidas e habilitadas por você. Uma das muitas ações tomadas por essas regras de análise é o mapeamento de campos de dados nas tabelas para entidades reconhecidas pelo Azure Sentinel. De acordo com os mapeamentos que você definir nas regras de análise, o Azure Sentinel pegará campos dos resultados retornados pela consulta, reconhecerá esses campos por meio dos identificadores que você especificou para cada tipo de entidade e aplicará aos campos o tipo de entidade identificado por esses identificadores.
 
-Qual é o ponto de tudo isso?
+Qual é o objetivo de tudo isso?
 
-Quando o Sentinela do Azure é capaz de identificar entidades em alertas de diferentes tipos de fontes de dados e, especialmente, se puder fazer isso usando identificadores fortes comuns a cada fonte de dados ou a um terceiro esquema, ele poderá correlacionar facilmente entre todos esses alertas e fontes de dados. Essas correlações ajudam a criar um armazenamento avançado de informações e ideias sobre as entidades, fornecendo a você uma base sólida para suas operações de segurança.
+Quando o Azure Sentinel for capaz de identificar entidades em alertas de diferentes tipos de fontes de dados e, especialmente, se ele puder fazer isso usando identificadores fortes comuns a cada fonte de dados ou a um terceiro esquema, ele poderá se correlacionar com facilidade entre todos esses alertas e essas fontes de dados. Essas correlações ajudam a criar um armazenamento avançado de informações e insights sobre as entidades, fornecendo a você uma base sólida para as operações de segurança.
 
-Saiba como [mapear campos de dados para entidades](map-data-fields-to-entities.md).
+Saiba como [mapear campos de dados para as entidades](map-data-fields-to-entities.md).
 
 Saiba [quais identificadores identificam fortemente uma entidade](entities-reference.md).
 
@@ -111,9 +111,9 @@ Os seguintes tipos de itens estão incluídos na linha do tempo:
 
 ### <a name="entity-insights"></a>Insights de entidade
 
-Os insights de entidade são consultas definidas pelos pesquisadores de segurança da Microsoft para ajudar os analistas a investigar de forma mais eficiente e eficaz. Os insights são apresentados como parte da página de entidade e fornecem informações de segurança importantes sobre hosts e usuários, na forma de dados de tabela e gráficos. Ter as informações aqui significa que você não precisa desviar para o Log Analytics. As informações incluem dados relacionados a entradas, adições de grupo, eventos anormais e muito mais, e incluem algoritmos de ML avançados para detectar o comportamento anormal.
+Os insights de entidade são consultas definidas pelos pesquisadores de segurança da Microsoft para ajudar os analistas a investigar de forma mais eficiente e eficaz. Os insights são apresentados como parte da página de entidade e fornecem informações de segurança importantes sobre hosts e usuários, na forma de dados de tabela e gráficos. Ter as informações aqui significa que você não precisa desviar para o Log Analytics. Os insights incluem dados relacionados a entradas, adições de grupo, eventos anômalos e muito mais, e incluem algoritmos avançados de ML para detectar comportamentos anômalos.
 
-As informações são baseadas nas seguintes fontes de dados:
+Os insights são baseados nas seguintes fontes de dados:
 
 - Syslog (Linux)
 - SecurityEvent (Windows)
@@ -121,18 +121,18 @@ As informações são baseadas nas seguintes fontes de dados:
 - SigninLogs (Azure AD)
 - OfficeActivity (Office 365)
 - BehaviorAnalytics (Azure Sentinel UEBA)
-- Pulsação (agente de Azure Monitor)
-- CommonSecurityLog (Sentinela do Azure)
+- Heartbeat (agente do Azure Monitor)
+- CommonSecurityLog (Azure Sentinel)
 
 ### <a name="how-to-use-entity-pages"></a>Como usar as páginas de entidade
 
 As páginas de entidade são criadas para fazer parte de vários cenários de uso e podem ser acessadas por meio de gerenciamento de incidentes, grafo de investigação, indicadores ou diretamente na página de pesquisa de entidade em **Análise de comportamento de entidades** no menu principal do Sentinela do Azure.
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Casos de uso de página de entidade":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Casos de uso da página da entidade":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste documento, você aprendeu a trabalhar com entidades no Azure Sentinel. Para obter diretrizes práticas sobre a implementação e para usar as informações obtidas, consulte os seguintes artigos:
+Neste documento, você aprendeu sobre como trabalhar com entidades no Azure Sentinel. Para obter diretrizes práticas sobre a implementação e para usar os insights obtidos, confira os seguintes artigos:
 
-- [Habilite a análise de comportamento de entidade](./enable-entity-behavior-analytics.md) no Azure Sentinel.
-- [Procure ameaças à segurança](./hunting.md).
+- [Habilitar a análise de comportamento de entidades](./enable-entity-behavior-analytics.md) no Azure Sentinel.
+- [Buscar por ameaças de segurança](./hunting.md).

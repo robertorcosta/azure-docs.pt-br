@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 5820592bf06cc9427e12aa0cd79c54dc1f0156e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfaa04077a5148f19f06aa5e1257b986377ea8c0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101657988"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307122"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,7 +24,7 @@ O [Azure Cosmos DB](introduction.md) é o serviço multimodelo de banco de dados
 
 ## <a name="wire-protocol-compatibility"></a>Compatibilidade de protocolo de transmissão
 
-O Azure Cosmos DB implementa o protocolo de transmissão para MongoDB. Essa implementação permite compatibilidade transparente com SDKs, drivers e ferramentas de cliente MongoDB nativos. O Azure Cosmos DB hospeda o mecanismo de banco de dados MongoDB. Os detalhes dos recursos com suporte do MongoDB podem ser encontrados aqui: 
+O Azure Cosmos DB implementa o protocolo de transmissão para MongoDB. Essa implementação permite compatibilidade transparente com SDKs, drivers e ferramentas de cliente MongoDB nativos. O Azure Cosmos DB não hospeda o mecanismo de banco de dados MongoDB. Os detalhes dos recursos com suporte do MongoDB podem ser encontrados aqui: 
 - [API do Azure Cosmos DB para MongoDB versão 4.0](mongodb-feature-support-40.md)
 - [API do Azure Cosmos DB para MongoDB versão 3.6](mongodb-feature-support-36.md)
 
