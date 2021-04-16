@@ -1,18 +1,18 @@
 ---
 title: Controles de amostra de blueprint de Mídia
 description: Mapeamento de controles das amostras de blueprint de Mídia. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 04/02/2021
+ms.date: 04/13/2021
 ms.topic: sample
-ms.openlocfilehash: b489111010c9a4fcb112428ae642332980302849
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 4c04c661d7dd8b2b07a05c20524258d6bb887e62
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386381"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376691"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Mapeamento de controles da amostra de blueprint de Mídia
 
-O artigo a seguir fornece detalhes sobre como a amostra de blueprint de Mídia do Azure Blueprints são mapeados para os controles de Mídia. Para obter mais informações sobre os controles, confira [Mídia](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
+O artigo a seguir fornece detalhes sobre como a amostra de blueprint de Mídia do Azure Blueprints são mapeados para os controles de Mídia. Para obter mais informações sobre os controles, confira [Mídia](https://www.motionpictures.org/best-practices).
 
 Os mapeamentos a seguir referem-se aos controles de **Mídia**. Use a navegação no lado direito para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa do [Azure Policy](../../../policy/overview.md). Para examinar a iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições**. Em seguida, localize e selecione a iniciativa de política interna **\[Versão prévia\]: auditar controles de mídia**.
 

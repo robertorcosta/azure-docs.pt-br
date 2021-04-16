@@ -2,21 +2,21 @@
 title: Exemplo do PowerShell – exportar segredos e certificados para registros de aplicativo no locatário do Azure Active Directory.
 description: Exemplo do PowerShell que exporta todos os segredos e certificados dos registros de aplicativo especificados em seu locatário do Azure Active Directory.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 03/09/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: mifarca
-ms.openlocfilehash: d0de96d0d8a5edc6fbacc25dcbcb868073e57183
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5cbb6b3843e81d9265405dcea24a092e57bf65e
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556546"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377015"
 ---
 # <a name="export-secrets-and-certificates-for-app-registrations"></a>Exportar segredos e certificados para registros de aplicativo
 
