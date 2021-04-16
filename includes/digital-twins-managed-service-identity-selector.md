@@ -1,6 +1,6 @@
 ---
 title: incluir arquivo
-description: arquivo de inclusão para seleção entre as versões do artigo de instruções de identidade gerenciada do Azure digital gêmeos
+description: incluir arquivo para selecionar entre as versões do artigo de instruções sobre a identidade gerenciada dos Gêmeos Digitais do Azure
 services: digital-twins
 author: baanders
 ms.service: digital-twins
@@ -9,10 +9,10 @@ ms.date: 02/09/2020
 ms.author: baanders
 ms.custom: include file
 ms.openlocfilehash: 95b180a82929036ff658a2957e1d36cd18adadbe
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100416957"
 ---
 > [!div class="op_single_selector"]
