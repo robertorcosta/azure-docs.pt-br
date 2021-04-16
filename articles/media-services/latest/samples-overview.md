@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: overview
 ms.date: 03/24/2021
 ms.author: inhenkel
-ms.openlocfilehash: 401033e210db0a9d65d138fd12c9d3365b311a62
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 1d827d734c434204ff6b7ec60d27e507ae626abd
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105962145"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227680"
 ---
 # <a name="media-services-v3-samples"></a>Exemplos de Serviços de Mídia v3
 
@@ -47,7 +47,7 @@ Você encontrará as descrições e os links para os exemplos que pode estar pro
 | [ContentProtection/OfflinePlayReadyAndWidevine](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/OfflinePlayReadyAndWidevine)|Como criptografar dinamicamente seu conteúdo com o DRM do PlayReady e do Widevine e reproduzir o conteúdo sem solicitar uma licença do serviço de licença. Ela mostra como criar uma transformação com a predefinição AdaptiveStreaming interna, enviar um trabalho, criar uma ContentKeyPolicy com a restrição aberta e a configuração persistente do PlayReady/Widevine, associar a ContentKeyPolicy ao StreamingLocator e imprimir uma URL para reprodução.|
 | [Streaming/AssetFilters](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/AssetFilters)|Como criar uma transformação com a predefinição AdaptiveStreaming interna, enviar um trabalho, criar um filtro de ativos e um filtro de contas, associar os filtros aos localizadores de streaming e imprimir URLs para reprodução.|
 | [Streaming/StreamHLSAndDASH](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/StreamHLSAndDASH)|Como criar uma transformação com a predefinição AdaptiveStreaming interna, enviar um trabalho, publicar o ativo de saída para streaming de HLS e DASH.|
-| [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/HighAvailabilityEncodingStreaming/) | Diretrizes e melhores práticas para um sistema de produção usando codificação ou análise sob demanda. Os leitores devem começar com o artigo complementar [Alta disponibilidade com os Serviços de Mídia e o VOD](https://docs.microsoft.com/azure/media-services/latest/architecture-high-availability-encoding-concept). Um arquivo de solução separado é fornecido para o exemplo [HighAvailabilityEncodingStreaming](/HighAvailabilityEncodingStreaming/Readme.md). |
+| [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/HighAvailabilityEncodingStreaming/) | Diretrizes e melhores práticas para um sistema de produção usando codificação ou análise sob demanda. Os leitores devem começar com o artigo complementar [Alta disponibilidade com os Serviços de Mídia e o VOD](https://docs.microsoft.com/azure/media-services/latest/architecture-high-availability-encoding-concept). Um arquivo de solução separado é fornecido para o exemplo [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/HighAvailabilityEncodingStreaming/README.md). |
 
 ## <a name="nodejs"></a>[Node.JS](#tab/node/)
 
