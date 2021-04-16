@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 8d0f9899dbb7599340b8d15ca010a0157011fb9e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67172001"
 ---
 1. Entre no [portal do Azure](https://portal.azure.com/).
@@ -33,13 +33,13 @@ ms.locfileid: "67172001"
 8. Selecione **Firewall**.
 
     ![Selecione Configurações > Firewall][b31-SettingsFirewallNavig]
-9. Selecione **Adicionar IP do cliente**. Digite um nome para a nova regra na primeira caixa de texto.
+9. Selecione **Adicionar Cliente IP**. Digite um nome para a nova regra na primeira caixa de texto.
 
 10. Digite os valores baixos e altos de endereços IP para o intervalo que deseja habilitar.
 
     * Pode ser útil ter o valor baixo terminado com **0,0** e o valor alto terminado com **0,255**.
 
-11. Clique em **Salvar**.
+11. Selecione **Salvar**.
 
 <!-- Image references. -->
 

@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: ed83d52d19df126ef9b0e68f984f88f5dfd40c42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a8fe4ed0c24d2ccda5fb844005a33a93e85a169
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99492932"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365511"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Autenticar-se no Azure Key Vault
 
@@ -59,8 +59,6 @@ O Key Vault funciona com dois níveis de autorização separados:
     - [Azure portal](../../role-based-access-control/role-assignments-portal.md)
     - [CLI do Azure](../../role-based-access-control/role-assignments-cli.md)
     - [PowerShell do Azure](../../role-based-access-control/role-assignments-powershell.md)
-
-    O Key Vault atualmente dá suporte à função de [Colaborador](../../role-based-access-control/built-in-roles.md#key-vault-contributor), que permite operações de gerenciamento nos recursos do Key Vault. Uma série de outras funções estão atualmente em versão prévia. Você também pode criar funções personalizadas, conforme descrito em [Funções personalizadas do Azure](../../role-based-access-control/custom-roles.md).
 
     Para obter informações gerais sobre funções, confira [O que é o Azure RBAC (controle de acesso baseado em função do Azure)?](../../role-based-access-control/overview.md).
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ac9cef77569dffe461f7711195c5638e831aa218
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 28072184d47beb32dc03e0d6ba52328bfceb5b73
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110097"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364865"
 ---
 # <a name="calling-sdk-overview"></a>Visão geral do SDK de Chamada
 
@@ -68,12 +68,12 @@ A lista a seguir apresenta o conjunto de recursos que estão disponíveis nos SD
 |                   | Obter lista de câmeras                                                                                                     | ✔️   | ✔️            | ✔️
 |                   | Definir a câmera                                                                                                          | ✔️   | ✔️            | ✔️
 |                   | Obter a câmera selecionada                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | Obter lista de microfones                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | Definir o microfone                                                                                                      | ✔️   | ✔️            | ✔️
-|                   | Obter o microfone selecionado                                                                                             | ✔️   | ✔️            | ✔️
-|                   | Obter lista de alto-falantes                                                                                                   | ✔️   | ✔️            | ✔️
-|                   | Definir o alto-falante                                                                                                         | ✔️   | ✔️            | ✔️
-|                   | Obter o alto-falante selecionado                                                                                                | ✔️   | ✔️            | ✔️
+|                   | Obter lista de microfones                                                                                                 | ✔️   | ❌           |❌  
+|                   | Definir o microfone                                                                                                      | ✔️   | ❌           | ❌  
+|                   | Obter o microfone selecionado                                                                                             | ✔️   | ❌           | ❌  
+|                   | Obter lista de alto-falantes                                                                                                   | ✔️   | ❌           | ❌  
+|                   | Definir o alto-falante                                                                                                         | ✔️   | ❌           | ❌  
+|                   | Obter o alto-falante selecionado                                                                                                | ✔️   | ❌           | ❌  
 | Renderização de vídeo   | Renderizar um vídeo único em vários locais (câmera local ou fluxo remoto)                                                  | ✔️   | ✔️            | ✔️
 |                   | Definir/atualizar o modo de dimensionamento                                                                                           | ✔️   | ✔️            | ✔️
 |                   | Renderizar um fluxo de vídeo remoto                                                                                          | ✔️   | ✔️            | ✔️

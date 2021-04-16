@@ -1,19 +1,19 @@
 ---
-title: Listar recursos de armazenamento do Azure com a biblioteca de cliente C++
+title: Listar recursos do Armazenamento do Microsoft Azure com a biblioteca de cliente C++
 description: Saiba como usar a APIs de listagem na Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++ para enumerar contêineres, blobs, filas, tabelas e entidades.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 01/23/2017
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 8c8e2d2ddf6899e62bc95bc1e52c84eccdc3a91e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 72b08a79ead90207c48c4fa682b708a0627b5df3
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92784086"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279622"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listar recursos do Armazenamento do Azure no C++
 
@@ -196,9 +196,9 @@ Neste artigo, discutimos diferentes sobrecargas para listar as APIs de vários o
 
 Para obter mais informações sobre o Armazenamento do Azure e a Biblioteca de Cliente para C++, consulte os seguintes recursos.
 
-* [Como usar o armazenamento de BLOBs do C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Como usar o Armazenamento de Blobs do C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Como usar o Armazenamento de Tabelas do C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Como usar o armazenamento de filas do C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Documentação Biblioteca de Cliente de Armazenamento do Azure para API do C++.](https://azure.github.io/azure-storage-cpp/)
 * [Blog da equipe de Armazenamento do Azure](/archive/blogs/windowsazurestorage/)
-* [Documentação do armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
