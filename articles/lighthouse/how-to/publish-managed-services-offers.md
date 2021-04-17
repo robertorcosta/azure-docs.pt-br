@@ -3,12 +3,12 @@ title: Publicar uma oferta de serviços gerenciados no Azure Marketplace
 description: Saiba como publicar uma oferta de serviço gerenciado que integre os clientes ao Azure Lighthouse.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 3f790c37a36fa1c5092a50c02429260825158c72
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: f59d9708925b52bcf9432663fe6d3137a54b37ad
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491348"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107441"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de serviços gerenciados no Azure Marketplace
 
@@ -16,7 +16,7 @@ Neste artigo, você aprenderá a publicar uma oferta de serviço gerenciado púb
 
 ## <a name="publishing-requirements"></a>Publicação de requisitos
 
-Você precisa ter uma conta [válida no Partner Center](../../marketplace/partner-center-portal/create-account.md) para criar e publicar ofertas. Se você ainda não tem uma conta, o [processo de inscrição](https://aka.ms/joinmarketplace) explica as etapas de criação da conta no Partner Center e do registro no programa do Marketplace Comercial.
+Você precisa ter uma conta [válida no Partner Center](../../marketplace/create-account.md) para criar e publicar ofertas. Se você ainda não tem uma conta, o [processo de inscrição](https://aka.ms/joinmarketplace) explica as etapas de criação da conta no Partner Center e do registro no programa do Marketplace Comercial.
 
 De acordo com os [requisitos de certificação de ofertas de serviço gerenciado](/legal/marketplace/certification-policies#700-managed-services), você deve ter o [nível de competência de plataforma de nuvem Silver ou Gold](/partner-center/learn-about-competencies) ou ser [MSP Especialista em Azure](https://partner.microsoft.com/membership/azure-expert-msp) para publicar uma oferta de serviço gerenciado. Você também deve [inserir um destino de cliente potencial, que cria um registro no sistema CRM](../../marketplace/plan-managed-service-offer.md#customer-leads) sempre que um cliente implanta sua oferta.
 
@@ -24,15 +24,15 @@ Se não quiser publicar uma oferta no Azure Marketplace ou não preencher todos 
 
 A tabela a seguir ajuda a determinar se os clientes devem ser integrados por meio da publicação da oferta de serviço gerenciado ou com modelos do Azure Resource Manager.
 
-|**Consideração**  |**Oferta de serviço gerenciado**  |**Modelos de ARM**  |
+|**Consideração**  |**Oferta de serviço gerenciado**  |**Modelos do ARM**  |
 |---------|---------|---------|
-|Requer uma [conta do Partner Center](../../marketplace/partner-center-portal/create-account.md)   |Sim         |Não        |
+|Requer uma [conta do Partner Center](../../marketplace/create-account.md)   |Sim         |Não        |
 |Requer o [nível de competência de plataforma de nuvem Silver ou Gold](/partner-center/learn-about-competencies) ou [MSP Especialista em Azure](https://partner.microsoft.com/membership/azure-expert-msp)      |Sim         |Não         |
 |Disponível para novos clientes por meio do Azure Marketplace     |Sim     |Não       |
-|Pode limitar a oferta a clientes específicos     |Sim, somente com ofertas privadas, que não podem ser usadas com assinaturas estabelecidas por meio de um revendedor do programa CSP (Provedor de Soluções na Nuvem)         |Yes         |
+|Pode limitar a oferta a clientes específicos     |Sim, somente com ofertas privadas, que não podem ser usadas com assinaturas estabelecidas por meio de um revendedor do programa CSP (Provedor de Soluções na Nuvem)         |Sim         |
 |Requer a aceitação do cliente no portal do Azure     |Sim     |Não   |
 |Pode usar a automação para integrar várias assinaturas, grupos de recursos ou clientes |Não     |Sim    |
-|Acesso imediato a novas funções internas e recursos do Azure Lighthouse     |Nem sempre (geralmente disponível após algum atraso)         |Yes         |
+|Acesso imediato a novas funções internas e recursos do Azure Lighthouse     |Nem sempre (geralmente disponível após algum atraso)         |Sim         |
 |Os clientes podem ver e aceitar ofertas atualizadas no portal do Azure | Sim | Não |
 
 > [!NOTE]
