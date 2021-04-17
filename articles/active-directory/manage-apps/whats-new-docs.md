@@ -6,15 +6,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: kenwith
-author: kenwith
-manager: daveba
-ms.openlocfilehash: 81898875af85becf1766f02a5b7e077cb388a173
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.author: iangithinji
+author: iantheninja
+manager: CelesteDG
+ms.openlocfilehash: 17dca502d3c65563cb9e4d2c382afb79f4d612e9
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450031"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376045"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gerenciamento de aplicativos do Azure Active Directory: novidades
 
@@ -40,7 +40,7 @@ Bem-vindo(a) à documentação de novidades do gerenciamento de aplicativos do A
 - [Solucionar problemas configurações de delegação restrita de Kerberos para o Proxy do Aplicativo](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 - [Início Rápido: Configurar o SSO (logon único) baseado em SAML para um aplicativo no locatário do Azure AD (Azure Active Directory)](add-application-portal-setup-sso.md)
 - [Gerenciamento de aplicativos do Azure Active Directory: novidades](whats-new-docs.md)
-- [Perguntas frequentes sobre o Proxy de Aplicativo do Azure AD (Active Directory)](application-proxy-faq.md)
+- [Perguntas frequentes sobre o Proxy de Aplicativo do Azure AD (Active Directory)](application-proxy-faq.yml)
 - [Solucionar problemas ao entrar em um aplicativo em Meus Aplicativos no Azure AD](application-sign-in-other-problem-access-panel.md)
 - [Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Otimizar o fluxo de tráfego com o Proxy de Aplicativo do Azure Active Directory](application-proxy-network-topology.md)
@@ -75,7 +75,7 @@ Bem-vindo(a) à documentação de novidades do gerenciamento de aplicativos do A
 - [Melhores práticas de gerenciamento de aplicativos](application-management-fundamentals.md)
 - [Guia de introdução: integrando o Active Directory do Azure com aplicativos](plan-an-application-integration.md)
 - [O que é gerenciamento de aplicativos?](what-is-application-management.md)
-- [Perguntas frequentes sobre o Proxy de Aplicativo do Azure AD (Active Directory)](application-proxy-faq.md)
+- [Perguntas frequentes sobre o Proxy de Aplicativo do Azure AD (Active Directory)](application-proxy-faq.yml)
 - [Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md)
 - [Desenvolver aplicativos de linha de negócios para o Azure Active Directory](../develop/v2-overview.md)
@@ -136,7 +136,7 @@ Bem-vindo(a) à documentação de novidades do gerenciamento de aplicativos do A
 ### <a name="new-articles"></a>Novos artigos
 - [Início Rápido: configurar o SSO (logon único) baseado em OIDC para um aplicativo no locatário do Azure AD (Azure Active Directory)](add-application-portal-setup-oidc-sso.md)
 - [Início Rápido: Atribuir usuários a um aplicativo que está usando o Azure AD como um provedor de identidade](add-application-portal-assign-users.md)
-- [Novidades da documentação](whats-new-docs.md)
+- [O que há de novo no Docs?](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>Artigos atualizados
