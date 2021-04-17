@@ -82,6 +82,12 @@
       items:
         - name: 'Revisões, fluxos de trabalho e trabalhos'
           href: review-api.md
+    - name: Preparação corporativa
+      items:
+        - name: Configuração de Redes Virtuais
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/content-moderator/context/context
+        - name: Usar chaves gerenciadas pelo cliente
+          href: encrypt-data-at-rest.md
 - name: Conceitos
   items:
     - name: Moderação de imagem
@@ -114,19 +120,21 @@
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator'
 - name: Recursos
   items:
-    - name: Série de webinars do Azure
-      href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
-    - name: Suporte de regiões
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Módulos do Microsoft Learn
-      href: /learn/browse/?terms=content+moderator
+    - name: Preparação corporativa
+      items:
+        - name: Suporte de regiões
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformidade e certificação
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opções de Ajuda e suporte
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
+    - name: Módulos do Microsoft Learn
+      href: /learn/browse/?terms=content+moderator
+    - name: Série de webinars do Azure
+      href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
     - name: Azure Government e Azure global
       href: ../../azure-government/compare-azure-government-global-azure.md
     - name: Atualizações do Azure
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Criptografia
-      href: encrypt-data-at-rest.md
