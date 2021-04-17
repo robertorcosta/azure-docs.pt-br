@@ -7,7 +7,7 @@
       href: overview.md
     - name: Suporte ao idioma
       href: language-support.md
-    - name: Preços e limites
+    - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: Novidades
       href: whats-new.md
@@ -25,6 +25,8 @@
       href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
     - name: 'Python: SDK da biblioteca de clientes do Reconhecimento de Formulários'
       href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
+    - name: SDK da biblioteca de clientes do Reconhecimento de Formulários JavaScript
+      href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
 - name: Guias de instruções
   items:
     - name: Criar um conjunto de dados de treinamento
@@ -48,6 +50,14 @@
           href: ../containers/index.yml
     - name: Fazer backup de modelos e recuperá-los
       href: disaster-recovery.md
+    - name: Preparação corporativa
+      items:
+        - name: Configuração de redes virtuais
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/form-recognizer/context/context
+        - name: Usar chaves gerenciadas pelo cliente
+          href: encrypt-data-at-rest.md
+        - name: Usar a autenticação do Azure AD
+          href: ../authentication.md?context=/azure/cognitive-services/form-recognizer/context/context
 - name: Conceitos
   items:
     - name: API de layout
@@ -63,7 +73,7 @@
       href: concept-business-cards.md
     - name: Faturas
       href: concept-invoices.md
-    - name: Cartões de identificação
+    - name: Documentos de identidade
       href: concept-identification-cards.md
 - name: Tutoriais
   items:
@@ -93,15 +103,15 @@
           href: /javascript/api/overview/azure/ai-form-recognizer-readme
 - name: Recursos
   items:
+    - name: Preparação corporativa
+      items:
+        - name: Suporte de regiões
+          href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
+        - name: Conformidade e certificação
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opções de Ajuda e suporte
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Disponibilidade regional
-      href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
-    - name: Conformidade
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Criptografia
-      href: encrypt-data-at-rest.md
     - name: Privacidade e cookies
       href: 'https://privacy.microsoft.com/en-US/privacystatement'
