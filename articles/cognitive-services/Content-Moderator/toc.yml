@@ -84,7 +84,7 @@
           href: review-api.md
     - name: Preparação corporativa
       items:
-        - name: Configuração de Redes Virtuais
+        - name: Configuração de redes virtuais
           href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/content-moderator/context/context
         - name: Usar chaves gerenciadas pelo cliente
           href: encrypt-data-at-rest.md
@@ -135,6 +135,6 @@
     - name: Azure Government e Azure global
       href: ../../azure-government/compare-azure-government-global-azure.md
     - name: Atualizações do Azure
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+      href: 'https://azure.microsoft.com/en-us/updates/?product=cognitive-services'
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
