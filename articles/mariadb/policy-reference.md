@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Banco de Dados do Azure para MariaDB
 description: Lista as definições de políticas internas do Azure Policy para o Banco de Dados do Azure para MariaDB. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: reference
 author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 62f903c761fe90f5a3ea400545b22db2de3eccb8
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: c5b5240f24e4130b4d16b1f8a681a7fc716dff4a
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106089740"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501240"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-mariadb"></a>Definições internas do Azure Policy para o Banco de Dados do Azure para MariaDB
 

@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e8bdb843ab6304f2f38228f37d8709e4084ee52e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 89bd77c30ec52a72087598b86f22e85659fa1b0e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775323"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102203888"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrar os Gêmeos Digitais do Azure ao Serviço do Azure SignalR
 
@@ -28,7 +28,7 @@ Aqui estão os pré-requisitos que você deve concluir antes de continuar:
 
 * Você precisará dos seguintes valores do tutorial:
   - Tópico da grade de eventos
-  - Grupo de recursos
+  - Resource group
   - Serviço de aplicativo/nome do aplicativo de funções
     
 * Você precisará ter o [**Node.js**](https://nodejs.org/) instalado em seu computador.
@@ -185,11 +185,11 @@ Isso abrirá uma janela do navegador executando o aplicativo de exemplo, que exi
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Trecho do aplicativo Web do cliente de exemplo, mostrando um medidor de temperatura visual. A temperatura refletida é 67,52":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não precisar mais dos recursos criados nesse artigo, siga estas etapas para excluí-los. 
 
-Usando o Azure Cloud Shell ou a CLI do Azure local, você pode excluir todos os recursos do Azure em um grupo de recursos com o comando [az group delete](/cli/azure/group#az_group_delete). Remover o grupo de recursos também removerá...
+Usando o Azure Cloud Shell ou a CLI do Azure local, você pode excluir todos os recursos do Azure em um grupo de recursos com o comando [az group delete](/cli/azure/group#az-group-delete). Remover o grupo de recursos também removerá...
 * a instância dos Gêmeos Digitais do Azure (do tutorial de ponta a ponta)
 * o Hub IoT e o registro do dispositivo de Hub (do tutorial de ponta a ponta)
 * o tópico da grade de eventos e as assinaturas associadas

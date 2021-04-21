@@ -1,6 +1,6 @@
 ---
-title: Como instalar e usar as exibições do log Analytics | Microsoft Docs
-description: Saiba como instalar e usar as exibições do log Analytics para Azure Active Directory
+title: Como instalar e usar as exibições de análise de logs | Microsoft Docs
+description: Saiba como instalar e usar as exibições de análise de logs do Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86ad698793d562f93f9972903ca21e50c209c79c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100580013"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalar e usar os modos de exibição do Log Analytics do Azure Active Directory
@@ -56,7 +56,7 @@ Para usar as exibições do Log Analytics, você precisará de:
 
 3. Selecione qualquer uma dessas exibições para ir para os relatórios individuais. Você também pode definir alertas para qualquer um dos parâmetros do relatório. Por exemplo, vamos definir um alerta sempre que houver um erro de entrada. Para fazer isso, primeiro selecione a exibição **Eventos de Entradas**, selecione o relatório **Erros de entrada ao longo do tempo** e, em seguida, selecione **Analytics** para abrir a página de detalhes com a consulta real subjacente ao relatório. 
 
-    ![Captura de tela mostra a página de detalhes de análise que tem a consulta para o relatório.](./media/howto-install-use-log-analytics-views/details.png)
+    ![A captura de tela mostra a página de detalhes de análise que tem a consulta para o relatório.](./media/howto-install-use-log-analytics-views/details.png)
 
 
 4. Selecione **Definir Alerta** e, em seguida, **Sempre que a pesquisa de logs personalizada for &lt;lógica não definida&gt;** na seção **Critérios de alerta**. Como queremos alertar sempre que houver um erro de conexão, defina o **Limite** da lógica de alerta padrão como **1** e, em seguida, selecione **Concluído**. 
@@ -67,7 +67,7 @@ Para usar as exibições do Log Analytics, você precisará de:
 
     ![Criar regra](./media/howto-install-use-log-analytics-views/create-rule.png)
 
-6. Selecione o grupo de ações para alerta. Em geral, pode ser uma equipe que você deseja notificar por email ou mensagem de texto, ou pode ser uma tarefa automatizada usando webhooks, runbooks, funções, aplicativos lógicos ou soluções ITSM externas. Saiba como [criar e gerenciar grupos de ações no portal do Azure](../../azure-monitor/alerts/action-groups.md).
+6. Selecione o grupo de ações para alerta. Em geral, pode ser uma equipe que você deseja notificar por email ou mensagem de texto, ou pode ser uma tarefa automatizada usando webhooks, runbooks, funções, aplicativos lógicos ou soluções ITSM externas. Este artigo mostra como [criar e gerenciar grupos de ações no portal do Azure](../../azure-monitor/alerts/action-groups.md).
 
 7. Selecione **Criar regra de alerta** para criar o alerta. Agora você será alertado sempre que houver um erro de conexão.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/20/2019
 ms.author: victorh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 89ba84be61469ff07eff55bb9cd114fe124b3ec2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01df6a12437808aa903046d2923c735ded5067ee
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566598"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772749"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Gerenciar o tráfego da Web com um gateway de aplicativo usando a CLI do Azure
 
@@ -35,7 +35,7 @@ Se preferir, você poderá concluir este procedimento usando o [Azure PowerShell
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Criar um grupo de recursos usando [az group create](/cli/azure/group#az-group-create).
+Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Criar um grupo de recursos usando [az group create](/cli/azure/group#az_group_create).
 
 O exemplo a seguir cria um grupo de recursos denominado *myResourceGroupAG* no local *eastus*.
 
@@ -99,7 +99,7 @@ az network application-gateway create \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Crie um conjunto de dimensionamento de máquinas virtuais
 
-Neste exemplo, você criará um conjunto de dimensionamento de máquinas virtuais que fornece servidores para o pool de back-end no gateway de aplicativo. As máquinas virtuais no conjunto de dimensionamento são associadas com *myBackendSubnet* e *appGatewayBackendPool*. Para criar um conjunto de dimensionamento, use [az vmss create](/cli/azure/vmss#az-vmss-create).
+Neste exemplo, você criará um conjunto de dimensionamento de máquinas virtuais que fornece servidores para o pool de back-end no gateway de aplicativo. As máquinas virtuais no conjunto de dimensionamento são associadas com *myBackendSubnet* e *appGatewayBackendPool*. Para criar um conjunto de dimensionamento, use [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \

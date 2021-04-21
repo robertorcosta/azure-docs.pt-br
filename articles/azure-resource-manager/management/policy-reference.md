@@ -1,15 +1,15 @@
 ---
 title: Definições de políticas internas para o Azure Resource Manager
 description: Lista as definições de políticas internas do Azure Policy para o Azure Resource Manager. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: b599b6a14195cd43f94f50cfb24b51bde04a3392
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: ccc4b03a92a885065abc3fad056b3c535ddf5b68
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106089059"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499607"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-resource-manager"></a>Definições internas do Azure Policy para o Azure Resource Manager
 

@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Messaging do Barramento de Serviço do Azure
 description: Lista as definições de políticas internas do Azure Policy para o Messaging do Barramento de Serviço do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: reference
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3488aba49cebdcc46b6a446fc17a174d3d8c7503
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 693cb34723ee2987472e3431a40d20f412df4cbe
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106089366"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501121"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-service-bus-messaging"></a>Definições internas do Azure Policy para o Messaging do Barramento de Serviço do Azure
 
