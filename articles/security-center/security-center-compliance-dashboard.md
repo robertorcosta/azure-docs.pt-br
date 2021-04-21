@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: memildin
-ms.openlocfilehash: fb8dc22c923b7b53a6263baa43046862af4d2f04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 284a7f532ed918397fe1cfcf3458bbc6fb0bdd32
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100370250"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739000"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar sua conformidade regulatória
 
@@ -26,7 +26,7 @@ A Central de Segurança do Azure ajuda a simplificar o processo para atender aos
 
 A Central de Segurança avalia continuamente o seu ambiente de nuvem híbrida para analisar os fatores de risco de acordo com os controles e as práticas recomendadas nos padrões aplicados às suas assinaturas. O painel reflete o status de sua conformidade com esses padrões. 
 
-Quando você habilita a Central de Segurança em uma assinatura do Azure, o [Azure Security Benchmark](../security/benchmarks/introduction.md) é automaticamente atribuído a ela. Esse parâmetro de comparação amplamente respeitado se baseia nos controles do [CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) e do [NIST (National Institute of Standards and Technology)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
+Quando você habilita a Central de Segurança em uma assinatura do Azure, o [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction) é automaticamente atribuído a ela. Esse parâmetro de comparação amplamente respeitado se baseia nos controles do [CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) e do [NIST (National Institute of Standards and Technology)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
 
 O painel de conformidade regulatória mostra o status de todas as avaliações no seu ambiente para os seus padrões e regulamentos escolhidos. Conforme você tomar decisões com base nas recomendações e reduzir os fatores de risco em seu ambiente, sua postura de conformidade melhorará.
 

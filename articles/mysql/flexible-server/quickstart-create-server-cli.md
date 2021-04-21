@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a63c6f074178794db38b47950e176dd729344a54
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 7addfc3a0d91b85c4d63afa4ee6a55b5202c3855
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492721"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770229"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>Início Rápido: Criar um Servidor Flexível do Banco de Dados do Azure para MySQL usando a CLI do Azure
 
@@ -32,13 +32,13 @@ Caso prefira instalar e usar a CLI localmente, este início rápido exigirá a C
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará fazer logon em sua conta usando o comando [az login](/cli/azure/reference-index#az-login). Observe a propriedade **id**, que se refere à **ID da Assinatura** para sua conta do Azure.
+Você precisará fazer logon em sua conta usando o comando [az login](/cli/azure/reference-index#az_login). Observe a propriedade **id**, que se refere à **ID da Assinatura** para sua conta do Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Selecione a assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#az-account-set). Anote o valor de **id** da saída **az login** para usar como valor para o argumento **subscription** no comando. Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Para obter todas as suas assinaturas, use [az account list](/cli/azure/account#az-account-list).
+Selecione a assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#az_account_set). Anote o valor de **id** da saída **az login** para usar como valor para o argumento **subscription** no comando. Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Para obter todas as suas assinaturas, use [az account list](/cli/azure/account#az_account_list).
 
 ```azurecli-interactive
 az account set --subscription <subscription id>

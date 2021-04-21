@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/30/2021
 ms.author: pafarley
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: f262fdb49cac4ab9abe7f3f6873160d3059968c6
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 0258eb7c57bc0734b5c0a67644cbaa4f62a34537
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287371"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766907"
 ---
 # <a name="what-is-image-analysis"></a>O que é a Análise de Imagem?
 
@@ -24,7 +24,7 @@ ms.locfileid: "106287371"
 
 O serviço de Análise de Imagem da Pesquisa Visual Computacional pode extrair uma ampla variedade de recursos visuais das suas imagens. Por exemplo, ele pode determinar se uma imagem apresenta conteúdo para adulto, localizar marcas ou objetos específicos ou encontrar rostos humanos.
 
-Use a Análise de Imagem por meio de um SDK da biblioteca de clientes ou chamando a [API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) diretamente. Siga o [guia de início rápido](quickstarts-sdk/image-analysis-client-library.md) para obter uma introdução.
+Use a Análise de Imagem por meio de um SDK da biblioteca de clientes ou chamando a [API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v2-ga/operations/5d986960601faab4bf452005) diretamente. Siga o [guia de início rápido](quickstarts-sdk/image-analysis-client-library.md) para obter uma introdução.
 
 Esta documentação contém os seguintes tipos de artigos:
 * Os [inícios rápidos](./quickstarts-sdk/image-analysis-client-library.md) são instruções passo a passo que permitem fazer chamadas para o serviço e obter resultados em um período curto. 
@@ -34,7 +34,7 @@ Esta documentação contém os seguintes tipos de artigos:
 
 ## <a name="image-analysis-features"></a>Recursos da Análise de Imagem
 
-Analise imagens para fornecer insights sobre os recursos visuais e as características. Todos os recursos da lista abaixo são fornecidos pela API de [Análise de Imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b). Siga nosso [início rápido](./quickstarts-sdk/image-analysis-client-library.md) para começar.
+Analise imagens para fornecer insights sobre os recursos visuais e as características. Todos os recursos da lista abaixo são fornecidos pela API de [Análise de Imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b). Siga nosso [início rápido](./quickstarts-sdk/image-analysis-client-library.md) para começar.
 
 
 ### <a name="tag-visual-features"></a>Marcar recursos visuais

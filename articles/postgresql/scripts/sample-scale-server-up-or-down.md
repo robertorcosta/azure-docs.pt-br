@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli
 ms.topic: sample
 ms.date: 08/07/2019
-ms.openlocfilehash: b0a17b12c51c08cd39d0c4fb7860021b8c68e606
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 56fd88ab658e59cccb14a35559d1793bc3ad1aa0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606395"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778401"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Monitore e dimensione um único servidor PostgreSQL usando a CLI do Azure
 Este exemplo de script da CLI dimensiona a computação e o armazenamento para um único servidor de Banco de Dados do Azure para PostgreSQL após consultar a métrica. A computação pode aumentar ou reduzir. O armazenamento só pode aumentar. 
@@ -39,8 +39,8 @@ Esse script usa os comandos descritos na tabela abaixo:
 | **Comando** | **Observações** |
 |---|---|
 | [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) | Cria um servidor PostgreSQL que hospeda os bancos de dados. |
-| [az postgres server update](/cli/azure/postgres/server#az-postgres-server-update) | Atualiza as propriedades do servidor PostgreSQL. |
+| [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | Cria um servidor PostgreSQL que hospeda os bancos de dados. |
+| [az postgres server update](/cli/azure/postgres/server#az_postgres_server_update) | Atualiza as propriedades do servidor PostgreSQL. |
 | [az monitor metrics list](/cli/azure/monitor/metrics) | Lista o valor de métrica para os recursos. |
 | [az group delete](/cli/azure/group) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 

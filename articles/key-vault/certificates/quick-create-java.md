@@ -8,12 +8,12 @@ ms.date: 12/18/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.openlocfilehash: db69258a774343af18e683444d22530a32f85555
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: c064a35ac6136d728f75b65379c543149cc8189d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374940"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750024"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-java-certificates"></a>Início Rápido: biblioteca de clientes do Certificado do Azure Key Vault para Java (Certificados)
 Introdução à biblioteca de clientes do Certificado do Azure Key Vault para Java. Siga as etapas abaixo para instalar o pacote e testar o código de exemplo para tarefas básicas.
@@ -272,4 +272,4 @@ Neste guia de início rápido, você criou um cofre de chaves e um certificado, 
 
 - Leia uma [Visão geral do Azure Key Vault](../general/overview.md)
 - Confira o [Guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
-- Como [Proteger o acesso a um cofre de chaves](../general/secure-your-key-vault.md)
+- Como [Proteger o acesso a um cofre de chaves](../general/security-overview.md)
