@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 8f6f8d5a2cc9dc17d08486125fc2e44307c1be46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b3a65d6b7fbf98d53b756b7f089e06f8a359ab3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664478"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789943"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutorial: Criar um Banco de Dados do Azure para MariaDB usando a CLI do Azure
 
@@ -34,13 +34,13 @@ Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure
 
 - Este artigo exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada. 
 
-Se tiver várias assinaturas, escolha a que for adequada na qual existe o recurso ou onde ele é cobrado. Selecione uma ID da assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#az-account-set).
+Se tiver várias assinaturas, escolha a que for adequada na qual existe o recurso ou onde ele é cobrado. Selecione uma ID da assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#az_account_set).
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo.
+Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo.
 
 O exemplo a seguir cria um grupo de recursos chamado `myresourcegroup` na localização `westus`.
 

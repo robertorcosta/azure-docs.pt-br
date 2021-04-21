@@ -1,15 +1,15 @@
 ---
 title: Detalhes de Conformidade Regulatória para o CMMC Nível 3
 description: Detalhes da iniciativa interna de Conformidade Regulatória CMMC Nível 3. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: f6b30de446269d764d5dfa8be97245d0df577862
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: f6a62284879d0b4b7e846f2abac056fba49cea3e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094006"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107506254"
 ---
 # <a name="details-of-the-cmmc-level-3-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa interna de Conformidade Regulatória CMMC Nível 3
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: b3d88c99ab0e9e204eb4d7dd78dc319f889a5e7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1dcd413f301f25460cb29f1bb20e67a37ac6ebb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97347652"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767305"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Criar um aplicativo Node.js e MongoDB no Azure
 
@@ -163,7 +163,7 @@ Nesta etapa, você conecta o aplicativo de exemplo MEAN.js ao BD Cosmos que acab
 
 ### <a name="retrieve-the-database-key"></a>Recuperar a chave do banco de dados
 
-Para se conectar ao BD Cosmos, você precisa da chave do banco de dados. No Cloud Shell, use o comando [`az cosmosdb list-keys`](/cli/azure/cosmosdb#az-cosmosdb-list-keys) para recuperar a chave primária.
+Para se conectar ao BD Cosmos, você precisa da chave do banco de dados. No Cloud Shell, use o comando [`az cosmosdb list-keys`](/cli/azure/cosmosdb#az_cosmosdb_list_keys) para recuperar a chave primária.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup
@@ -276,7 +276,7 @@ Nessa etapa, você implanta seu aplicativo Node.js conectado ao MongoDB no Servi
 
 Por padrão, o projeto MEAN.js mantém _config/env/local-production.js_ fora do repositório Git. Portanto, para seu aplicativo do Azure, use as configurações de aplicativo para definir a cadeia de conexão do MongoDB.
 
-Para definir as configurações do aplicativo, use o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) no Cloud Shell. 
+Para definir as configurações do aplicativo, use o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) no Cloud Shell. 
 
 O exemplo a seguir define uma configuração de aplicativo `MONGODB_URI` no aplicativo do Azure. Substitua os espaços reservados *\<app-name>* , *\<cosmosdb-name>* e *\<primary-master-key>* .
 
@@ -482,7 +482,7 @@ Se você adicionou artigos anteriores, ainda será possível vê-los. Dados exis
 
 Enquanto o aplicativo Node.js é executado no Serviço de Aplicativo do Azure, você pode obter logs do console transferidos para o seu terminal. Dessa forma, é possível obter as mesmas mensagens de diagnóstico para ajudá-lo a depurar erros de aplicativo.
 
-Para iniciar o streaming de log, use o comando [`az webapp log tail`](/cli/azure/webapp/log#az-webapp-log-tail) no Cloud Shell.
+Para iniciar o streaming de log, use o comando [`az webapp log tail`](/cli/azure/webapp/log#az_webapp_log_tail) no Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app-name> --resource-group myResourceGroup

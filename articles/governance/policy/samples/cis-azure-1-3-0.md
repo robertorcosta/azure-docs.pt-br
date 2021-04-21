@@ -1,15 +1,15 @@
 ---
 title: Detalhes de Conformidade Regulatória do CIS Microsoft Azure Foundations Benchmark 1.3.0
 description: Detalhes da iniciativa interna de Conformidade Regulatória do CIS Microsoft Azure Foundations Benchmark 1.3.0. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 03e8d5ae24e379928910783f9638327f0b7a42dd
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 3dc7578af93f36ba8f0400099bb21cdabdcffb70
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091643"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497720"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-130-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa interna de Conformidade Regulatória do CIS Microsoft Azure Foundations Benchmark 1.3.0
 

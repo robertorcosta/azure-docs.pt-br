@@ -6,16 +6,16 @@ services: api-management
 documentationcenter: ''
 author: vladvino
 ms.service: api-management
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: acb121bb00df481c926ebed9594bf0fe1b9b17ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d99d6f876e4896bb4321afb8dc4d8e7c3a404e7
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100546628"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483547"
 ---
 # <a name="tutorial-use-revisions-to-make-non-breaking-api-changes-safely"></a>Tutorial: Usar revisões para fazer alterações sem interrupções na API com segurança
 Quando sua API estiver pronta e começar a ser usada por desenvolvedores, e algum momento será necessário fazer alterações nessa API e, ao mesmo tempo, não interromper os chamadores de sua API. Também é útil permitir que os desenvolvedores saibam sobre as alterações feitas por você. 

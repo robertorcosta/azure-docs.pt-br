@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d6274f3e1356a8ff8a997e830f0ebee43f50cff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c2520c8e209ab8319cbc5a369b70d247a52232c
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92893007"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600991"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Azure Active Directory com o PolicyStat
 
@@ -110,7 +110,7 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.policystat.com/saml2/metadata/`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do PolicyStat](http://www.policystat.com/support/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do PolicyStat](https://rldatix.com/services-support/support) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 4. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -154,13 +154,13 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
 
     c. URL de logoff
 
-### <a name="configure-policystat-single-sign-on"></a>Configurar o logon único do PolicyStat
+### <a name="configure-policystat-single-sign-on&quot;></a>Configurar o logon único do PolicyStat
 
 1. Em uma janela de navegador da Web diferente, faça logon no site de sua empresa do PolicyStat como administrador.
 
 2. Clique na guia **Admin** e, em seguida, clique em **Configuração de Logon Único** no painel de navegação à esquerda.
    
-    ![Menu do Administrador](./media/policystat-tutorial/ic808633.png "Menu do Administrador")
+    ![Menu do Administrador](./media/policystat-tutorial/ic808633.png &quot;Menu do Administrador")
 
 3. Clique em **Seus Metadados do IDP** e, na seção **Seus Metadados do IDP**, realize as seguintes etapas:
    
