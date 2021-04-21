@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ed2a97ccfb0a3b9b4b43021ab0fff1460919c9b9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2ff643c39820fa529c8678c7a36881dd25da354c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060688"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762489"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Rotear tráfego com uma tabela de rotas utilizando a CLI do Azure
 
@@ -52,7 +52,7 @@ az group create \
   --location eastus
 ```
 
-Crie uma tabela de rotas com [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). O exemplo a seguir cria uma tabela de rotas nomeada *myRouteTablePublic*. 
+Crie uma tabela de rotas com [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create). O exemplo a seguir cria uma tabela de rotas nomeada *myRouteTablePublic*. 
 
 ```azurecli-interactive
 # Create a route table
@@ -63,7 +63,7 @@ az network route-table create \
 
 ## <a name="create-a-route"></a>Criar uma rota
 
-Crie uma rota na tabela de rotas com [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create). 
+Crie uma rota na tabela de rotas com [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create). 
 
 ```azurecli-interactive
 az network route-table route create \

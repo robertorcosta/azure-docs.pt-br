@@ -9,12 +9,12 @@ ms.subservice: instance-protection
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 8b331eaf52a0a97232d481dccfff932221cd5faa
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 292abce3361c000eeeef2c399d5ffa2d2c4852e1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933450"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762849"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Proteção de instância para instâncias de conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -94,7 +94,7 @@ Update-AzVmssVM `
 
 ### <a name="azure-cli-20"></a>CLI do Azure 2.0
 
-Use [az vmss update](/cli/azure/vmss#az-vmss-update) para aplicar a proteção contra redução horizontal à sua instância do conjunto de dimensionamento.
+Use [az vmss update](/cli/azure/vmss#az_vmss_update) para aplicar a proteção contra redução horizontal à sua instância do conjunto de dimensionamento.
 
 O exemplo a seguir aplica a proteção contra redução horizontal a uma instância no conjunto de dimensionamento que tem a ID de instância igual a 0.
 
@@ -165,7 +165,7 @@ Update-AzVmssVM `
 
 ### <a name="azure-cli-20"></a>CLI do Azure 2.0
 
-Use [az vmss update](/cli/azure/vmss#az-vmss-update) para aplicar a proteção contra ações do conjunto de dimensionamento à sua instância do conjunto de dimensionamento.
+Use [az vmss update](/cli/azure/vmss#az_vmss_update) para aplicar a proteção contra ações do conjunto de dimensionamento à sua instância do conjunto de dimensionamento.
 
 O exemplo a seguir aplica a proteção contra ações do conjunto de dimensionamento a uma instância no conjunto de dimensionamento que tenha a ID de instância igual a 0.
 

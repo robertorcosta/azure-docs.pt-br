@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/13/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: acb5457f10c54a741a738dd8a1008e703b0f23b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd45bb264f8e29a2aad870a7daff45fdd44e0d3c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102051014"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478804"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins"></a>Criar um registro de aplicativo para usar com os Gêmeos Digitais do Azure
 
-Ao trabalhar com uma instância dos Gêmeos Digitais do Azure será comum interagir com ela por meio de aplicativos cliente, incluindo um aplicativo cliente personalizado ou um exemplo como o [Azure Digital Twins Explorer](quickstart-adt-explorer.md). Será preciso autenticar esses aplicativos nos Gêmeos Digitais do Azure para interagir com eles. Além disso, alguns [mecanismos de autenticação](how-to-authenticate-client.md) que os aplicativos podem usar envolvem obter um **registro de aplicativo** do [Azure AD (Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md).
+Ao trabalhar com uma instância dos Gêmeos Digitais do Azure será comum interagir com ela por meio de aplicativos cliente, incluindo um aplicativo cliente personalizado ou um exemplo como o [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Será preciso autenticar esses aplicativos nos Gêmeos Digitais do Azure para interagir com eles. Além disso, alguns [mecanismos de autenticação](how-to-authenticate-client.md) que os aplicativos podem usar envolvem obter um **registro de aplicativo** do [Azure AD (Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md).
 
 Isso não será necessário para todos os cenários de autenticação. No entanto, caso esteja usando uma estratégia de autenticação ou um exemplo de código que exija obter um registro de aplicativo, incluindo uma **ID de cliente** e uma **ID de locatário**, este artigo mostrará de que modo executar a configuração nesse cenário.
 

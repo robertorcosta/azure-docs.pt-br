@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 1f80742d48fc46c8c5e337794100ca5901818c88
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: cd03720b65883c5f43b11837d4a88a705209fb10
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102184382"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764091"
 ---
 # <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Como fazer rotação de chaves de acesso para o Serviço do Azure SignalR
 
@@ -23,7 +23,7 @@ Por razões de segurança e requisitos de conformidade, gire rotineiramente as c
 
 ## <a name="regenerate-access-keys"></a>Regenerar chaves de acesso
 
-1. Vá para a [portal do Azure](https://portal.azure.com/)e entre com suas credenciais.
+1. Vá para o [portal do Azure](https://portal.azure.com/) e entre com suas credenciais.
 
 1. Encontre a seção **Chaves** na instância do Serviço do Azure SignalR com as chaves que você deseja regenerar.
 
@@ -35,7 +35,7 @@ Por razões de segurança e requisitos de conformidade, gire rotineiramente as c
 
    ![Regenerar chaves](media/signalr-howto-key-rotation/regenerate-keys.png)
 
-Você também pode regenerar chaves usando a [CLI do Azure](/cli/azure/signalr/key#az-signalr-key-renew).
+Você também pode regenerar chaves usando a [CLI do Azure](/cli/azure/signalr/key#az_signalr_key_renew).
 
 ## <a name="update-configurations-with-new-connection-strings"></a>Atualizar configurações com novas cadeias de conexão
 

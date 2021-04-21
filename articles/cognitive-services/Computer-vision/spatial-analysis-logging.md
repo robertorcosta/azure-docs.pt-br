@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 1f03f99e6394c3939855c73548e8fb917f8696bc
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 901e857a346b0955726c5755e23595efefbc2ca1
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286021"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589492"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e solução de problemas
 
@@ -161,7 +161,7 @@ Para otimizar os logs carregados em um ponto de extremidade remoto, como o Armaz
 A configuração do nível de log permite que você controle o detalhamento dos logs gerados. Os níveis de log compatíveis são: `none`, `verbose`, `info`, `warning` e `error`. O nível detalhado de log padrão para os nós e a plataforma é `info`. 
 
 Os níveis de log podem ser modificados globalmente definindo a variável de ambiente `ARCHON_LOG_LEVEL` para um dos valores permitidos.
-Ele também pode ser definido por meio do documento do módulo gêmeo do IoT Edge, seja globalmente, para todas as habilidades implantadas ou para cada habilidade específica, definindo os valores de `platformLogLevel` e `nodeLogLevel` conforme mostrado abaixo.
+Ele também pode ser definido por meio do documento do módulo gêmeo do IoT Edge, seja globalmente, para todas as habilidades implantadas ou para cada habilidade específica, definindo os valores de `platformLogLevel` e `nodesLogLevel` conforme mostrado abaixo.
 
 ```json
 {
@@ -173,7 +173,7 @@ Ele também pode ser definido por meio do documento do módulo gêmeo do IoT Edg
             },
             "graphs": {
                 "samplegraph": {
-                    "nodeLogLevel": "verbose",
+                    "nodesLogLevel": "verbose",
                     "platformLogLevel": "verbose"
                 }
             }
@@ -431,7 +431,7 @@ Examine os detalhes da solicitação de suporte para garantir que tudo seja prec
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Implantar um aplicativo Web de Contagem de Pessoas](spatial-analysis-web-app.md)
+* [Implantar um aplicativo Web de contagem de pessoas](spatial-analysis-web-app.md)
 * [Configurar operações de análise espacial](./spatial-analysis-operations.md)
 * [Guia de posicionamento da câmera](spatial-analysis-camera-placement.md)
 * [Guia de posicionamento de zona e de linha](spatial-analysis-zone-line-placement.md)
