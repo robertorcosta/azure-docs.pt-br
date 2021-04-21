@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: 65d85f51afef36aa618868e2fda1d2bbf583ea21
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 16320021ede4a4e285c4e1973c166d2cdf643c4a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106221119"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529530"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Criar um Azure Load Balancer entre regiões usando o portal do Azure
 
@@ -133,7 +133,6 @@ Nesta seção, você criará uma regra de balanceador de carga:
     | Porta | Insira **80**.|
     | Porta de back-end | Insira **80**. |
     | Pool de back-end | Selecione **myBackendPool**.|
-    | Investigação de integridade | Selecione **myHealthProbe**. |
     | Tempo limite de ociosidade (minutos) | Mova o controle deslizante para **15**. |
     | Redefinição de TCP | Selecione **Habilitado**. |
 

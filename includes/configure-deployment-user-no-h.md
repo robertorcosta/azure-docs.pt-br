@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 06/14/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: a972b4738ce5646a1ee9eed6495bdc43a40826fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f1fe6ae38c708c5205f8c1230da05457d6b7010
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102219022"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764289"
 ---
 O FTP e o Git local podem implantar em um aplicativo Web do Azure usando um *usuário de implantação*. Após configurar o usuário de implantação, use-o em todas as implantações do Azure. O nome de usuário e a senha da implantação no nível da conta são diferentes das credenciais de assinatura do Azure. 
 
-Para configurar o usuário de implantação, execute o comando [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) no Azure Cloud Shell. Substitua \<username> e \<password> pelo nome de usuário e a senha do usuário de implantação. 
+Para configurar o usuário de implantação, execute o comando [az webapp deployment user set](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) no Azure Cloud Shell. Substitua \<username> e \<password> pelo nome de usuário e a senha do usuário de implantação. 
 
 - O nome de usuário precisa ser exclusivo no Azure. Para envios por push do Git local, não deve conter o símbolo "\@". 
 - A senha deve ter pelo menos oito caracteres, com dois destes três elementos: letras, números, símbolos. 

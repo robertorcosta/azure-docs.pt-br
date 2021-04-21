@@ -3,20 +3,23 @@ title: 'Guia de início rápido: Criar uma rede virtual – portal do Azure'
 titleSuffix: Azure Virtual Network
 description: Neste guia de início rápido, você aprenderá a criar uma rede virtual usando o portal do Azure.
 author: KumudD
-tags: azure-resource-manager
-ms.service: virtual-network
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure
-ms.date: 03/17/2021
 ms.author: kumud
-ms.openlocfilehash: 8af5b302e3ec790b6ee9356aca0699d0edcd284e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/17/2021
+ms.topic: quickstart
+ms.service: virtual-network
+ms.workload: infrastructure
+ms.tgt_pltfrm: virtual-network
+ms.devlang: na
+tags:
+- azure-resource-manager
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 43c45b43084656a45d2509ee2c7a4376cdc7c052
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606048"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531186"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Início Rápido: Criar uma Rede Virtual usando o portal do Azure
 
@@ -83,7 +86,7 @@ Crie duas VMs na rede virtual:
    
 2. Em **Criar uma máquina virtual**, digite ou selecione os valores na guia **Informações Básicas**:
 
-    | Configuração | Valor                                          |
+    | Setting | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscription | Selecionar sua assinatura do Azure |
@@ -107,7 +110,7 @@ Crie duas VMs na rede virtual:
   
 4. Na guia Rede, selecione ou insira:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     |-|-|
     | **Interface de rede** |  |
     | Rede virtual | Selecione **myVNet**. |
@@ -126,7 +129,7 @@ Crie duas VMs na rede virtual:
    
 2. Em **Criar uma máquina virtual**, digite ou selecione os valores na guia **Informações Básicas**:
 
-    | Configuração | Valor                                          |
+    | Setting | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscription | Selecionar sua assinatura do Azure |
@@ -150,7 +153,7 @@ Crie duas VMs na rede virtual:
   
 4. Na guia Rede, selecione ou insira:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     |-|-|
     | **Interface de rede** |  |
     | Rede virtual | Selecione **myVNet**. |
@@ -162,6 +165,8 @@ Crie duas VMs na rede virtual:
 5. Selecione a guia **Examinar + criar** ou clique no botão azul **Examinar + criar** na parte inferior da página.
   
 6. Examine as configurações e selecione **Criar**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="connect-to-myvm1"></a>Conectar-se à myVM1
 

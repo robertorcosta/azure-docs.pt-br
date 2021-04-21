@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 8e9656aa1f850dc9e59ab71b5df605df8dd49269
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 882a9fb0f8d528ca21cdc8149c60b9d5bdaf1723
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732798"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767087"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implantar um aplicativo Web Django com o PostgreSQL no Serviço de Aplicativo do Azure
 
@@ -81,7 +81,7 @@ Esse comando abre um navegador para coletar suas credenciais. Quando o comando f
 
 Depois de conectado, você poderá executar os comandos do Azure com a CLI do Azure para trabalhar com recursos na sua assinatura.
 
-Está com problemas? [Fale conosco](https://aka.ms/DjangoCLITutorialHelp).
+Está enfrentando problemas? [Fale conosco](https://aka.ms/DjangoCLITutorialHelp).
 
 ## <a name="2-clone-or-download-the-sample-app"></a>2. Clonar ou baixar o aplicativo de exemplo
 
@@ -160,7 +160,7 @@ Quando é concluído, o comando gera um objeto JSON que contém cadeias de conex
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> `-l <location-name>`, pode ser definido como qualquer uma das [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). É possível obter as regiões disponíveis para sua assinatura com o comando [`az account list-locations`](/cli/azure/account#az-account-list-locations). Para aplicativos de produção, coloque seu banco de dados e seu aplicativo na mesma localização.
+> `-l <location-name>`, pode ser definido como qualquer uma das [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). É possível obter as regiões disponíveis para sua assinatura com o comando [`az account list-locations`](/cli/azure/account#az_account_list_locations). Para aplicativos de produção, coloque seu banco de dados e seu aplicativo na mesma localização.
 
 Está com problemas? [Fale conosco](https://aka.ms/DjangoCLITutorialHelp).
 
@@ -172,7 +172,7 @@ Nesta seção, você criará o host do aplicativo do Serviço de Aplicativo, con
 
 No terminal, verifique se você está na pasta do repositório *djangoapp* que contém o código do aplicativo.
 
-Crie um aplicativo do Serviço de Aplicativo (o processo de host) com o comando [`az webapp up`](/cli/azure/webapp#az-webapp-up):
+Crie um aplicativo do Serviço de Aplicativo (o processo de host) com o comando [`az webapp up`](/cli/azure/webapp#az_webapp_up):
 
 ```azurecli
 az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --plan DjangoPostgres-tutorial-plan --sku B1 --name <app-name>
@@ -205,7 +205,7 @@ Com o código implantado no Serviço de Aplicativo, a próxima etapa é conectar
 
 O código do aplicativo espera encontrar informações sobre o banco de dados em quatro variáveis de ambiente chamadas `DBHOST`, `DBNAME`, `DBUSER` e `DBPASS`.
 
-Para definir variáveis de ambiente no Serviço de Aplicativo, crie "configurações do aplicativo" usando o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) a seguir.
+Para definir variáveis de ambiente no Serviço de Aplicativo, crie "configurações do aplicativo" usando o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) a seguir.
 
 ```azurecli
 az webapp config appsettings set --settings DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"

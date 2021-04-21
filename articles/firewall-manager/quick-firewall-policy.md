@@ -3,17 +3,19 @@ title: 'Início rápido: Criar um Firewall do Azure e uma política de firewall 
 description: Neste início rápido, você implantará um Firewall do Azure e uma política de firewall.
 services: firewall-manager
 author: vhorne
-ms.service: firewall-manager
-ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 02/17/2021
 ms.author: victorh
-ms.openlocfilehash: 9cc263d311bd550a92a0c8f14ab5ce86d72e9ee3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 02/17/2021
+ms.topic: quickstart
+ms.service: firewall-manager
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 43853d9e0b955167905af4777d533114a1d1f2ba
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100633624"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529864"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-a-firewall-policy---arm-template"></a>Início rápido: Criar um Firewall do Azure e uma política de firewall – modelo do ARM
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 315519472baa672e802855b5ab21b8bae8f51935
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: d03a4865c8db52f74f4130c458fec3028f5b95a4
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109842"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481660"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que são Gêmeos Digitais do Azure?
 
@@ -102,6 +102,6 @@ Você pode exibir uma lista de **termos comuns de IoT** e seus usos nos serviço
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Aprofunde-se no trabalho com os Gêmeos Digitais do Azure com o auxílio do guia de início rápido: [*Início Rápido: explorar um cenário de exemplo*](quickstart-adt-explorer.md).
+* Aprofunde-se no trabalho com os Gêmeos Digitais do Azure com o auxílio do guia de início rápido: [*Início Rápido: explorar um cenário de exemplo*](quickstart-azure-digital-twins-explorer.md).
 
 * Alternativamente, comece a ler sobre conceitos dos Gêmeos Digitais do Azure com [*Conceitos: modelos personalizados*](concepts-models.md).

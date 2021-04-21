@@ -6,12 +6,12 @@ ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 99e3611711e9a25119a4428d7736a36073163894
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: b737ea751d3b3d2132691e04a1a2cd853748db65
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877076"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792499"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Tutorial: Usar uma identidade gerenciada para invocar o Azure Functions em um aplicativo do Azure Spring Cloud
 
@@ -29,7 +29,7 @@ Tanto o Azure Functions quanto os Serviços de Aplicativos têm suporte interno 
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Crie um grupo de recursos para conter o aplicativo de funções e o Spring Cloud usando o comando [az group create](/cli/azure/group#az-group-create):
+Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Crie um grupo de recursos para conter o aplicativo de funções e o Spring Cloud usando o comando [az group create](/cli/azure/group#az_group_create):
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -37,7 +37,7 @@ az group create --name myResourceGroup --location eastus
 
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
-Para criar um aplicativo de funções, você deve primeiro criar uma conta de armazenamento de backup, usar o comando [az storage account create](/cli/azure/storage/account#az-storage-account-create):
+Para criar um aplicativo de funções, você deve primeiro criar uma conta de armazenamento de backup, usar o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create):
 
 > [!Important]
 > O aplicativo de funções e a conta de armazenamento devem ter um nome exclusivo. Substitua <your-functionapp-name> pelo nome do seu aplicativo de funções e <your-storageaccount-name> pelo nome da sua conta de armazenamento nos exemplos a seguir.

@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 668988ae34c2f97f3baca3f360c13e3ec3e30731
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 771c79f56a31c83f2152886ad6cf68367776f83f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100586353"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767220"
 ---
 # <a name="app-service-overview"></a>Visão geral do Serviço de Aplicativo
 
@@ -44,7 +44,7 @@ O Serviço de Aplicativo também pode hospedar aplicativos Web nativamente no Li
 
 ### <a name="built-in-languages-and-frameworks"></a>Linguagens e estruturas internas
 
-O Serviço de Aplicativo no Linux dá suporte a várias imagens internas específicas da linguagem. Basta implantar o código. As linguagens com suporte incluem: Node.js, Java (JRE 8 e JRE 11), PHP, Python, .NET Core e Ruby. Execute [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) para exibir as linguagens mais recentes e as versões com suporte. Se não houver suporte para o runtime de que o seu aplicativo precisa nas imagens internas, implante-o com um contêiner personalizado.
+O Serviço de Aplicativo no Linux dá suporte a várias imagens internas específicas da linguagem. Basta implantar o código. As linguagens com suporte incluem: Node.js, Java (JRE 8 e JRE 11), PHP, Python, .NET Core e Ruby. Execute [`az webapp list-runtimes --linux`](/cli/azure/webapp#az_webapp_list_runtimes) para exibir as linguagens mais recentes e as versões com suporte. Se não houver suporte para o runtime de que o seu aplicativo precisa nas imagens internas, implante-o com um contêiner personalizado.
 
 Os runtimes desatualizados são removidos periodicamente das folhas de criação e configuração dos aplicativos Web no Portal. Esses runtimes ficam ocultos no portal quando eles são preteridos pela organização de manutenção ou apresentam vulnerabilidades significativas. Essas opções estão ocultas para orientar os clientes para os runtimes mais recentes, onde serão os mais bem-sucedidos. 
 

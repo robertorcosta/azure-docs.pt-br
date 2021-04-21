@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 842ab27fe02501efbbc6c06c3d36d2218c3c17b9
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: eb469c757e2898a9925dd7d3358cfe95734cb2e9
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799234"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537722"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-account-access"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao AWS Single-Account Access
 
@@ -401,11 +401,11 @@ Use também os Meus Aplicativos da Microsoft para testar o aplicativo em qualque
  
 * Na seção **Provisionamento**, a subseção **Mapeamentos** mostra uma mensagem "Carregando..." e nunca exibe os mapeamentos de atributo. O único fluxo de trabalho de provisionamento compatível hoje é a importação de funções do AWS no Azure AD para seleção durante a atribuição de um usuário ou grupo. Os mapeamentos de atributo para isso são predeterminados e não são configuráveis.
 
-* A seção **Provisionamento** só dá suporte a um conjunto de credenciais para um locatário do AWS por vez. Todas as funções importadas são escritas na propriedade `appRoles` do [`servicePrincipal` objeto](/graph/api/resources/serviceprincipal?view=graph-rest-beta) do Azure AD para o locatário do AWS.
+* A seção **Provisionamento** só dá suporte a um conjunto de credenciais para um locatário do AWS por vez. Todas as funções importadas são escritas na propriedade `appRoles` do [`servicePrincipal` objeto](/graph/api/resources/serviceprincipal) do Azure AD para o locatário do AWS.
 
   Vários locatários AWS (representados por `servicePrincipals`) podem ser adicionados ao Azure AD da galeria para provisionamento. Há um problema conhecido, no entanto, sem ser possível gravar automaticamente todas as funções importadas de vários `servicePrincipals` do AWS usados para provisionamento em um único `servicePrincipal` usado para SSO.
 
-  Como alternativa, você pode usar a [API do Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta) para extrair todo o `appRoles` importado em cada `servicePrincipal` do AWS em que o provisionamento é configurado. Posteriormente, você pode adicionar essas cadeias de caracteres de função ao `servicePrincipal` do AWS em que o SSO está configurado.
+  Como alternativa, você pode usar a [API do Microsoft Graph](/graph/api/resources/serviceprincipal) para extrair todo o `appRoles` importado em cada `servicePrincipal` do AWS em que o provisionamento é configurado. Posteriormente, você pode adicionar essas cadeias de caracteres de função ao `servicePrincipal` do AWS em que o SSO está configurado.
 
 * As funções deverão atender aos seguintes requisitos para que sejam elegíveis a serem importadas do AWS para o Azure AD:
 

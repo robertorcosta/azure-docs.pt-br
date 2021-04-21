@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/29/2020
-ms.openlocfilehash: 2412d3d2851d1b4d251b50ff3068b7dcafcccee8
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: eddcab2c0a34ef437e4f2f1e2203fee9065133a4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105642045"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781875"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Guia de início rápido: Importar um arquivo BACPAC para um banco de dados no Banco de Dados SQL do Azure ou na Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -128,7 +128,7 @@ $importStatus
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Use o comando [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) para enviar uma solicitação de importação de banco de dados para o Azure. Dependendo do tamanho do banco de dados, a importação pode levar algum tempo para ser concluída. O modelo de provisionamento baseado em DTU é compatível com valores de tamanho máximo de banco de dados selecionados para cada camada. Ao importar um banco de dados [use um desses valores compatíveis](/sql/t-sql/statements/create-database-transact-sql). 
+Use o comando [az-sql-db-import](/cli/azure/sql/db#az_sql_db_import) para enviar uma solicitação de importação de banco de dados para o Azure. Dependendo do tamanho do banco de dados, a importação pode levar algum tempo para ser concluída. O modelo de provisionamento baseado em DTU é compatível com valores de tamanho máximo de banco de dados selecionados para cada camada. Ao importar um banco de dados [use um desses valores compatíveis](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```azurecli
 # get the storage account key

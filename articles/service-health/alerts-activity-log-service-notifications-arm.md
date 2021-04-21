@@ -1,15 +1,17 @@
 ---
 title: Receber alertas do log de atividades nas notificações de serviço do Azure usando um modelo do Resource Manager
 description: Seja notificado por SMS, email ou webhook quando um serviço do Azure for executado.
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 532fbae505e0bcaa6ab31a2e935362114537d134
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 730c023de61275d95fe594642149770af42b34b9
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594959"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535752"
 ---
 # <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>Início Rápido: Criar alertas do log de atividades nas notificações de serviço usando um modelo do ARM
 
