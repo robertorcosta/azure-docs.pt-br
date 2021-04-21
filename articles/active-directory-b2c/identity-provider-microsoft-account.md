@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 60a846d72c1760c7f9dddac891f36e834b8364f3
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 12e8222ad59aae31baa7a549519c97550b711703
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028155"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104579936"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta da Microsoft usando o Azure Active Directory B2C
 
@@ -196,7 +196,7 @@ Até este ponto, você configurou sua política para que o Azure Active Director
 ## <a name="test-your-custom-policy"></a>Testar sua política personalizada
 
 1. Selecione a política de terceira parte confiável, por exemplo, `B2C_1A_signup_signin`.
-1. Para **Aplicativo**, selecione um aplicativo Web que você [registrou anteriormente](tutorial-register-applications.md). A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Para **Aplicativo**, selecione um aplicativo Web que você [registrou anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Selecione o botão **Executar agora**.
 1. Na página de inscrição ou de entrada, selecione **Microsoft** para entrar com a conta Microsoft.
 
