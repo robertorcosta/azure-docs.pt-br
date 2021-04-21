@@ -3,18 +3,20 @@ title: 'Início Rápido: Criar um circuito do ExpressRoute usando um modelo do A
 description: Este guia de início rápido mostra como criar um circuito do ExpressRoute usando um modelo do ARM (Azure Resource Manager).
 services: expressroute
 author: duongau
-mnager: kumud
-ms.service: expressroute
-ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 7521344a2bb6aae67724c8bfbb9131e2ff1e6b94
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: kumud
+ms.date: 10/12/2020
+ms.topic: quickstart
+ms.service: expressroute
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 3dc1d5f5ec3dfb004468deb2bec80927c7ec189d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92789719"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529890"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Início Rápido: Criar um circuito do ExpressRoute com o emparelhamento privado usando um modelo do ARM
 

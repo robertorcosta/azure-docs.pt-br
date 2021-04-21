@@ -3,13 +3,15 @@ title: 'Início rápido: Criar um grupo de gerenciamento com o Python'
 description: Neste guia de início rápido, você usará o Python para criar um grupo de gerenciamento a fim de organizar seus recursos em uma hierarquia de recursos.
 ms.date: 01/29/2021
 ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: e3c55cc14a8ac980318fd0de9485a3e0ca31b582
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: 9aec47e067ca62f4902df2dafb6a5d6d50a26d0e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100101647"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533167"
 ---
 # <a name="quickstart-create-a-management-group-with-python"></a>Início rápido: Criar um grupo de gerenciamento com o Python
 

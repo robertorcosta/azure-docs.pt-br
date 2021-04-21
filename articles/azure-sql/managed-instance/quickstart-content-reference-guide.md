@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: c84c81fa81cf4ba9be454eea5782927a09c3252a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec767e5f3a88c52f9686eec8f7e458ab517ee35f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101690950"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784327"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Introdução à Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,7 +44,7 @@ Como uma primeira etapa, você precisaria criar sua primeira Instância Gerencia
   > - Também é possível usar a rota expressa ou a conexão site a site da rede local, mas essas abordagens estão fora do escopo desses inícios rápidos.
   > - Se você alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, observe que a retenção será aplicada somente aos logs gravados após a alteração do valor de retenção (os logs gravados durante o período em que a retenção era definida como ilimitada serão preservados, mesmo após a retenção ser habilitada).
 
-Como alternativa à criação manual da Instância Gerenciada de SQL, você pode usar o [PowerShell](scripts/create-configure-managed-instance-powershell.md), o [PowerShell com o modelo do Resource Manager](./create-template-quickstart.md) ou a [CLI do Azure](/cli/azure/sql/mi#az-sql-mi-create) para criar scripts e automatizar esse processo.
+Como alternativa à criação manual da Instância Gerenciada de SQL, você pode usar o [PowerShell](scripts/create-configure-managed-instance-powershell.md), o [PowerShell com o modelo do Resource Manager](./create-template-quickstart.md) ou a [CLI do Azure](/cli/azure/sql/mi#az_sql_mi_create) para criar scripts e automatizar esse processo.
 
 ### <a name="migrate-your-databases"></a>Migrar seus bancos de dados
 

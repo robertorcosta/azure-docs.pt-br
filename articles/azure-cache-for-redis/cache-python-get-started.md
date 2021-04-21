@@ -3,20 +3,21 @@ title: 'Início Rápido: Usar o Cache do Azure para Redis no Python'
 description: Neste início rápido, você aprenderá como criar um aplicativo Python com o Cache do Azure para Redis.
 author: yegu-ms
 ms.author: yegu
+ms.date: 11/05/2019
+ms.topic: quickstart
 ms.service: cache
 ms.devlang: python
-ms.topic: quickstart
 ms.custom:
 - mvc
 - seo-python-october2019
 - devx-track-python
-ms.date: 11/05/2019
-ms.openlocfilehash: 048c31bedb56bdb66dc3b80d12c3014652e34625
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+- mode-api
+ms.openlocfilehash: 40990dfb651817cf52cd5b5a039566e3209d6ac7
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121143"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532051"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-python"></a>Início Rápido: Usar o Cache do Azure para Redis no Python
 
@@ -113,4 +114,3 @@ Para excluir o grupo de recursos e sua instância do Redis do Cache do Azure:
 
 > [!div class="nextstepaction"]
 > [Crie um aplicativo Web ASP.NET simples que usa um Cache do Azure para Redis.](./cache-web-app-howto.md)
-

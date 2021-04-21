@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 03/24/2021
-ms.openlocfilehash: f28ad8f93769bc95c87095a545f608827c319dd3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea0b161a9038666e1e7ddd5a6c6af2078afff8aa
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106812"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766508"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-azure-iot-hub-python"></a>Guia de início rápido: Enviar telemetria de um dispositivo para um hub IoT do Azure (Python)
 
@@ -122,12 +122,12 @@ Se você não precisar mais dos recursos do Azure criados neste guia de início 
 > A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos.
 
 Para excluir um grupo de recursos por nome:
-1. Execute o comando [az group delete](/cli/azure/group#az-group-delete). Esse comando removerá o grupo de recursos, o Hub IoT e o registro de dispositivo que você criou.
+1. Execute o comando [az group delete](/cli/azure/group#az_group_delete). Esse comando removerá o grupo de recursos, o Hub IoT e o registro de dispositivo que você criou.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. Execute o comando [az group list](/cli/azure/group#az-group-list) para confirmar se o grupo de recursos foi excluído.  
+1. Execute o comando [az group list](/cli/azure/group#az_group_list) para confirmar se o grupo de recursos foi excluído.  
 
     ```azurecli
     az group list
