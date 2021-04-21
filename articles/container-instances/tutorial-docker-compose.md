@@ -4,12 +4,12 @@ description: Use o Docker Compose para compilar e executar um aplicativo de vár
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.custom: ''
-ms.openlocfilehash: a71ff438feaef555a85c33d818c287c64621d40d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef08b9f9e0f596f1d94c0e6edfd46f735fe78053
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92913833"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786901"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Tutorial: Implantar um grupo de vários contêineres usando o Docker Compose 
 
@@ -166,7 +166,7 @@ docker-compose push
 
 O envio por push para o Registro pode levar alguns minutos.
 
-Para verificar se a imagem está armazenada no Registro, execute o comando [az acr repository show](/cli/azure/acr/repository#az-acr-repository-show):
+Para verificar se a imagem está armazenada no Registro, execute o comando [az acr repository show](/cli/azure/acr/repository#az_acr_repository_show):
 
 ```azurecli
 az acr repository show --name <acrName> --repository azure-vote-front

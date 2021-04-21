@@ -1,18 +1,19 @@
 ---
 title: Guia de Início Rápido – Usar a API do Python para executar um trabalho do Lote do Azure
 description: Neste guia de início rápido, você executará um trabalho e tarefas de exemplo do Lote do Azure usando a biblioteca de clientes Python do Lote. Conheça os principais conceitos do serviço de Lote.
-ms.topic: quickstart
 ms.date: 08/17/2020
+ms.topic: quickstart
 ms.custom:
 - seo-python-october2019
 - mvc
 - devx-track-python
-ms.openlocfilehash: e213ec7aee7172bb5ebb49097ad9fd09f9106255
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+- mode-api
+ms.openlocfilehash: 75f83e0ea4823796ace348084bab0915babc8979
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046803"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535564"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Início Rápido: Usar a API do Python para executar um trabalho do Lote do Azure
 
