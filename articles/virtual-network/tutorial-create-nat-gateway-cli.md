@@ -8,13 +8,13 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/10/2021
-ms.custom: template-tutorial
-ms.openlocfilehash: 5dd431a5a7377c409be0794511c5f402d1c5a3a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: template-tutorial, devx-track-azurecli
+ms.openlocfilehash: 60436b8d4a0f338f4ece59ad4cd11c14c9e4c352
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102636697"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762633"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-cli"></a>Tutorial: criar um gateway da NAT usando a CLI do Azure
 
@@ -92,7 +92,7 @@ Crie uma rede virtual nomeada **myVnet** com uma sub-rede nomeada **mySubnet** c
 
 Crie um host do Azure Bastion chamado **myBastionHost** para acessar a máquina virtual. 
 
-Use o comando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) para criar uma sub-rede do Azure Bastion.
+Use o comando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) para criar uma sub-rede do Azure Bastion.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -111,7 +111,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) para criar o bastion host. 
+Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) para criar o bastion host. 
 
 ```azurecli-interactive
 az network bastion create \
@@ -141,7 +141,7 @@ Todo o tráfego de saída para os destinos da Internet agora está usando o gate
 
 Nesta seção, você criará uma máquina virtual para testar um gateway da NAT a fim de verificar o endereço IP público da conexão de saída.
 
-Crie a máquina virtual com [az vm create](/cli/azure/vm#az-vm-create).
+Crie a máquina virtual com [az vm create](/cli/azure/vm#az_vm_create).
 
 ```azurecli-interactive
 az vm create \

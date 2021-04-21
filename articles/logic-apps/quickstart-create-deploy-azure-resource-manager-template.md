@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.date: 06/30/2020
-ms.openlocfilehash: 8cee79efd9be53ddb9d450f643c04f21ae5e7fca
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 04/01/2021
+ms.openlocfilehash: bdeb80dc487d8418e21a40a29e5d2baab49d7b05
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102213990"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771885"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Início Rápido: Criar e implantar um fluxo de trabalho de aplicativo lógico usando um modelo do Resource Manager
 
@@ -32,7 +32,7 @@ Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure
 
 Este guia de início rápido usa o modelo [**Criar um aplicativo lógico**](https://azure.microsoft.com/resources/templates/101-logic-app-create/), que pode ser encontrado na [Galeria de Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates), mas que é muito longo para ser mostrado aqui. Em vez disso, examine o ["arquivo azuredeploy.json"](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) do modelo de início rápido na galeria de modelos.
 
-O modelo de início rápido cria um fluxo de trabalho de aplicativo lógico que usa o gatilho de recorrência, definido para ser executado a cada hora, e uma [ação *interna*](../connectors/apis-list.md#connector-types) HTTP, que chama uma URL que retorna o status para o Azure. Uma ação interna é nativa da plataforma Aplicativos Lógicos do Azure.
+O modelo de início rápido cria um fluxo de trabalho de aplicativo lógico que usa o gatilho de recorrência, definido para ser executado a cada hora, e uma [ação *interna*](../connectors/built-in.md) HTTP, que chama uma URL que retorna o status para o Azure. Uma ação interna é nativa da plataforma Aplicativos Lógicos do Azure.
 
 Esse modelo cria o seguinte recurso do Azure:
 
@@ -303,7 +303,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-Para obter mais informações, confira [CLI do Azure: az group delete](/cli/azure/group#az-group-delete).
+Para obter mais informações, confira [CLI do Azure: az group delete](/cli/azure/group#az_group_delete).
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

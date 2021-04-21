@@ -2,14 +2,14 @@
 title: Criar um painel do portal do Azure com a CLI do Azure
 description: 'Início Rápido: Saiba como criar um painel no portal do Azure usando a CLI do Azure. Um painel é uma exibição concentrada e organizada dos seus recursos da nuvem.'
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 12/4/2020
-ms.openlocfilehash: ddfee1932c6887c6ca7593ca7a28c03e68e09899
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d951c692c7d3c282ae68c5f9b53e9cda5407df10
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104613168"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481014"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>Início Rápido: Criar um painel do portal do Azure com a CLI do Azure
 
