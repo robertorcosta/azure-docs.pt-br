@@ -2,22 +2,25 @@
 title: 'Início Rápido: Adicionar usuários convidados no portal do Azure – Azure AD'
 description: Use este guia de início rápido para saber como os administradores do Azure AD podem adicionar usuários convidados B2B no portal do Azure e veja um passo a passo do fluxo de trabalho de convite B2B.
 services: active-directory
-ms.service: active-directory
-ms.subservice: B2B
-ms.topic: quickstart
-ms.date: 08/05/2020
-ms.author: mimart
 author: msmimart
+ms.author: mimart
 manager: celestedg
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.date: 08/05/2020
+ms.topic: quickstart
+ms.service: active-directory
+ms.subservice: B2B
+ms.custom:
+- it-pro
+- seo-update-azuread-jan
+- mode-portal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12f134a11b6d0a561a8b53156c927906afe2874a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7326a35d07715eae75f70f2f33763f82946c589c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87910428"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529845"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Início Rápido: adicionar usuários convidados ao diretório no portal do Azure
 

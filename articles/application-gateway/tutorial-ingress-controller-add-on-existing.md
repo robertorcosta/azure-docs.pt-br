@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: bfff962f6d302f589acc437550fa25f76ec7ce35
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2fe615da256099c3135f607a7b6f8095bb93b442
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102040407"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772809"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway"></a>Tutorial: habilitar o complemento Controlador de Entrada do Gateway de Aplicativo para um cluster do AKS existente usando um Gateway de Aplicativo existente
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-No Azure, você pode alocar recursos relacionados a um grupo de recursos. Crie um grupo de recursos usando [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos denominado *myResourceGroup* no local (região) *canadacentral*. 
+No Azure, você pode alocar recursos relacionados a um grupo de recursos. Crie um grupo de recursos usando [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos denominado *myResourceGroup* no local (região) *canadacentral*. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location canadacentral
@@ -52,7 +52,7 @@ No exemplo a seguir, você implantará um novo cluster do AKS denominado *myClus
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
 ```
 
-Para configurar parâmetros adicionais para o comando `az aks create`, visite as referências [aqui](/cli/azure/aks#az-aks-create). 
+Para configurar parâmetros adicionais para o comando `az aks create`, visite as referências [aqui](/cli/azure/aks#az_aks_create). 
 
 ## <a name="deploy-a-new-application-gateway"></a>Implantar um novo Gateway de Aplicativo 
 
@@ -84,12 +84,12 @@ Caso queira usar o portal do Azure para habilitar o complemento AGIC, acesse [(h
 
 ![Portal do Controlador de Entrada do Gateway de Aplicativo](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
-## <a name="peer-the-two-virtual-networks-together"></a>Emparelhar as duas redes virtuais
+## <a name="peer-the-two-virtual-networks-together&quot;></a>Emparelhar as duas redes virtuais
 
 Como implantamos o cluster do AKS na própria rede virtual dele e o Gateway de Aplicativo em outra rede virtual, você precisará emparelhar as duas redes virtuais para que o tráfego flua do Gateway de Aplicativo para os pods do cluster. O emparelhamento das duas redes virtuais requer a execução do comando da CLI do Azure duas vezes, separadamente, para garantir que a conexão seja bidirecional. O primeiro comando criará uma conexão de emparelhamento da rede virtual do Gateway de Aplicativo para a rede virtual do AKS. O segundo comando criará uma conexão de emparelhamento na direção oposta.
 
 ```azurecli-interactive
-nodeResourceGroup=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "nodeResourceGroup")
+nodeResourceGroup=$(az aks show -n myCluster -g myResourceGroup -o tsv --query &quot;nodeResourceGroup")
 aksVnetName=$(az network vnet list -g $nodeResourceGroup -o tsv --query "[0].name")
 
 aksVnetId=$(az network vnet show -n $aksVnetName -g $nodeResourceGroup -o tsv --query "id")

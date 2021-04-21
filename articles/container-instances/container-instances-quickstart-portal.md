@@ -1,15 +1,18 @@
 ---
 title: Início Rápido – Implantar um contêiner do Docker na instância de contêiner – Portal
 description: Neste início rápido, você usa o portal do Azure para implantar rapidamente um aplicativo Web em contêineres que é executado em uma instância de contêiner do Azure isolada
-ms.topic: quickstart
 ms.date: 08/24/2020
-ms.custom: seodec18, mvc, devx-track-js
-ms.openlocfilehash: c8477bd91c3a02a2cd02d341c38c16da251902ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.custom:
+- mvc
+- devx-track-js
+- mode-portal
+ms.openlocfilehash: c0189bbd04e454205b34a6415ab6109f95b6f51a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96004799"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536235"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Início Rápido: Implantar uma instância de contêiner no Azure usando o portal do Azure
 

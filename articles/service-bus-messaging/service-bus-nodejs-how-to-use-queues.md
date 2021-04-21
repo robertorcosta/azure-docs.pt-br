@@ -2,17 +2,19 @@
 title: Como usar filas do azure/service-bus em JavaScript
 description: Saiba como escrever um programa JavaScript que usa a última versão prévia do pacote @azure/service-bus para enviar e receber mensagens em uma fila do Barramento de Serviço.
 author: spelluru
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 11/09/2020
 ms.author: spelluru
-ms.custom: devx-track-js
-ms.openlocfilehash: 3c499dcb5233cbf5cd4048c641d1b38e289cc35f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 11/09/2020
+ms.topic: quickstart
+ms.devlang: nodejs
+ms.custom:
+- devx-track-js
+- mode-api
+ms.openlocfilehash: aee67becf7519f03839eafbd897838f938871307
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739705"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537226"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Enviar e receber mensagens em filas do Barramento de Serviço do Azure (JavaScript)
 Neste tutorial, você aprenderá a usar o pacote [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) em um programa JavaScript para enviar e receber mensagens em uma fila do Barramento de Serviço.
