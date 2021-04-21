@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 4671880490a9ce9e29f49ede0e7687bdcf639a7e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a34fd5480ae47678f250dbf888005c396ba32f38
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199791"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792139"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Início Rápido: enviar telemetria de um dispositivo para um Hub IoT e monitorá-lo com a CLI do Azure
 
@@ -55,7 +55,7 @@ Nesta seção, você prepara duas sessões da CLI do Azure. Se você estiver usa
 
 A CLI do Azure exige que você esteja conectado à sua conta do Azure. Toda a comunicação entre a sessão shell da CLI do Azure e o Hub IoT é autenticada e criptografada. Como resultado, este guia de início rápido não precisa da autenticação adicional que você usaria com um dispositivo real, como uma cadeia de conexão.
 
-*  Execute o comando [az extension add](/cli/azure/extension#az-extension-add) para adicionar a Extensão do Microsoft Azure IoT para a CLI do Azure ao seu shell da CLI. A Extensão de IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos IoT) à CLI do Azure.
+*  Execute o comando [az extension add](/cli/azure/extension#az_extension_add) para adicionar a Extensão do Microsoft Azure IoT para a CLI do Azure ao seu shell da CLI. A Extensão de IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos IoT) à CLI do Azure.
 
    ```azurecli
    az extension add --name azure-iot
@@ -76,13 +76,13 @@ Nesta seção, você usa a CLI do Azure para criar um grupo de recursos e um Hub
 > [!TIP]
 > Você tem a opção de criar um grupo de recursos do Azure, um Hub IoT e outros recursos usando o [portal do Azure](iot-hub-create-through-portal.md), o [Visual Studio Code](iot-hub-create-use-iot-toolkit.md) ou outros métodos programáticos.  
 
-1. Execute o comando [az group create](/cli/azure/group#az-group-create) para criar um grupo de recursos. O comando a seguir cria um grupo de recursos chamado *MyResourceGroup* na localização *eastus*. 
+1. Execute o comando [az group create](/cli/azure/group#az_group_create) para criar um grupo de recursos. O comando a seguir cria um grupo de recursos chamado *MyResourceGroup* na localização *eastus*. 
 
     ```azurecli
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Execute o comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) para criar um Hub IoT. Pode levar alguns minutos para criar um Hub IoT. 
+1. Execute o comando [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) para criar um Hub IoT. Pode levar alguns minutos para criar um Hub IoT. 
 
     *YourIotHubName*. substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT. Um nome de Hub IoT deve ser exclusivo globalmente no Azure. Esse espaço reservado é usado no restante deste guia de início rápido para representar o nome do Hub IoT.
 
@@ -184,12 +184,12 @@ Se você continuar para o próximo artigo recomendado, mantenha os recursos já 
 > A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. 
 
 Para excluir um grupo de recursos por nome:
-1. Execute o comando [az group delete](/cli/azure/group#az-group-delete). Isso removerá o grupo de recursos, o Hub IoT e o registro de dispositivo que você criou.
+1. Execute o comando [az group delete](/cli/azure/group#az_group_delete). Isso removerá o grupo de recursos, o Hub IoT e o registro de dispositivo que você criou.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. Execute o comando [az group list](/cli/azure/group#az-group-list) para confirmar se o grupo de recursos foi excluído.  
+1. Execute o comando [az group list](/cli/azure/group#az_group_list) para confirmar se o grupo de recursos foi excluído.  
 
     ```azurecli
     az group list
