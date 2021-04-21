@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: c7bd942b427bdbd2d8184f712f97dd2a0a57fa90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0568860c387aa1239ec56005e404606272ae8275
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102178058"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107799997"
 ---
 Nesta etapa, você criará um [servidor SQL lógico](../database/logical-servers.md) e um [banco de dados individual](../database/single-database-overview.md) que usa os dados de exemplo da AdventureWorksLT. Você pode criar o banco de dados usando os menus e as telas do portal do Azure ou um script da CLI do Azure ou do PowerShell no Azure Cloud Shell.
 
@@ -151,11 +151,11 @@ O código anterior usa estes comandos da CLI do Azure:
 
 | Comando | Descrição |
 |---|---|
-| [az account set](/cli/azure/account#az-account-set) | Define uma assinatura como a assinatura ativa atual. |
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Cria um servidor que hospeda bancos de dados e pools elásticos. |
-| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Cria uma regra de firewall no nível do servidor. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Cria um banco de dados. |
+| [az account set](/cli/azure/account#az_account_set) | Define uma assinatura como a assinatura ativa atual. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Cria um servidor que hospeda bancos de dados e pools elásticos. |
+| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_create) | Cria uma regra de firewall no nível do servidor. |
+| [az sql db create](/cli/azure/sql/db#az_sql_db_create) | Cria um banco de dados. |
 
 Para obter mais exemplos da CLI do Azure do Banco de Dados SQL do Azure, confira [Exemplos da CLI do Azure](../database/az-cli-script-samples-content-guide.md).
 

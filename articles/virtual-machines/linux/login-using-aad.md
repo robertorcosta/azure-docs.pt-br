@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: e14e214a220d9dade4fac028620d23c563d86a8f
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 654d47102685c04d6440d7c155e4d6eb931abcae
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554069"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788107"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Versão prévia: fazer logon em uma máquina virtual do Linux no Azure usando a autenticação do Azure Active Directory
 
@@ -79,7 +79,7 @@ Para habilitar a autenticação do Azure AD para suas VMs do Linux no Azure, voc
 
 ## <a name="create-a-linux-virtual-machine"></a>Criar uma máquina virtual do Linux
 
-Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create) e, em seguida, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create) usando uma distribuição com suporte em uma região com suporte. O exemplo a seguir implanta uma VM denominada *myVM* que usa o *Ubuntu 16.04 LTS* em um grupo de recursos denominado *myResourceGroup* na região *southcentralus*. Nos exemplos a seguir, você pode fornecer seu próprio grupo de recursos e seus próprios nomes de VM, conforme o necessário.
+Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create) e, em seguida, crie uma VM com [az vm create](/cli/azure/vm#az_vm_create) usando uma distribuição com suporte em uma região com suporte. O exemplo a seguir implanta uma VM denominada *myVM* que usa o *Ubuntu 16.04 LTS* em um grupo de recursos denominado *myResourceGroup* na região *southcentralus*. Nos exemplos a seguir, você pode fornecer seu próprio grupo de recursos e seus próprios nomes de VM, conforme o necessário.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location southcentralus
@@ -99,7 +99,7 @@ A criação da VM e dos recursos de suporte demora alguns minutos.
 > [!NOTE]
 > Se estiver implantando essa extensão em uma VM criada anteriormente, verifique se o computador tem pelo menos 1 GB de memória alocada; caso contrário, a extensão falhará na instalação
 
-Para fazer logon em uma VM do Linux com credenciais do Azure AD, instale a extensão de VM de logon do Azure Active Directory. As extensões de VM são pequenos aplicativos que fornecem tarefas de configuração e automação pós-implantação nas máquinas virtuais do Azure. Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) para instalar a extensão *AADLoginForLinux* na VM denominada *myVM* no grupo de recursos *myResourceGroup*:
+Para fazer logon em uma VM do Linux com credenciais do Azure AD, instale a extensão de VM de logon do Azure Active Directory. As extensões de VM são pequenos aplicativos que fornecem tarefas de configuração e automação pós-implantação nas máquinas virtuais do Azure. Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) para instalar a extensão *AADLoginForLinux* na VM denominada *myVM* no grupo de recursos *myResourceGroup*:
 
 ```azurecli-interactive
 az vm extension set \
@@ -121,7 +121,7 @@ A política do Azure RBAC (controle de acesso baseado em função do Azure) dete
 > [!NOTE]
 > Para permitir que um usuário faça logon na VM por SSH, você precisa atribuir a função *Logon de Administrador da Máquina Virtual* ou *Logon de Usuário da Máquina Virtual*. As funções de logon de Administrador de Máquina Virtual e de Usuário de Máquina Virtual usam dataActions e, portanto, não podem ser atribuídas no escopo do grupo de gerenciamento. Atualmente, essas funções só podem ser atribuídas na assinatura, no grupo de recursos ou no escopo do recurso. Um usuário do Azure com a função *Proprietário* ou *Colaborador* atribuída para uma VM não tem automaticamente privilégios para fazer logon na VM por SSH. 
 
-O exemplo a seguir usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para atribuir a função *Logon de Administrador da Máquina Virtual* para a VM ao usuário atual do Azure. O nome de usuário da conta do Azure ativa é obtido com [az account show](/cli/azure/account#az-account-show) e o *escopo* é definido para a VM criada na etapa anterior com [az vm show](/cli/azure/vm#az-vm-show). O escopo também pode ser atribuído em um nível de assinatura ou de grupo de recursos e as permissões normais de herança do RBAC do Azure se aplicam. Para obter mais informações, confira [RBAC do Azure](../../role-based-access-control/overview.md)
+O exemplo a seguir usa [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para atribuir a função *Logon de Administrador da Máquina Virtual* para a VM ao usuário atual do Azure. O nome de usuário da conta do Azure ativa é obtido com [az account show](/cli/azure/account#az_account_show) e o *escopo* é definido para a VM criada na etapa anterior com [az vm show](/cli/azure/vm#az_vm_show). O escopo também pode ser atribuído em um nível de assinatura ou de grupo de recursos e as permissões normais de herança do RBAC do Azure se aplicam. Para obter mais informações, confira [RBAC do Azure](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -134,7 +134,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Se o domínio do AAD e o domínio do nome de usuário de logon não corresponderem, especifique a ID de objeto da conta de usuário com *--assignee-object-id*, não apenas o nome de usuário de *--assignee*. É possível obter a ID de objeto para a conta de usuário com [az ad user list](/cli/azure/ad/user#az-ad-user-list).
+> Se o domínio do AAD e o domínio do nome de usuário de logon não corresponderem, especifique a ID de objeto da conta de usuário com *--assignee-object-id*, não apenas o nome de usuário de *--assignee*. É possível obter a ID de objeto para a conta de usuário com [az ad user list](/cli/azure/ad/user#az_ad_user_list).
 
 Para obter mais informações sobre como usar o RBAC do Azure para gerenciar o acesso aos recursos de sua assinatura do Azure, confira usando a [CLI do Azure](../../role-based-access-control/role-assignments-cli.md), o [portal do Azure](../../role-based-access-control/role-assignments-portal.md) ou o [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
@@ -147,7 +147,7 @@ Você pode impor políticas de Acesso Condicional, como a autenticação multifa
 
 ## <a name="log-in-to-the-linux-virtual-machine"></a>Fazer logon na máquina virtual do Linux
 
-Primeiro, exiba o endereço IP público da VM com [az vm show](/cli/azure/vm#az-vm-show):
+Primeiro, exiba o endereço IP público da VM com [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv

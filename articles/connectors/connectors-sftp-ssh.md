@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: article
-ms.date: 04/05/2021
+ms.topic: conceptual
+ms.date: 04/19/2021
 tags: connectors
-ms.openlocfilehash: 5eae6b48a65f919ea233ad77a215ed5672425175
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: a19253e117f748b4d4045bfd2a29552018bba91e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385846"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781551"
 ---
 # <a name="create-and-manage-sftp-files-using-ssh-and-azure-logic-apps"></a>Crie e gerencie arquivos SFTP usando SSH e os Aplicativos Lógicos do Azure
 
@@ -123,7 +123,7 @@ Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está conc
 
 ### <a name="trigger-recurrence-shift-and-drift"></a>Disparar o deslocamento e o descompasso da recorrência
 
-Gatilhos baseados em conexão em que você precisa criar uma conexão primeiro, como o gatilho SFTP-SSH, diferem de gatilhos internos que são executados nativamente em Aplicativos Lógicos do Azure, como o [gatilho de recorrência](../connectors/connectors-native-recurrence.md). Em gatilhos baseados em conexão recorrentes, a agenda de recorrência não é o único driver que controla a execução e o fuso horário determina apenas a hora de início inicial. As execuções subsequentes dependem da agenda de recorrência, da última execução do gatilho *e* de outros fatores que podem causar tempos de execução para descompasso ou produzir um comportamento inesperado. Por exemplo, um comportamento inesperado pode incluir falha ao manter a agenda especificada quando o horário de verão é iniciado e encerrado. Para garantir que a hora da recorrência não mude quando o horário de verão entrar em vigor, ajuste manualmente a recorrência. Dessa forma, o fluxo de trabalho continua a ser executado no horário esperado. Caso contrário, a hora de início mudará uma hora para frente quando o horário de verão começar e uma hora para trás quando o horário de verão terminar. Para obter mais informações, confira [Recorrência de gatilhos baseados em conexão](../connectors/apis-list.md#recurrence-connection-based).
+Gatilhos baseados em conexão em que você precisa criar uma conexão primeiro, como o gatilho SFTP-SSH, diferem de gatilhos internos que são executados nativamente em Aplicativos Lógicos do Azure, como o [gatilho de recorrência](../connectors/connectors-native-recurrence.md). Em gatilhos baseados em conexão recorrentes, a agenda de recorrência não é o único driver que controla a execução e o fuso horário determina apenas a hora de início inicial. As execuções subsequentes dependem da agenda de recorrência, da última execução do gatilho *e* de outros fatores que podem causar tempos de execução para descompasso ou produzir um comportamento inesperado. Por exemplo, um comportamento inesperado pode incluir falha ao manter a agenda especificada quando o horário de verão é iniciado e encerrado. Para garantir que a hora da recorrência não mude quando o horário de verão entrar em vigor, ajuste manualmente a recorrência. Dessa forma, o fluxo de trabalho continua a ser executado no horário esperado. Caso contrário, a hora de início mudará uma hora para frente quando o horário de verão começar e uma hora para trás quando o horário de verão terminar. Para obter mais informações, confira [Recorrência de gatilhos baseados em conexão](../connectors/apis-list.md#recurrence-for-connection-based-triggers).
 
 <a name="convert-to-openssh"></a>
 

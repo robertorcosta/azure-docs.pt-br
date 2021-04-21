@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 16158b4ecfb46ea9092fe9eeb31cc4dee259b1ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28a044f42d0774d940521964b68b38a0f35bcdbb
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103573737"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387948"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os contêineres do serviço de Fala
 
@@ -536,76 +536,6 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 ```
 
  A função `SetSpeechSynthesisVoiceName` é chamada porque os contêineres com um mecanismo atualizado de conversão de texto em fala exigem o nome da voz.
-
-<br>
-</details>
-
-<details>
-<summary>
-<b>Como posso usar a v1.7 do SDK de Fala com um contêiner de Fala?</b>
-</summary>
-
-**Resposta:** Há três pontos de extremidade no contêiner de Fala para usos diferentes, eles são definidos como modos de Fala. Veja abaixo:
-
-## <a name="speech-modes"></a>Modos de Fala
-
-[!INCLUDE [speech-modes](includes/speech-modes.md)]
-
-Eles atendem a finalidades diferentes e são usados de modos diferentes.
-
-[Exemplos](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py) em Python:
-- Para um só reconhecimento (modo interativo) com um ponto de extremidade personalizado (ou seja, `SpeechConfig` com um parâmetro de ponto de extremidade), confira `speech_recognize_once_from_file_with_custom_endpoint_parameters()`.
-- Para o reconhecimento contínuo (modo de conversa) e apenas fazer uma modificação para usar um ponto de extremidade personalizado como acima, confira `speech_recognize_continuous_from_file()`.
-- Para habilitar o ditado em exemplos como o acima (somente se você realmente precisar dele), logo depois de criar `speech_config`, adicione o código `speech_config.enable_dictation()`.
-
-Em C#, para habilitar o ditado, invoque a função `SpeechConfig.EnableDictation()`.
-
-### <a name="fromendpoint-apis"></a>APIs `FromEndpoint`
-| Idioma | Detalhes da API |
-|----------|:------------|
-| C++ | <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromendpoint" target="_blank">`SpeechConfig.fromendpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Objective-C | <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithendpoint" target="_blank">`SPXSpeechConfiguration:initWithEndpoint;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| JavaScript | Sem suporte no momento e sem previsão de suporte. |
-
-<br>
-</details>
-
-<details>
-<summary>
-<b>Como posso usar a v1.8 do SDK de Fala com um contêiner de Fala?</b>
-</summary>
-
-**Resposta:** Há uma nova API `FromHost`. Ela não substitui nem modifica nenhuma API existente. Ela apenas adiciona um modo alternativo de criar uma configuração de fala usando um host personalizado.
-
-### <a name="fromhost-apis"></a>APIs `FromHost`
-
-| Idioma | Detalhes da API |
-|--|:-|
-| C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| C++ | <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromhost" target="_blank">`SpeechConfig.fromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Objective-C | <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost" target="_blank">`SPXSpeechConfiguration:initWithHost;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| JavaScript | Sem suporte no momento |
-
-> Parâmetros: host (obrigatório), chave de assinatura (opcional, se você puder usar o serviço sem ela).
-
-O formato do host é `protocol://hostname:port` em que `:port` é opcional (veja abaixo):
-- Se o contêiner estiver sendo executado localmente, o nome do host será `localhost`.
-- Se o contêiner estiver em execução em um servidor remoto, use o nome do host ou o endereço IPv4 desse servidor.
-
-Exemplos de parâmetro de host para conversão de fala em texto:
-- `ws://localhost:5000` – conexão não segura com um contêiner local usando a porta 5000
-- `ws://some.host.com:5000` – conexão não segura com um contêiner em execução em um servidor remoto
-
-Exemplos de Python acima, mas use o parâmetro `host` em vez do `endpoint`:
-
-```python
-speech_config = speechsdk.SpeechConfig(host="ws://localhost:5000")
-```
 
 <br>
 </details>
