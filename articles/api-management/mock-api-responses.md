@@ -3,16 +3,16 @@ title: Tutorial – Simular respostas da API no Gerenciamento de API – portal 
 description: Neste tutorial, você usa o Gerenciamento de API para definir uma política em uma API para que ela retorne uma resposta fictícia se o back-end não está disponível para enviar respostas reais.
 author: vladvino
 ms.service: api-management
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 75727d139242e1b537505d2ed907ae20fc5479f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7617a36ed800f1765ed7723568a4b612fcb6518
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100547228"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587571"
 ---
 # <a name="tutorial-mock-api-responses"></a>Tutorial: Simular respostas de API
 

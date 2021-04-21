@@ -2,21 +2,25 @@
 title: 'Guia de Início Rápido: Pausar e retomar a computação no pool de SQL dedicado (antigo SQL DW) com o Azure PowerShell'
 description: Use o Azure PowerShell para pausar e retomar o pool de SQL dedicado (antigo SQL DW). recursos de computação.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
+ms.author: jrasnick
 manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw
-ms.date: 03/20/2019
-ms.author: gaursa
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
-ms.openlocfilehash: 74c30a843ef5edd54c7cd19f3fd49acfe782f488
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 03/20/2019
+ms.topic: quickstart
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+- seo-lt-2019
+- azure-synapse
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: be82b6dcc17c2850b9a35085316cd0905a5b6b75
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602172"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566793"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Guia de Início Rápido: Pausar e retomar a computação no pool de SQL dedicado (antigo SQL DW) com o Azure PowerShell
 
