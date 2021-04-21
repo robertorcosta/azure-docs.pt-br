@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: e6630cbb44157f25bd2cbfcff25ec3132c74c61c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d347be4e6727cdda659620befe20824678160020
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565564"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792427"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Criptografar os discos de sistema operacional e de dados anexados em um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 
@@ -87,7 +87,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## <a name="enable-encryption"></a>Habilitar criptografia
 
-Para criptografar as instâncias de VM em um conjunto de dimensionamento, primeiro obtenha algumas informações sobre a ID de recursos do Key Vault com [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). Essas variáveis são usadas para iniciar o processo de criptografia com [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
+Para criptografar as instâncias de VM em um conjunto de dimensionamento, primeiro obtenha algumas informações sobre a ID de recursos do Key Vault com [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). Essas variáveis são usadas para iniciar o processo de criptografia com [az vmss encryption enable](/cli/azure/vmss/encryption#az_vmss_encryption_enable):
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -103,7 +103,7 @@ az vmss encryption enable \
 
 Pode levar um minuto ou dois para iniciar o processo de criptografia.
 
-Como o conjunto de dimensionamento atualiza a política no conjunto de dimensionamento criado em uma etapa anterior definida como *automática*, as instâncias de VM iniciam automaticamente o processo de criptografia. Em conjuntos de dimensionamento em que a política de atualização é manual, inicie a política de criptografia nas instâncias de VM com [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
+Como o conjunto de dimensionamento atualiza a política no conjunto de dimensionamento criado em uma etapa anterior definida como *automática*, as instâncias de VM iniciam automaticamente o processo de criptografia. Em conjuntos de dimensionamento em que a política de atualização é manual, inicie a política de criptografia nas instâncias de VM com [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances).
 
 ### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Habilitar criptografia usando KEK para encapsular a chave
 
@@ -131,7 +131,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 ## <a name="check-encryption-progress"></a>Verificar o andamento da criptografia
 
-Para verificar o status da criptografia de disco, use [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show):
+Para verificar o status da criptografia de disco, use [az vmss encryption show](/cli/azure/vmss/encryption#az_vmss_encryption_show):
 
 ```azurecli-interactive
 az vmss encryption show --resource-group myResourceGroup --name myScaleSet
@@ -166,7 +166,7 @@ Quando instâncias de VM são criptografadas, o código relata *EncryptionState/
 
 ## <a name="disable-encryption"></a>Desabilitar criptografia
 
-Se você não quiser mais usar discos de instâncias de VM criptografadas, você pode desabilitar a criptografia com [az vmss encryption disable](/cli/azure/vmss/encryption#az-vmss-encryption-disable) da seguinte maneira:
+Se você não quiser mais usar discos de instâncias de VM criptografadas, você pode desabilitar a criptografia com [az vmss encryption disable](/cli/azure/vmss/encryption#az_vmss_encryption_disable) da seguinte maneira:
 
 ```azurecli-interactive
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet

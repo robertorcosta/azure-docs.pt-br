@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/07/2020
 ms.author: allensu
-ms.openlocfilehash: f74a143859f0a6629c88f0dcb61a97697f49d0be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5088b4e50899a2643488103ba29a7e36a7f256ea
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889222"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778347"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Início Rápido: criar um Ponto de Extremidade Privado usando a CLI do Azure
 
@@ -72,7 +72,7 @@ az network vnet create \
     --subnet-prefixes 10.0.0.0/24
 ```
 
-Atualize a sub-rede para desabilitar as políticas de rede do ponto de extremidade privado para o ponto de extremidade privado com o comando [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Atualize a sub-rede para desabilitar as políticas de rede do ponto de extremidade privado para o ponto de extremidade privado com o comando [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -82,7 +82,7 @@ az network vnet subnet update \
     --disable-private-endpoint-network-policies true
 ```
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) para criar um endereço IP público para o bastion host:
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) para criar um endereço IP público para o bastion host:
 
 * Crie um endereço IP público com redundância de zona padrão chamado **myBastionIP**.
 * Em **CreatePrivateEndpointQS-rg**.
@@ -94,7 +94,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-Use o comando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) para criar uma sub-rede do bastion:
+Use o comando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) para criar uma sub-rede do bastion:
 
 * Chamada **AzureBastionSubnet**.
 * Prefixo de endereço igual a **10.0.1.0/24**.
@@ -109,7 +109,7 @@ az network vnet subnet create \
     --address-prefixes 10.0.1.0/24
 ```
 
-Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) para criar um bastion host:
+Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) para criar um bastion host:
 
 * chamado **myBastionHost**.
 * Em **CreatePrivateEndpointQS-rg**.
@@ -150,6 +150,8 @@ az vm create \
     --subnet myBackendSubnet \
     --admin-username azureuser
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="create-private-endpoint"></a>Criar um ponto de extremidade privado
 

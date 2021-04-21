@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: e9e27720c50de8653fa859e051c9cfb3af4509ff
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: e06881d078b4e881174c3e931f7898cb622ad7f9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377464"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766345"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Início Rápido: Biblioteca de clientes do segredo do Azure Key Vault para Python
 
@@ -170,7 +170,7 @@ retrieved_secret = client.get_secret(secretName)
 
 O valor do segredo está contido em `retrieved_secret.value`.
 
-Você também pode recuperar um segredo com o comando da CLI do Azure [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show).
+Você também pode recuperar um segredo com o comando da CLI do Azure [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show).
 
 ### <a name="delete-a-secret"></a>Excluir um segredo
 
@@ -183,7 +183,7 @@ deleted_secret = poller.result()
 
 O método `begin_delete_secret` é assíncrono e retorna um objeto do instrumento de sondagem. Chamar o método `result` do instrumento de sondagem aguarda sua conclusão.
 
-Você pode verificar se o segredo foi removido com o comando da CLI do Azure [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show).
+Você pode verificar se o segredo foi removido com o comando da CLI do Azure [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show).
 
 Depois de excluído, um segredo permanece em um estado excluído, mas recuperável, por algum tempo. Se você executar o código novamente, use um nome de segredo diferente.
 
@@ -200,7 +200,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral da o Cofre da Chave do Azure](../general/overview.md)
-- [Proteger o acesso a um cofre de chaves](../general/secure-your-key-vault.md)
+- [Proteger o acesso a um cofre de chaves](../general/security-overview.md)
 - [Guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
 - [Visão geral da segurança do Key Vault](../general/security-overview.md)
 - [Autenticar com o Key Vault](../general/authentication.md)
