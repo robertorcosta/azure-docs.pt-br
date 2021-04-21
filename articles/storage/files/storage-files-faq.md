@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: ec8104a5fd8d1c524f75c7a5173015115d85a253
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4d7123aa22d95e3e4c3850be775ddad96f28d280
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064300"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785299"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 Os [Arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do [Protocolo SMB](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) ou do [protocolo NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) (versão prévia) padrão do setor. Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -90,7 +90,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 * <a id="afs-region-availability"></a>
   **Quais regiões têm suporte para Sincronização de Arquivos do Azure?**  
-    A lista de regiões disponíveis pode ser encontrada na seção [Disponibilidade de região](storage-sync-files-planning.md#azure-file-sync-region-availability) da guia de planejamento da Sincronização de Arquivos do Azure. Adicionaremos suporte continuamente para outras regiões, incluindo regiões não públicas.
+    A lista de regiões disponíveis pode ser encontrada na seção [Disponibilidade de região](../file-sync/file-sync-planning.md#azure-file-sync-region-availability) da guia de planejamento da Sincronização de Arquivos do Azure. Adicionaremos suporte continuamente para outras regiões, incluindo regiões não públicas.
 
 * <a id="cross-domain-sync"></a>
   **É possível ter servidores ingressados e não ingressados no domínio no mesmo grupo de sincronização?**  
@@ -119,28 +119,28 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 * <a id="sizeondisk-versus-size"></a>
   **Por que a propriedade *Tamanho em disco* de um arquivo não corresponde à propriedade *Tamanho* depois do uso da Sincronização de arquivos do Azure?**  
-  Confira [Noções básicas sobre a camada de nuvem da Sincronização de Arquivos do Azure](storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior).
+  Confira [Noções básicas sobre a camada de nuvem da Sincronização de Arquivos do Azure](../file-sync/file-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior).
 
 * <a id="is-my-file-tiered"></a>
   **Como saber se um arquivo está em camadas?**  
-  Confira [Como gerenciar os arquivos em camadas da Sincronização de Arquivos do Azure](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
+  Confira [Understanding Cloud Tiering](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered) (Noções básicas sobre a Camada de Nuvem).
 
 * <a id="afs-recall-file"></a>**Um arquivo que eu desejo usar foi dividido em camadas. Como é possível fazer o recall do arquivo no disco para usá-lo localmente?**  
-  Confira [Como gerenciar os arquivos em camadas da Sincronização de Arquivos do Azure](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
+  Confira [Understanding Cloud Tiering](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk) (Noções básicas sobre a Camada de Nuvem).
 
 * <a id="afs-force-tiering"></a>
   **Como posso forçar um arquivo ou diretório a ficar em camadas?**  
-  Confira [Como gerenciar os arquivos em camadas da Sincronização de Arquivos do Azure](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
+  Confira [Understanding Cloud Tiering](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered) (Noções básicas sobre a Camada de Nuvem).
 
 * <a id="afs-effective-vfs"></a>
   **Como o *espaço livre no volume* é interpretado quando há vários pontos de extremidade do servidor em um volume?**  
-  Confira [Escolher as políticas da camada de nuvem da Sincronização de Arquivos do Azure](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume).
+  Confira [Understanding Cloud Tiering](../file-sync/file-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume) (Noções básicas sobre a Camada de Nuvem).
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **Minha camada de nuvem está desabilitada. Por que existem arquivos em camadas na localização do ponto de extremidade de servidor?**  
     Há dois motivos pelos quais os arquivos em camadas podem existir na localização do ponto de extremidade de servidor:
 
-    - Ao adicionar um novo ponto de extremidade de servidor a um grupo de sincronização existente, se você escolher a opção Recuperar namespace primeiro ou Recuperar somente namespace para o modo de download inicial, os arquivos serão exibidos como se estivessem em camadas até serem baixados localmente. Para evitar isso, selecione a opção Evitar arquivos em camadas para o modo de download inicial. Para recuperar arquivos manualmente, use o cmdlet [Invoke-StorageSyncFileRecall](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
+    - Ao adicionar um novo ponto de extremidade de servidor a um grupo de sincronização existente, se você escolher a opção Recuperar namespace primeiro ou Recuperar somente namespace para o modo de download inicial, os arquivos serão exibidos como se estivessem em camadas até serem baixados localmente. Para evitar isso, selecione a opção Evitar arquivos em camadas para o modo de download inicial. Para recuperar arquivos manualmente, use o cmdlet [Invoke-StorageSyncFileRecall](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
 
     - Se a camada de nuvem foi habilitada no ponto de extremidade de servidor e, depois, desabilitada, os arquivos permanecem em camadas até que sejam acessados.
 
@@ -150,11 +150,11 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
     Esse comportamento não é específico da Sincronização de Arquivos do Azure. O Windows Explorer exibe um "X cinza" em todos os arquivos que têm o atributo offline definido. Você verá o ícone X ao acessar arquivos via SMB. Para obter uma explicação detalhada desse comportamento, veja [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
-    Caso tenha dúvidas sobre como gerenciar arquivos em camadas, confira [Como gerenciar arquivos em camadas](storage-sync-how-to-manage-tiered-files.md).
+    Caso tenha dúvidas sobre como gerenciar arquivos em camadas, confira [Como gerenciar arquivos em camadas](../file-sync/file-sync-how-to-manage-tiered-files.md).
 
 * <a id="afs-files-excluded"></a>
   **Quais arquivos ou pastas são excluídas automaticamente pela Sincronização de arquivos do Azure?**  
-  Veja [Arquivos ignorados](storage-sync-files-planning.md#files-skipped).
+  Veja [Arquivos ignorados](../file-sync/file-sync-planning.md#files-skipped).
 
 * <a id="afs-os-support"></a>
   **Posso usar a Sincronização de arquivos do Azure com o Windows Server 2008 R2, Linux ou o dispositivo NAS (armazenamento conectado à rede)?**  
@@ -162,7 +162,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **Por que os arquivos em camadas existem fora o namespace de ponto de extremidade do servidor?**  
-    Antes do agente do Azure File Sync - Sincronização de Arquivos do Azure versão 3, o Azure File Sync bloqueava a movimentação de arquivos em camadas fora do ponto de extremidade do servidor, mas no mesmo volume que o ponto de extremidade do servidor. Operações de cópia, move arquivos não hierárquico e de em camadas para outros volumes foram afetados. O motivo para esse comportamento foi a suposição implícita de que o Explorador de Arquivos e outras APIs do Windows que têm essas operações de movimentação no mesmo volume são operações de renomeação (quase) instantâneas. Isso significa que move fará o Explorador de arquivos ou outros métodos de movimentação (como a linha de comando ou o PowerShell) pode parecer não estar respondendo enquanto a sincronização de arquivos do Azure recupera os dados da nuvem. A partir do [ agente do Azure File Sync versão 3.0.12.0 ](storage-files-release-notes.md#supported-versions), o Azure File Sync permitirá que você mova um arquivo em camadas fora do ponto de extremidade do servidor. Evitamos os efeitos negativos mencionados anteriormente, permitindo que o arquivo em camadas exista como um arquivo em camadas fora do terminal do servidor e, em seguida, recuperando o arquivo em segundo plano. Isso significa que movimentações no mesmo volume são instantâneas e fazemos todo o trabalho para recuperar o arquivo no disco após a movimentação ser concluída. 
+    Antes do agente do Azure File Sync - Sincronização de Arquivos do Azure versão 3, o Azure File Sync bloqueava a movimentação de arquivos em camadas fora do ponto de extremidade do servidor, mas no mesmo volume que o ponto de extremidade do servidor. Operações de cópia, move arquivos não hierárquico e de em camadas para outros volumes foram afetados. O motivo para esse comportamento foi a suposição implícita de que o Explorador de Arquivos e outras APIs do Windows que têm essas operações de movimentação no mesmo volume são operações de renomeação (quase) instantâneas. Isso significa que move fará o Explorador de arquivos ou outros métodos de movimentação (como a linha de comando ou o PowerShell) pode parecer não estar respondendo enquanto a sincronização de arquivos do Azure recupera os dados da nuvem. A partir do [ agente do Azure File Sync versão 3.0.12.0 ](../file-sync/file-sync-release-notes.md#supported-versions), o Azure File Sync permitirá que você mova um arquivo em camadas fora do ponto de extremidade do servidor. Evitamos os efeitos negativos mencionados anteriormente, permitindo que o arquivo em camadas exista como um arquivo em camadas fora do terminal do servidor e, em seguida, recuperando o arquivo em segundo plano. Isso significa que movimentações no mesmo volume são instantâneas e fazemos todo o trabalho para recuperar o arquivo no disco após a movimentação ser concluída. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
   **Estou tendo um problema com a Sincronização de Arquivos do Azure no meu servidor (sincronização, nível de nuvem, etc.). Deve remover e recriar o ponto de extremidade do meu servidor?**  
@@ -170,7 +170,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
     
 * <a id="afs-resource-move"></a>
   **Posso mover o serviço de sincronização de armazenamento e/ou a conta de armazenamento para um grupo de recursos, uma assinatura ou um locatário do Azure AD diferente?**  
-   Sim, o serviço de sincronização de armazenamento e/ou a conta de armazenamento podem ser movidos para um grupo de recursos, uma assinatura ou um locatário do Azure AD diferente. Depois que a conta de armazenamento ou o serviço de sincronização de armazenamento for movido, você precisará permitir o acesso do aplicativo Microsoft.StorageSync na conta de armazenamento (confira [Verificar se a Sincronização de Arquivos do Azure tem acesso à conta de armazenamento](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
+   Sim, o serviço de sincronização de armazenamento e/ou a conta de armazenamento podem ser movidos para um grupo de recursos, uma assinatura ou um locatário do Azure AD diferente. Depois que a conta de armazenamento ou o serviço de sincronização de armazenamento for movido, você precisará permitir o acesso do aplicativo Microsoft.StorageSync na conta de armazenamento (confira [Verificar se a Sincronização de Arquivos do Azure tem acesso à conta de armazenamento](../file-sync/file-sync-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > Ao criar o ponto de extremidade na nuvem, o serviço de sincronização de armazenamento e a conta de armazenamento devem estar no mesmo locatário do Azure AD. Depois que o ponto de extremidade na nuvem é criado, o serviço de sincronização de armazenamento e a conta de armazenamento podem ser movidos para diferentes locatários do Azure AD.
@@ -494,4 +494,4 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 ## <a name="see-also"></a>Confira também
 * [Solucionar problemas do Arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Solucionar problemas do Arquivos do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Solucionar problemas da Sincronização de Arquivos do Azure](storage-sync-files-troubleshoot.md)
+* [Solucionar problemas da Sincronização de Arquivos do Azure](../file-sync/file-sync-troubleshoot.md)
