@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 1443ab37beb28706227159c53d336384216d8387
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 655ea1920fc80c8cd677281f09cfca21120e1d61
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104582435"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726350"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando a CLI do Azure
 
@@ -44,6 +44,8 @@ Use o comando [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_se
 ```azurecli
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
+
+## <a name="retrieve-a-secret-from-key-vault"></a>Recuperar um segredo do Key Vault
 
 Agora, você pode fazer referência a essa senha que foi adicionada ao Azure Key Vault usando seu URI. Use **'https://<nome-exclusivo-do-cofre-de-chaves>.vault.azure.net/secrets/ExamplePassword'** para obter a versão atual.
 

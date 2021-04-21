@@ -12,12 +12,12 @@ ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: detecção de anomalias, machine learning, algoritmos
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 3bfa30cc5d3d57cfcd2677bb4b2719061541d5a9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: d63399d0f492f85a4a2d57a595a6d8ef5b606d92
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278857"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599512"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detector de Anomalias?
 
@@ -113,5 +113,5 @@ Nenhuma configuração do cliente será necessária para habilitar a resiliênci
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Início Rápido: Detectar anomalias nos dados de série temporal usando o Detector de Anomalias](quickstarts/client-libraries.md)
-* A [demonstração online](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) da API do Detector de Anomalias
+* A [demonstração online](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook) da API do Detector de Anomalias
 * A [referência da API REST](https://aka.ms/anomaly-detector-rest-api-ref) do Detector de Anomalias

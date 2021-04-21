@@ -10,12 +10,12 @@ keywords: serviços cognitivos, inteligência cognitiva, soluções cognitivas, 
 ms.topic: quickstart
 ms.date: 3/22/2021
 ms.author: aahi
-ms.openlocfilehash: 08ff2f416a00002cde5767111ba5a6824a721324
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 26e3b264b7268f7a9ffdb592beef7d76844646f5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868164"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789133"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Início Rápido: criar um recurso dos Serviços Cognitivos usando a CLI (interface de linha de comando) do Azure
 
@@ -36,7 +36,7 @@ Neste guia de início rápido, você aprenderá a se inscrever nos Serviços Cog
 
 ## <a name="install-the-azure-cli-and-sign-in"></a>Instalar a CLI do Azure e entrar
 
-Instale a [CLI do Azure](/cli/azure/install-azure-cli). Para entrar em sua instalação local da CLI, execute o comando [az login](/cli/azure/reference-index#az-login):
+Instale a [CLI do Azure](/cli/azure/install-azure-cli). Para entrar em sua instalação local da CLI, execute o comando [az login](/cli/azure/reference-index#az_login):
 
 ```azurecli-interactive
 az login
@@ -50,7 +50,7 @@ Antes de criar um recurso dos Serviços Cognitivos, você precisa ter um grupo d
 
 ### <a name="choose-your-resource-group-location"></a>Escolher a localização do grupo de recursos
 
-Para criar um recurso, você precisará de um dos locais do Azure disponíveis para a sua assinatura. Você pode obter uma lista de locais disponíveis com o comando [az account list-locations](/cli/azure/account#az-account-list-locations). A maioria dos Serviços Cognitivos pode ser acessada de vários locais. Escolha o mais próximo a você ou veja quais locais estão disponíveis para o serviço.
+Para criar um recurso, você precisará de um dos locais do Azure disponíveis para a sua assinatura. Você pode obter uma lista de locais disponíveis com o comando [az account list-locations](/cli/azure/account#az_account_list_locations). A maioria dos Serviços Cognitivos pode ser acessada de vários locais. Escolha o mais próximo a você ou veja quais locais estão disponíveis para o serviço.
 
 > [!IMPORTANT]
 > * Lembre-se do local do Azure, pois você precisará dele ao chamar os Serviços Cognitivos do Azure.
@@ -62,7 +62,7 @@ az account list-locations \
     --out table
 ```
 
-Depois de ter o local do Azure, crie um grupo de recursos na CLI do Azure usando o comando [az group create](/cli/azure/group#az-group-create).
+Depois de ter o local do Azure, crie um grupo de recursos na CLI do Azure usando o comando [az group create](/cli/azure/group#az_group_create).
 
 No exemplo a seguir, substitua o local do Azure `westus2` por um dos locais do Azure disponíveis para a sua assinatura.
 
@@ -124,7 +124,7 @@ Ao criar um recurso, você precisará saber qual "tipo" de serviço deseja usar,
 | Content Moderator | `ContentModerator` |
 | Personalizador      | `Personalizer`     |
 
-Você pode encontrar uma lista de "tipos" de Serviços Cognitivos disponíveis com o comando [az cognitiveservices account list-kinds](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-list-kinds):
+Você pode encontrar uma lista de "tipos" de Serviços Cognitivos disponíveis com o comando [az cognitiveservices account list-kinds](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_list_kinds):
 
 ```azurecli-interactive
 az cognitiveservices account list-kinds
@@ -132,7 +132,7 @@ az cognitiveservices account list-kinds
 
 ### <a name="add-a-new-resource-to-your-resource-group"></a>Adicionar um novo recurso ao seu grupo de recursos
 
-Para criar e assinar um recurso dos Serviços Cognitivos, use o método [az cognitiveservices account create](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create). Esse comando adiciona um novo recurso que pode ser cobrado ao grupo de recursos que você criou anteriormente. Ao criar o recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o tipo de preço (ou SKU) desejado e um local do Azure:
+Para criar e assinar um recurso dos Serviços Cognitivos, use o método [az cognitiveservices account create](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_create). Esse comando adiciona um novo recurso que pode ser cobrado ao grupo de recursos que você criou anteriormente. Ao criar o recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o tipo de preço (ou SKU) desejado e um local do Azure:
 
 Você pode criar um recurso F0 (gratuito) chamado `anomaly-detector-resource` para o Detector de Anomalias com o comando a seguir.
 
@@ -150,13 +150,13 @@ az cognitiveservices account create \
 
 ## <a name="get-the-keys-for-your-resource"></a>Obter as chaves para o recurso
 
-Para fazer logon em sua instalação local da CLI (interface de linha de comando), use o comando [az login](/cli/azure/reference-index#az-login).
+Para fazer logon em sua instalação local da CLI (interface de linha de comando), use o comando [az login](/cli/azure/reference-index#az_login).
 
 ```azurecli-interactive
 az login
 ```
 
-Use o comando [az cognitiveservices account keys list](/cli/azure/cognitiveservices/account/keys#az-cognitiveservices-account-keys-list) para obter as chaves para o recurso de Serviço Cognitivo.
+Use o comando [az cognitiveservices account keys list](/cli/azure/cognitiveservices/account/keys#az_cognitiveservices_account_keys_list) para obter as chaves para o recurso de Serviço Cognitivo.
 
 ```azurecli-interactive
     az cognitiveservices account keys list \
@@ -175,7 +175,7 @@ Os tipos de preço (e o valor que é cobrado de você) são baseados no número 
 
 ## <a name="get-current-quota-usage-for-your-resource"></a>Obter o uso de cota atual para o recurso
 
-Use o comando [az cognitiveservices account list-usage](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-list-usage) para obter o uso para o recurso de Serviço Cognitivo.
+Use o comando [az cognitiveservices account list-usage](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_list_usage) para obter o uso para o recurso de Serviço Cognitivo.
 
 ```azurecli-interactive
 az cognitiveservices account list-usage \
