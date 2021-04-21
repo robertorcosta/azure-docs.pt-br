@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/12/2021
+ms.date: 04/16/2021
 ms.author: aahi
 keywords: on-premises, Docker, container, Kubernetes
-ms.openlocfilehash: 45b1eb00b61c36e3a7a0f39bc41a9c1d053f3d8e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: c40e91d81df448021be74af768bc9d5952b263dd
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313735"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588217"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contêineres dos Serviços Cognitivos do Azure
 
@@ -51,7 +51,7 @@ Os contêineres dos Serviços Cognitivos do Azure fornecem o conjunto abaixo de 
 |--|--|--|--|
 | [LUIS][lu-containers] |  **LUIS** ([imagem](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Carrega um modelo de reconhecimento vocal treinado ou publicado, também conhecido como um aplicativo LUIS, para um contêiner do Docker e fornece acesso às previsões de consulta dos pontos de extremidade da API do contêiner. Você pode coletar logs de consulta do contêiner e carregá-los novamente no [portal do LUIS](https://www.luis.ai) para aumentar a precisão da previsão do aplicativo. | Disponível para o público geral |
 | [Análise de Texto][ta-containers-keyphrase] | **Extração de Frases-Chave** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extrai frases-chave para identificar os principais pontos. Por exemplo, para o texto de entrada "A comida estava deliciosa e a equipe era maravilhosa", a API retorna os principais pontos de discussão: "comida" e "equipe maravilhosa". | Versão Prévia |
-| [Análise de Texto][ta-containers-language] |  **Detecção de Idioma do Texto** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Para até 120 idiomas, detecta em qual idioma o texto de entrada está escrito e informa um código de idioma único para cada documento enviado na solicitação. O código de idioma é emparelhado com uma pontuação que indica a intensidade da pontuação. | Versão Prévia |
+| [Análise de Texto][ta-containers-language] |  **Detecção de Idioma do Texto** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Para até 120 idiomas, detecta em qual idioma o texto de entrada está escrito e informa um código de idioma único para cada documento enviado na solicitação. O código de idioma é emparelhado com uma pontuação que indica a intensidade da pontuação. | Disponível para o público geral |
 | [Análise de Texto][ta-containers-sentiment] | **Análise de Sentimento v3** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analisa o texto bruto em busca de pistas sobre sentimentos positivos ou negativos. Esta versão da análise de sentimento retorna rótulos de sentimentos (como *positivos* ou *negativos*) para cada documento e frase dentro dela. |  Disponível para o público geral |
 | [Análise de Texto][ta-containers-health] |  **Análise de Texto para integridade** | Extraia informações médicas de textos clínicos não estruturados, depois insira um rótulo nelas. | Versão prévia restrita. [Solicitar acesso][request-access]. |
 

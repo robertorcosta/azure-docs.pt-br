@@ -1,25 +1,25 @@
 ---
 title: Definições de políticas internas para a Central de Segurança do Azure
 description: Lista as definições de políticas internas do Azure Policy para a Central de Segurança do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 82fd5a9a0bdf9a37535796af8f72c2c4238cdc9c
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 8023dcc29fe8ea3af853237e911524549e4d2bcb
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106089536"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739630"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Definições internas do Azure Policy para a Central de Segurança do Azure
 
 Esta página é um índice de definições de políticas internas do [Azure Policy](../governance/policy/overview.md) relacionadas à Central de Segurança do Azure. Os seguintes agrupamentos de definições de política estão disponíveis:
 
 - O grupo de [iniciativas](#azure-security-center-initiatives) lista as definições de iniciativa do Azure Policy na categoria "Central de Segurança".
-- O grupo de [iniciativa padrão](#azure-security-center-initiatives) lista todas as definições do Azure Policy que fazem parte da iniciativa padrão da Central de Segurança, o [Azure Security Benchmark](../security/benchmarks/introduction.md). Esse parâmetro de comparação amplamente respeitado e de autoria da Microsoft se baseia nos controles do [CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) e do [NIST (National Institute of Standards and Technology)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
+- O grupo de [iniciativa padrão](#azure-security-center-initiatives) lista todas as definições do Azure Policy que fazem parte da iniciativa padrão da Central de Segurança, o [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction). Esse parâmetro de comparação amplamente respeitado e de autoria da Microsoft se baseia nos controles do [CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) e do [NIST (National Institute of Standards and Technology)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
 - O grupo de [categoria](#azure-security-center-category) lista todas as definições do Azure Policy na categoria "Central de Segurança".
 
 Para obter mais informações sobre políticas de segurança, confira [Trabalhando com políticas de segurança](./tutorial-security-policy.md). Para obter políticas internas adicionais do Azure Policy para outros serviços, confira [Definições internas do Azure Policy](../governance/policy/samples/built-in-policies.md).
