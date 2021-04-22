@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
 ms.openlocfilehash: 12cce0eac3827046ae9171f3dd5696ae5905c802
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101093982"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Melhores práticas para proteger aplicativos PaaS móveis e Web usando o Armazenamento do Azure
@@ -56,13 +56,13 @@ A SAS lhe permite compartilhar conteúdo da maneira desejada sem precisar fornec
 Para saber mais sobre a assinatura de acesso compartilhado, confira [Usando SAS (Assinaturas de Acesso Compartilhado)](../../storage/common/storage-sas-overview.md). 
 
 ## <a name="use-azure-role-based-access-control"></a>Usar o controle de acesso baseado em função do Azure
-Outra maneira de gerenciar o acesso é usar o [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md). Com o RBAC do Azure, você se concentra em fornecer aos funcionários as permissões exatas de que precisam, com base na necessidade de conhecer os princípios de segurança de privilégio mínimo. Muitas permissões podem expor uma conta a ataques. Permissões insuficientes significa que os funcionários não podem ter seu trabalho feito com eficiência. O RBAC do Azure ajuda a resolver esse problema oferecendo gerenciamento de acesso refinado para o Azure. Isso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados.
+Outra maneira de gerenciar o acesso é usar o [RBAC do Azure (controle de acesso baseado em função do Azure)](../../role-based-access-control/overview.md). Com o RBAC do Azure, você se concentra em fornecer aos funcionários as permissões exatas de que eles precisam com base nas necessidades deles e nos princípios de segurança de privilégios mínimos. Muitas permissões podem expor uma conta a ataques. Permissões insuficientes significa que os funcionários não podem ter seu trabalho feito com eficiência. O RBAC do Azure ajuda a abordar esse problema oferecendo gerenciamento de acesso refinado ao Azure. Isso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados.
 
-Você pode usar funções internas do Azure no Azure para atribuir privilégios a usuários. Por exemplo, use o Colaborador da Conta de Armazenamento para operadores de nuvem que precisarem gerenciar contas de armazenamento e a função de Colaborador de Conta de Armazenamento Clássica para gerenciar contas de armazenamento clássicas. Para operadores de nuvem que precisam gerenciar VMs, mas não a rede virtual ou a conta de armazenamento a que estão conectados, adicione-os à função de Colaborador de Máquina Virtual.
+É possível usar funções internas no Azure para atribuir privilégios aos usuários. Por exemplo, use o Colaborador da Conta de Armazenamento para operadores de nuvem que precisarem gerenciar contas de armazenamento e a função de Colaborador de Conta de Armazenamento Clássica para gerenciar contas de armazenamento clássicas. Para operadores de nuvem que precisam gerenciar VMs, mas não a rede virtual ou a conta de armazenamento a que estão conectados, adicione-os à função de Colaborador de Máquina Virtual.
 
-As organizações que não impõem o controle de acesso a dados usando recursos como o RBAC do Azure podem estar concedendo mais privilégios do que o necessário para seus usuários. Isso pode levar ao comprometimento de dados por permitir que alguns usuários acessem dados que a não deveriam ter acesso.
+As organizações que não impõem o controle de acesso a dados usando recursos como o RBAC do Azure, podem estar dando mais privilégios do que o necessário aos usuários delas. Isso pode levar ao comprometimento de dados por permitir que alguns usuários acessem dados que a não deveriam ter acesso.
 
-Para saber mais sobre o RBAC do Azure, consulte:
+Para saber mais sobre o RBAC do Azure, confira:
 
 - [Atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
 - [Funções internas do Azure](../../role-based-access-control/built-in-roles.md)
@@ -73,7 +73,7 @@ A criptografia do lado do cliente permite criptografar programaticamente dados e
 
 A criptografia do lado do cliente também permite que você tenha controle exclusivo sobre suas chaves de criptografia. Você pode gerar e gerenciar suas próprias chaves de criptografia. Ela usa uma técnica de envelope em que a biblioteca de cliente do Armazenamento do Azure gera uma CEK (chave de criptografia de conteúdo) que é encapsulada (criptografada) usando a KEK (chave de criptografia de chave). A KEK é identificada por um identificador de chave e pode ser um par de chaves assimétricas ou uma chave simétrica, e pode ser gerenciada localmente ou armazenada no [Azure Key Vault](../../key-vault/general/overview.md).
 
-A criptografia do lado do cliente é interna nas bibliotecas de cliente de armazenamento Java e .NET. Consulte [criptografia do lado do cliente e Azure Key Vault para armazenamento do Microsoft Azure](../../storage/common/storage-client-side-encryption.md) para obter informações sobre como criptografar dados em aplicativos cliente e gerar e gerenciar suas próprias chaves de criptografia.
+A criptografia do lado do cliente é interna nas bibliotecas de cliente de armazenamento Java e .NET. Confira a [Criptografia do lado do cliente e o Azure Key Vault para o Armazenamento do Microsoft Azure](../../storage/common/storage-client-side-encryption.md) para obter informações sobre a criptografia de dados em aplicativos cliente e sobre como gerar e gerenciar suas próprias chaves de criptografia.
 
 ## <a name="enable-storage-service-encryption-for-data-at-rest"></a>Habilitar Criptografia do Serviço de Armazenamento para dados em repouso
 Quando a [Criptografia do serviço de armazenamento](../../storage/common/storage-service-encryption.md) para o armazenamento de arquivos está habilitada, os dados são criptografados automaticamente usando criptografia AES-256. A Microsoft lida com toda a criptografia, a descriptografia e o gerenciamento de chaves. Este recurso está disponível para os tipos de redundância LRS e GRS.

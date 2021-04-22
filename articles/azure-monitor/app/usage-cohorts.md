@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 2c35356951560b11a605334aba4c26dbc38086de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100583552"
 ---
 # <a name="application-insights-cohorts"></a>Coortes do Application Insights
@@ -34,22 +34,22 @@ Sua equipe define usuário envolvido como qualquer pessoa que usar seu aplicativ
 
 1. Abra a ferramenta Coortes.
 
-2. Selecione a guia **Galeria de modelos** . Você verá uma coleção de modelos para vários coortes.
+2. Selecione a guia **Galeria de Modelos**. Você verá uma coleção de modelos para vários coortes.
 
 3. Selecione **Usuários Envolvidos -- por Dias de Uso**.
 
     Há três parâmetros para esse coorte:
     * **Atividades**, onde você escolhe quais eventos e exibições de página contam como “uso.”
     * **Período**, a definição de um mês.
-    * **UsedAtLeastCustom**, o número de vezes que os usuários precisam usar algo dentro de um período para contar como envolvidos.
+    * **UsedAtleastCustom**, o número de vezes que os usuários precisam usar algo em um período para contar como envolvidos.
 
-4. Altere **UsedAtLeastCustom** para **5 dias** e deixe o **período** no padrão de 28 dias.
+4. Altere **UsedAtleastCustom** para **5+ dias**, e deixe **Período** no padrão de 28 dias.
 
     ![Usuários envolvidos](./media/usage-cohorts/003.png)
 
     Agora, essa coorte representa todas as IDs de usuários enviadas com qualquer evento personalizado ou exibição de página em 5 dias separados nos últimos 28.
 
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
    > [!TIP]
    > Forneça um nome à coorte, como “Usuários Envolvidos (5 ou mais dias).” Salve-a em "Meus relatórios" ou "Relatórios compartilhados", dependendo se você deseja que outras pessoas que tenham acesso a esse recurso do Application Insights visualizem essa coorte.
@@ -69,7 +69,7 @@ Alguns aspectos importantes a observar:
 * Não é possível criar esse conjunto por meio de filtros normais. A lógica de data é mais avançada.
 * Você pode filtrar ainda mais essa coorte, usando os filtros normais na ferramenta Usuários. Portanto, embora a coorte seja definida em janelas de 28 dias, você ainda poderá ajustar o intervalo de tempo na ferramenta Usuários em 30, 60 ou 90 dias.
 
-Esses filtros dão suporte a perguntas mais sofisticadas impossíveis de serem expressas por meio do construtor de consultas. Um exemplo é _as pessoas que estavam envolvidas nos últimos 28 dias. Como as mesmas pessoas se comportaram nos últimos 60 dias?_
+Esses filtros dão suporte a perguntas mais sofisticadas impossíveis de serem expressas por meio do construtor de consultas. Um exemplo é: _pessoas envolvidas nos últimos 28 dias. Como essas pessoas se comportaram nos últimos 60 dias?_
 
 ## <a name="example-events-cohort"></a>Exemplo: coorte de eventos
 
@@ -77,7 +77,7 @@ Você também pode fazer coortes de eventos. Nesta seção, você definirá um c
 
 1. Abra a ferramenta Coortes.
 
-2. Selecione a guia **Galeria de modelos** . Você verá uma coleção de modelos para vários coortes.
+2. Selecione a guia **Galeria de Modelos**. Você verá uma coleção de modelos para vários coortes.
 
 3. Selecione **Seletor de Eventos**.
 
@@ -116,13 +116,13 @@ As duas coortes anteriores foram definidas usando caixas suspensas. Mas você ta
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Selecione **Executar Consulta**. Se você não vir as IDs de usuário aparecerem na tabela, altere para um país/região em que seu aplicativo tenha usuários.
+3. Selecione **Executar Consulta**. Se as IDs de usuário não forem exibidas na tabela, altere para um país/região no qual o aplicativo tenha usuários.
 
 4. Salve e nomeie a coorte.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-_Defini um coorte de usuários de um determinado país/região. Quando comparo esse coorte na ferramenta de usuários para definir apenas um filtro nesse país/região, vejo resultados diferentes. Por?_
+_Defini um coorte de usuários de um determinado país/região. Quando comparo esse coorte na ferramenta Usuários para definir um filtro nesse país/região, vejo resultados diferentes. Por quê?_
 
 Coortes e filtros são diferentes. Suponha que você tenha uma coorte de usuários do Reino Unido (definidos como o exemplo anterior) e compare os resultados com a configuração do filtro “País ou região = Reino Unido.”
 
@@ -133,5 +133,5 @@ Coortes e filtros são diferentes. Suponha que você tenha uma coorte de usuári
 
 * [Linguagem de consulta do Analytics](../logs/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Usuários, sessões, eventos](usage-segmentation.md)
-* [Fluxos de usuário](usage-flows.md)
+* [Fluxos de usuários](usage-flows.md)
 * [Visão geral do uso](usage-overview.md)

@@ -4,10 +4,10 @@ description: Perguntas Frequentes no Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.openlocfilehash: 74a4d7ee65dccead132cfcebd9bf8c0de9b761a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100584160"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como ... no Application Insights?
@@ -53,11 +53,11 @@ telemetry.TrackMetric("Alarm", 0.5);
 
 Crie um gráfico no [Metrics Explorer](../essentials/metrics-charts.md) para ver o alarme:
 
-![Captura de tela que mostra como criar um gráfico no Metrics Explorer para ver seu alarme.](./media/how-do-i/010-alarm.png)
+![Captura de tela que mostra como criar um gráfico no gerenciador de métricas para ver seu alarme.](./media/how-do-i/010-alarm.png)
 
 Agora defina um alerta para ser disparado quando a métrica ultrapassar um valor médio por um curto período:
 
-![Captura de tela que mostra como definir um alerta para ser acionado quando a métrica ultrapassa o valor médio por um curto período.](./media/how-do-i/020-threshold.png)
+![Captura de tela que mostra como definir um alerta para ser disparado quando a métrica ultrapassar um valor médio por um curto período.](./media/how-do-i/020-threshold.png)
 
 Defina o período de média como o mínimo.
 
@@ -65,7 +65,7 @@ Quando a métrica ficar acima e abaixo do limite, você receberá emails.
 
 Considere o seguinte:
 
-* Um alerta tem dois estados ("alerta" e "íntegro"). O estado é avaliado somente quando uma métrica é recebida.
+* Um alerta tem dois estados ("alerta&quot; e &quot;íntegro"). O estado é avaliado somente quando uma métrica é recebida.
 * Um email é enviado apenas quando o estado é alterado. Por isso você precisa enviar métricas de valor alto e baixo.
 * Para avaliar o alerta, a média é calculada com base dos valores recebidos no período anterior. Isso ocorre sempre que uma métrica é recebida, para que emails podem ser enviados com mais frequência do que o período definido.
 * Uma vez que os emails são enviados tanto para "alerta" quanto para "íntegro", convém passar a pensar em seu único como uma condição de dois estados. Por exemplo, em vez de um evento de "trabalho concluído", tenha uma condição de "trabalho em andamento", na qual você recebe emails no início e no final de um trabalho.
@@ -88,7 +88,7 @@ Considere o seguinte:
 
 ## <a name="visualize-data"></a>Visualizar dados
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Painel com métricas de vários aplicativos
-* No [Gerenciador de métricas](../essentials/metrics-charts.md), personalize seu gráfico e salve-o como um favorito. Fixe-o no painel do Azure.
+* No [gerenciador de métricas](../essentials/metrics-charts.md), personalize o gráfico e salve-o como um favorito. Fixe-o no painel do Azure.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Painel com dados de outras fontes e Application Insights
 * [Exportar telemetria para o Power BI](./export-power-bi.md).
@@ -110,7 +110,7 @@ Em seguida, você pode:
 
 * Filtrar métricas para usuários anônimos ou autenticados
 
-![Captura de tela que mostra a filtragem de metrixs para usuários anônimos ou autenticados.](./media/how-do-i/115-metrics.png)
+![Captura de tela que mostra a filtragem de métricas para usuários anônimos ou autenticados.](./media/how-do-i/115-metrics.png)
 
 ## <a name="modify-property-names-or-values"></a>Modificar valores ou nomes de propriedade
 Crie um [filtro](./api-filtering-sampling.md#filtering). Isso permite modificar ou filtrar a telemetria antes que ela seja enviada do seu aplicativo para o Application Insights.
