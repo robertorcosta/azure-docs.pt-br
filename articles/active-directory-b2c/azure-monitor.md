@@ -58,7 +58,7 @@ Primeiro, crie ou escolha um grupo de recursos que contenha o espaço de trabalh
 
 ## <a name="2-create-a-log-analytics-workspace"></a>2. criar um espaço de trabalho Log Analytics
 
-Um **espaço de trabalho log Analytics** é um ambiente exclusivo para dados de Azure monitor log. Você usará esse espaço de trabalho Log Analytics para coletar dados de Azure AD B2C [logs de auditoria](view-audit-logs.md)e, em seguida, visualizá-los com consultas e pastas de trabalho ou criar alertas.
+Um **espaço de trabalho log Analytics** é um ambiente exclusivo para dados de Azure monitor log. Você usará esse espaço de trabalho Log Analytics para coletar dados de Azure AD B2C [logs de auditoria](view-audit-logs.md) e, em seguida, visualizá-los com consultas e pastas de trabalho ou criar alertas.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém seu **locatário do Azure ad**.
